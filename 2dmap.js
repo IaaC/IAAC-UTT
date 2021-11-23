@@ -4,7 +4,7 @@ const map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/heshamshawqy/ckvptxpz77qp514mzq792dwnw',
 center: [10.768656923856573, 59.91248024216242],
-zoom: 14
+zoom: 12
 });
 
 //Flyto circles function
@@ -49,7 +49,7 @@ map.on('load', () => {
   'source': 'points',
   'paint': {
   'circle-color': '#4264fb',
-  'circle-radius': 18,
+  'circle-radius': 12,
   'circle-stroke-width': 3,
   'circle-stroke-color': '#ffffff'
   }
