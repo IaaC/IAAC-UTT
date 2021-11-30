@@ -1,5 +1,4 @@
-{
-  "features": [
+{"type":"FeatureCollection", "features": [
     {
       "type": "Feature",
       "properties": {
@@ -208,7 +207,7 @@
     {
       "type": "Feature",
       "properties": {
-        "STATE_ID": 40,
+        "STATE_ID": 10,
         "STATE_NAME": "Enerhaugen"
       },
       "geometry": {

@@ -2,9 +2,79 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGVzaGFtc2hhd3F5IiwiYSI6ImNrdnBvY2UwcTFkNDkzM3FmbTFhenM0M3MifQ.ZqIuL9khfbCyOF3DU_IH5w';
 const map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/heshamshawqy/ckvptxpz77qp514mzq792dwnw',
+style: 'mapbox://styles/heshamshawqy/ckwluar2w5ig014n48da1j59q',
 center: [10.768656923856573, 59.91248024216242],
 zoom: 12
+});
+
+// Add selectable Geojson file 
+
+let hoveredStateId = null;
+
+map.on('load', () => {
+    map.addSource('states', {
+        'type': 'geojson',
+        'data': 'lib/oslo.geojson'
+    });
+
+    // The feature-state dependent fill-opacity expression will render the hover effect
+    // when a feature's hover state is set to true.
+    map.addLayer({
+        'id': 'state-fills',
+        'type': 'fill',
+        'source': 'states',
+        'layout': {},
+        'paint': {
+            'fill-color': '#34d0f1',
+            'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                1,
+                0.15
+            ]
+        }
+    });
+
+    map.addLayer({
+        'id': 'state-borders',
+        'type': 'line',
+        'source': 'states',
+        'layout': {},
+        'paint': {
+            'line-color': '#3582a2',
+            'line-width': 3
+        }
+    });
+
+    // When the user moves their mouse over the state-fill layer, we'll update the
+    // feature state for the feature under the mouse.
+    map.on('mousemove', 'state-fills', (e) => {
+        if (e.features.length > 0) {
+            if (hoveredStateId !== null) {
+                map.setFeatureState(
+                    { source: 'states', id: hoveredStateId },
+                    { hover: false }
+                );
+            }
+            hoveredStateId = e.features[0].id;
+            map.setFeatureState(
+                { source: 'states', id: hoveredStateId },
+                { hover: true }
+            );
+        }
+    });
+
+    // When the mouse leaves the state-fill layer, update the feature state of the
+    // previously hovered feature.
+    map.on('mouseleave', 'state-fills', () => {
+        if (hoveredStateId !== null) {
+            map.setFeatureState(
+                { source: 'states', id: hoveredStateId },
+                { hover: false }
+            );
+        }
+        hoveredStateId = null;
+    });
 });
 
 //Flyto circles function
@@ -54,7 +124,7 @@ map.on('load', () => {
   'circle-stroke-color': '#ffffff'
   }
   });
-   
+ 
   // Center the map on the coordinates of any clicked circle from the 'circle' layer.
   map.on('click', 'circle', (e) => {
   map.flyTo({
@@ -72,7 +142,7 @@ map.on('load', () => {
   map.getCanvas().style.cursor = '';
   });
   });
-  
+
 //3D Buildings
   map.on('load', () => {
     // Insert the layer beneath any symbol layer.
@@ -123,7 +193,7 @@ map.on('load', () => {
     );
     });
 
-    // Add geocoder to the map(search buttom)
+ // Add geocoder to the map(search buttom)
 const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       types: 'poi',
@@ -141,6 +211,7 @@ const geocoder = new MapboxGeocoder({
       mapboxgl: mapboxgl
       });
 
+// Add navigation tools
 class PitchToggle {
     
     constructor({bearing = -20, pitch = 50, minpitchzoom = null}) {
@@ -189,3 +260,4 @@ class PitchToggle {
       map.addControl(new mapboxgl.FullscreenControl());
       map.addControl(new mapboxgl.NavigationControl());
       map.addControl(new PitchToggle({minpitchzoom: 15})); 
+
