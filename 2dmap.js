@@ -189,4 +189,3 @@ class PitchToggle {
       map.addControl(new mapboxgl.FullscreenControl());
       map.addControl(new mapboxgl.NavigationControl());
       map.addControl(new PitchToggle({minpitchzoom: 15})); 
-    
