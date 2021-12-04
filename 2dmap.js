@@ -9,73 +9,58 @@ zoom: 12
 
 // Add selectable Geojson file 
 
-let hoveredStateId = null;
 
 map.on('load', () => {
     map.addSource('states', {
         'type': 'geojson',
-        'data': 'lib/oslo.geojson'
+        'data': 'lib/oslo\.geojson'
     });
-
-    // The feature-state dependent fill-opacity expression will render the hover effect
-    // when a feature's hover state is set to true.
+    
     map.addLayer({
-        'id': 'state-fills',
-        'type': 'fill',
-        'source': 'states',
-        'layout': {},
-        'paint': {
-            'fill-color': '#34d0f1',
-            'fill-opacity': [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                1,
-                0.15
-            ]
-        }
-    });
-
-    map.addLayer({
-        'id': 'state-borders',
+        'id': 'states-layer2',
         'type': 'line',
         'source': 'states',
         'layout': {},
         'paint': {
             'line-color': '#3582a2',
-            'line-width': 3
+            'line-width': 4
         }
     });
+    map.addLayer({
+        'id': 'states-layer',
+        'type': 'fill',
+        'source': 'states',
+        'paint': {
+        'fill-color': 'rgba(76, 166, 204, 0.1)',
 
-    // When the user moves their mouse over the state-fill layer, we'll update the
-    // feature state for the feature under the mouse.
-    map.on('mousemove', 'state-fills', (e) => {
-        if (e.features.length > 0) {
-            if (hoveredStateId !== null) {
-                map.setFeatureState(
-                    { source: 'states', id: hoveredStateId },
-                    { hover: false }
-                );
-            }
-            hoveredStateId = e.features[0].id;
-            map.setFeatureState(
-                { source: 'states', id: hoveredStateId },
-                { hover: true }
-            );
         }
-    });
+        });
 
-    // When the mouse leaves the state-fill layer, update the feature state of the
-    // previously hovered feature.
-    map.on('mouseleave', 'state-fills', () => {
-        if (hoveredStateId !== null) {
-            map.setFeatureState(
-                { source: 'states', id: hoveredStateId },
-                { hover: false }
-            );
-        }
-        hoveredStateId = null;
+
+// When a click event occurs on a feature in the states layer,
+// open a popup at the location of the click, with description
+// HTML from the click event's properties.
+// set html properties.(layer name)
+map.on('click', 'states-layer', (e) => {
+    new mapboxgl.Popup()
+    
+    .setLngLat(e.lngLat)
+    .setHTML(e.features[0].properties.STATE_NAME)
+    .addTo(map);
     });
-});
+     
+    // Change the cursor to a pointer when
+    // the mouse is over the states layer.
+    map.on('mouseenter', 'states-layer', () => {
+    map.getCanvas().style.cursor = 'pointer';
+    });
+     
+    // Change the cursor back to a pointer
+    // when it leaves the states layer.
+    map.on('mouseleave', 'states-layer', () => {
+    map.getCanvas().style.cursor = '';
+    });
+    });
 
 //Flyto circles function
 map.on('load', () => {
@@ -128,7 +113,11 @@ map.on('load', () => {
   // Center the map on the coordinates of any clicked circle from the 'circle' layer.
   map.on('click', 'circle', (e) => {
   map.flyTo({
-  center: e.features[0].geometry.coordinates
+  center: e.features[0].geometry.coordinates,
+  zoom: 19,
+  pitch:80,
+
+
   });
   });
    
@@ -143,6 +132,8 @@ map.on('load', () => {
   });
   });
 
+  
+  
 //3D Buildings
   map.on('load', () => {
     // Insert the layer beneath any symbol layer.
@@ -193,6 +184,8 @@ map.on('load', () => {
     );
     });
 
+
+
  // Add geocoder to the map(search buttom)
 const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
@@ -210,6 +203,74 @@ const geocoder = new MapboxGeocoder({
       },
       mapboxgl: mapboxgl
       });
+
+
+
+// Add geolocate control to the map to locate the user location.
+map.addControl(
+    new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true,
+    },
+    // When active the map will receive updates to the device's location as it changes.
+    trackUserLocation: true,
+    showAccuracyCircle: true,
+    // Draw an arrow next to the location dot to indicate which direction the device is heading.
+    showUserHeading: true
+    })
+    );
+
+
+//Camera motion 01
+/* // jump to coordinates at current zoom
+map.jumpTo({center: [0, 0]});
+// jump with zoom, pitch, and bearing options
+map.jumpTo({
+center: [0, 0],
+zoom: 8,
+pitch: 45,
+bearing: 90
+}); */
+
+//Camera motion 02
+/* const CameraCoordinates = [
+    [10.735380129405243, 59.913330867746105],
+    [10.735380129405243, 59.913330867746105],
+    [10.735380129405243, 59.913330867746105],
+    [10.735380129405243, 59.913330867746105],
+    [10.735380129405243, 59.913330867746105],
+    [10.735380129405243, 59.913330867746105],
+    [10.735380129405243, 59.913330867746105]
+    ];
+
+map.on('load', () => {
+for (const [index, coordinate] of CameraCoordinates.entries()) {
+setTimeout(() => {
+map.jumpTo({ 
+center: coordinate,
+zoom: 17,
+pitch: 80,
+bearing: 10
+
+});
+}, 2000 * index);
+}
+}); */
+
+//Camera motion 03
+/* function rotateCamera(timestamp) {
+    // clamp the rotation between 0 -360 degrees
+    // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+    map.rotateTo((timestamp / 100) % 360, { duration: 0 });
+    // Request the next frame of the animation.
+    requestAnimationFrame(rotateCamera);
+    }
+     
+    map.on('click', () => {
+    // Start the animation.
+    rotateCamera(0);
+    }); */
+
 
 // Add navigation tools
 class PitchToggle {
