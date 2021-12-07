@@ -325,44 +325,6 @@ map.addControl(
     );
 
 
-//Camera motion 01
-/* // jump to coordinates at current zoom
-map.jumpTo({center: [0, 0]});
-// jump with zoom, pitch, and bearing options
-map.jumpTo({
-center: [0, 0],
-zoom: 8,
-pitch: 45,
-bearing: 90
-}); */
-
-//Camera motion 02
-/* const CameraCoordinates = [
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105]
-    ];
-
-map.on('load', () => {
-for (const [index, coordinate] of CameraCoordinates.entries()) {
-setTimeout(() => {
-map.jumpTo({ 
-center: coordinate,
-zoom: 17,
-pitch: 80,
-bearing: 10
-
-});
-}, 2000 * index);
-}
-}); */
-
-
-
 // Add navigation tools
 class PitchToggle {
     
