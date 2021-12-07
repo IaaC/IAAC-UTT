@@ -9,6 +9,87 @@
 
 }
 
+#fly {
+  display: block;
+  position: absolute;
+  margin-left: 400px !important; 
+  margin: 0px auto;
+  width: 10%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #45b5c8;
+  }
+
+  #view01 {
+    font-family:Helvetica;
+    display: block;
+    margin-left: 600px !important; 
+    position: absolute;
+    margin: 0px auto;
+    width: 10%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #45b5c8;
+    }
+  #view02 {
+      font-family:Helvetica;
+      display: block;
+      margin-left: 800px !important; 
+      position: absolute;
+      margin: 0px auto;
+      width: 10%;
+      height: 40px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 12px;
+      text-align: center;
+      color: #fff;
+      background: #45b5c8;
+      }
+  #view03 {
+        font-family:Helvetica;
+        display: block;
+        margin-left: 1000px !important; 
+        position: absolute;
+        margin: 0px auto;
+        width: 10%;
+        height: 40px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        background: #45b5c8;
+        }
+  #animate {
+        font-family:Helvetica;
+        display: block;
+        margin-left: 1200px !important; 
+        position: absolute;
+        margin: 0px auto;
+        width: 10%;
+        height: 40px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        background: #45b5c8;
+        }
+
 .geocoder-dropdown-item {
   padding: 3px;
   }
