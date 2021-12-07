@@ -2,13 +2,11 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGVzaGFtc2hhd3F5IiwiYSI6ImNrdnBvY2UwcTFkNDkzM3FmbTFhenM0M3MifQ.ZqIuL9khfbCyOF3DU_IH5w';
 const map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/heshamshawqy/ckvptxpz77qp514mzq792dwnw',
+style: 'mapbox://styles/heshamshawqy/ckwluar2w5ig014n48da1j59q',
 center: [10.768656923856573, 59.91248024216242],
 zoom: 12
 });
 
-<<<<<<< Updated upstream
-=======
 // Onclick go back to map view
 //event listner
 document.getElementById('fly').addEventListener('click', () => {
@@ -132,7 +130,6 @@ map.on('click', 'states-layer', (e) => {
     });
     });
 
->>>>>>> Stashed changes
 //Flyto circles function
 map.on('load', () => {
   // Add a GeoJSON source with 3 points.
@@ -180,19 +177,15 @@ map.on('load', () => {
   'circle-stroke-color': '#ffffff'
   }
   });
-   
+ 
   // Center the map on the coordinates of any clicked circle from the 'circle' layer.
   map.on('click', 'circle', (e) => {
   map.flyTo({
-<<<<<<< Updated upstream
-  center: e.features[0].geometry.coordinates
-=======
   center: e.features[0].geometry.coordinates,
   zoom: 19,
   pitch:60,
 
 
->>>>>>> Stashed changes
   });
   });
    
@@ -206,6 +199,8 @@ map.on('load', () => {
   map.getCanvas().style.cursor = '';
   });
   });
+
+  
   
 //3D Buildings
   map.on('load', () => {
@@ -257,7 +252,9 @@ map.on('load', () => {
     );
     });
 
-    // Add geocoder to the map(search buttom)
+
+
+ // Add geocoder to the map(search buttom)
 const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       types: 'poi',
@@ -275,8 +272,6 @@ const geocoder = new MapboxGeocoder({
       mapboxgl: mapboxgl
       });
 
-<<<<<<< Updated upstream
-=======
 
 
 // Add geolocate control to the map to locate the user location.
@@ -333,7 +328,6 @@ bearing: 10
 
 
 // Add navigation tools
->>>>>>> Stashed changes
 class PitchToggle {
     
     constructor({bearing = -20, pitch = 50, minpitchzoom = null}) {
@@ -380,11 +374,6 @@ class PitchToggle {
 }
       map.addControl(geocoder, 'top-left') ;
       map.addControl(new mapboxgl.FullscreenControl());
-<<<<<<< Updated upstream
-      map.addControl(new mapboxgl.NavigationControl());
-      map.addControl(new PitchToggle({minpitchzoom: 15})); 
-=======
       map.addControl(new mapboxgl.NavigationControl(), 'top-left');
       map.addControl(new PitchToggle({minpitchzoom: 15}), 'top-left'); 
 
->>>>>>> Stashed changes
