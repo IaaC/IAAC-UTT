@@ -7,61 +7,165 @@ center: [10.768656923856573, 59.91248024216242],
 zoom: 12
 });
 
-// Add selectable Geojson file 
+// Onclick go back to map view
+//event listner
+document.getElementById('fly').addEventListener('click', () => {
+ 
+map.flyTo({
+// camera properties
+center: [10.768656923856573, 59.91248024216242],
+zoom: 12,
+bearing: 0,
+pitch: -180,
 
+// The zooming curve
+speed: 0.8, // make the flying slow
+curve: 2, // change the speed at which it zooms out
 
-map.on('load', () => {
-    map.addSource('states', {
-        'type': 'geojson',
-        'data': 'lib/oslo\.geojson'
+});
+});
+// building view01
+document.getElementById('view01').addEventListener('click', () => {
+ 
+    map.flyTo({
+    // camera properties
+    center: [10.753865805902912, 59.92488797977771],
+    zoom: 18,
+    pitch:60,
+    bearing:50,
     });
     
-    map.addLayer({
-        'id': 'states-layer2',
-        'type': 'line',
-        'source': 'states',
-        'layout': {},
-        'paint': {
-            'line-color': '#3582a2',
-            'line-width': 4
-        }
-    });
-    map.addLayer({
-        'id': 'states-layer',
-        'type': 'fill',
-        'source': 'states',
-        'paint': {
-        'fill-color': 'rgba(76, 166, 204, 0.1)',
+});
+// building view02
+document.getElementById('view02').addEventListener('click', () => {
+ 
+    map.flyTo({
+    // camera properties
+    center: [10.753865805902912, 59.92488797977771],
+    zoom: 19,
+    pitch:30,
+    bearing:120,
 
-        }
+    });
+});
+// building view03
+document.getElementById('view03').addEventListener('click', () => {
+ 
+        map.flyTo({
+        // camera properties
+        center: [10.753865805902912, 59.92488797977771],
+        zoom: 18,
+        pitch:45,
+        bearing:160,
+    
+        });
+});
+// building animate
+function rotateCamera(timestamp) {
+    // clamp the rotation between 0 -360 degrees
+    // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+    map.rotateTo((timestamp / 50) % 360, { 
+    duration: 1 
+    });
+    // Request the next frame of the animation.
+    requestAnimationFrame(rotateCamera);
+    }
+document.getElementById('animate').addEventListener('click', () => {
+        rotateCamera(0);
+    });
+ 
+    
+//Add selectable Regions
+let hoveredStateId = null;
+ 
+    map.on('load', () => {
+    map.addSource('states', {
+    'type': 'geojson',
+    'data': 'lib/oslo\.geojson'
+    });
+     
+    // The feature-state dependent fill-opacity expression will render the hover effect
+    // when a feature's hover state is set to true.
+    map.addLayer({
+    'id': 'state-fills',
+    'type': 'fill',
+    'source': 'states',
+    'layout': {},
+    'paint': {
+    'fill-color': '#3582a2',
+    'fill-opacity': [
+    'case',
+    ['boolean', ['feature-state', 'hover'], false],
+    .9,
+    0.3
+    ]
+    }
+    });
+     
+    map.addLayer({
+    'id': 'state-borders',
+    'type': 'line',
+    'source': 'states',
+    'layout': {},
+    'paint': {
+    'line-color': '#3582a2',
+    'line-width': 2
+    }
+    });
+     
+    // When the user moves their mouse over the state-fill layer, we'll update the
+    // feature state for the feature under the mouse.
+    map.on('mousemove', 'state-fills', (e) => {
+    if (e.features.length > 0) {
+    if (hoveredStateId !== null) {
+    map.setFeatureState(
+    { source: 'states', id: hoveredStateId },
+    { hover: false }
+    );
+    }
+    hoveredStateId = e.features[0].id;
+    map.setFeatureState(
+    { source: 'states', id: hoveredStateId },
+    { hover: true }
+    );
+    }
+    });
+     
+    // When the mouse leaves the state-fill layer, update the feature state of the
+    // previously hovered feature.
+    map.on('mouseleave', 'state-fills', () => {
+    if (hoveredStateId !== null) {
+    map.setFeatureState(
+    { source: 'states', id: hoveredStateId },
+    { hover: false }
+    );
+    }
+    // Adding pop-ups
+    map.on('click', 'state-fills', (e) => {
+        new mapboxgl.Popup()
+        
+        .setLngLat(e.lngLat)
+        .setHTML(e.features[0].properties.STATE_NAME)
+        .addTo(map);
+        });
+         
+        // Change the cursor to a pointer when
+        // the mouse is over the states layer.
+        map.on('mouseenter', 'state-fills', () => {
+        map.getCanvas().style.cursor = 'pointer';
+        });
+         
+        // Change the cursor back to a pointer
+        // when it leaves the states layer.
+        map.on('mouseleave', 'state-fills', () => {
+        map.getCanvas().style.cursor = '';
         });
 
-
-// When a click event occurs on a feature in the states layer,
-// open a popup at the location of the click, with description
-// HTML from the click event's properties.
-// set html properties.(layer name)
-map.on('click', 'states-layer', (e) => {
-    new mapboxgl.Popup()
+    hoveredStateId = null;
+    });
+    });
     
-    .setLngLat(e.lngLat)
-    .setHTML(e.features[0].properties.STATE_NAME)
-    .addTo(map);
-    });
-     
-    // Change the cursor to a pointer when
-    // the mouse is over the states layer.
-    map.on('mouseenter', 'states-layer', () => {
-    map.getCanvas().style.cursor = 'pointer';
-    });
-     
-    // Change the cursor back to a pointer
-    // when it leaves the states layer.
-    map.on('mouseleave', 'states-layer', () => {
-    map.getCanvas().style.cursor = '';
-    });
-    });
-
+  
 //Flyto circles function
 map.on('load', () => {
   // Add a GeoJSON source with 3 points.
@@ -115,7 +219,7 @@ map.on('load', () => {
   map.flyTo({
   center: e.features[0].geometry.coordinates,
   zoom: 19,
-  pitch:80,
+  pitch:60,
 
 
   });
@@ -221,57 +325,6 @@ map.addControl(
     );
 
 
-//Camera motion 01
-/* // jump to coordinates at current zoom
-map.jumpTo({center: [0, 0]});
-// jump with zoom, pitch, and bearing options
-map.jumpTo({
-center: [0, 0],
-zoom: 8,
-pitch: 45,
-bearing: 90
-}); */
-
-//Camera motion 02
-/* const CameraCoordinates = [
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105],
-    [10.735380129405243, 59.913330867746105]
-    ];
-
-map.on('load', () => {
-for (const [index, coordinate] of CameraCoordinates.entries()) {
-setTimeout(() => {
-map.jumpTo({ 
-center: coordinate,
-zoom: 17,
-pitch: 80,
-bearing: 10
-
-});
-}, 2000 * index);
-}
-}); */
-
-//Camera motion 03
-/* function rotateCamera(timestamp) {
-    // clamp the rotation between 0 -360 degrees
-    // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-    map.rotateTo((timestamp / 100) % 360, { duration: 0 });
-    // Request the next frame of the animation.
-    requestAnimationFrame(rotateCamera);
-    }
-     
-    map.on('click', () => {
-    // Start the animation.
-    rotateCamera(0);
-    }); */
-
-
 // Add navigation tools
 class PitchToggle {
     
@@ -317,8 +370,8 @@ class PitchToggle {
     }
 
 }
-      map.addControl(geocoder);
+      map.addControl(geocoder, 'top-left') ;
       map.addControl(new mapboxgl.FullscreenControl());
-      map.addControl(new mapboxgl.NavigationControl());
-      map.addControl(new PitchToggle({minpitchzoom: 15})); 
+      map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+      map.addControl(new PitchToggle({minpitchzoom: 15}), 'top-left'); 
 

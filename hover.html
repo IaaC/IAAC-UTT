@@ -21,7 +21,7 @@ body { margin: 0; padding: 0; }
         center: [-100.486052, 37.830348],
         zoom: 2
     });
-    let hoveredStateId = null;
+    let STATE_ID = null;
 
     map.on('load', () => {
         map.addSource('states', {
@@ -62,15 +62,15 @@ body { margin: 0; padding: 0; }
         // feature state for the feature under the mouse.
         map.on('mousemove', 'state-fills', (e) => {
             if (e.features.length > 0) {
-                if (hoveredStateId !== null) {
+                if (STATE_ID !== null) {
                     map.setFeatureState(
-                        { source: 'states', id: hoveredStateId },
+                        { source: 'states', id: STATE_ID },
                         { hover: false }
                     );
                 }
-                hoveredStateId = e.features[0].id;
+                STATE_ID = e.features[0].id;
                 map.setFeatureState(
-                    { source: 'states', id: hoveredStateId },
+                    { source: 'states', id: STATE_ID },
                     { hover: true }
                 );
             }
@@ -79,13 +79,15 @@ body { margin: 0; padding: 0; }
         // When the mouse leaves the state-fill layer, update the feature state of the
         // previously hovered feature.
         map.on('mouseleave', 'state-fills', () => {
-            if (hoveredStateId !== null) {
+
+            if (STATE_ID !== null) {
                 map.setFeatureState(
-                    { source: 'states', id: hoveredStateId },
+                    { source: 'states', id: STATE_ID },
                     { hover: false }
                 );
             }
-            hoveredStateId = null;
+            STATE_ID = null;
+
         });
     });
 </script>
