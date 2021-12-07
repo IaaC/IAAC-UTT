@@ -165,7 +165,7 @@ let hoveredStateId = null;
     });
     });
     
-    
+  
 //Flyto circles function
 map.on('load', () => {
   // Add a GeoJSON source with 3 points.

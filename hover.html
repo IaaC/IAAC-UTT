@@ -79,6 +79,7 @@ body { margin: 0; padding: 0; }
         // When the mouse leaves the state-fill layer, update the feature state of the
         // previously hovered feature.
         map.on('mouseleave', 'state-fills', () => {
+
             if (STATE_ID !== null) {
                 map.setFeatureState(
                     { source: 'states', id: STATE_ID },
@@ -86,6 +87,7 @@ body { margin: 0; padding: 0; }
                 );
             }
             STATE_ID = null;
+
         });
     });
 </script>
