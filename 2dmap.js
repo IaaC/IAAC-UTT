@@ -73,63 +73,99 @@ function rotateCamera(timestamp) {
 document.getElementById('animate').addEventListener('click', () => {
         rotateCamera(0);
     });
-        
-
-
-
-// Add selectable Geojson file 
-map.on('load', () => {
-    map.addSource('states', {
-        'type': 'geojson',
-        'data': 'lib/oslo\.geojson'
-    });
+ 
     
-    map.addLayer({
-        'id': 'states-layer2',
-        'type': 'line',
-        'source': 'states',
-        'layout': {},
-        'paint': {
-            'line-color': '#3582a2',
-            'line-width': 4
-        }
+//Add selectable Regions
+let hoveredStateId = null;
+ 
+    map.on('load', () => {
+    map.addSource('states', {
+    'type': 'geojson',
+    'data': 'lib/oslo\.geojson'
     });
+     
+    // The feature-state dependent fill-opacity expression will render the hover effect
+    // when a feature's hover state is set to true.
     map.addLayer({
-        'id': 'states-layer',
-        'type': 'fill',
-        'source': 'states',
-        'paint': {
-        'fill-color': 'rgba(76, 166, 204, 0.1)',
-
-        }
+    'id': 'state-fills',
+    'type': 'fill',
+    'source': 'states',
+    'layout': {},
+    'paint': {
+    'fill-color': '#3582a2',
+    'fill-opacity': [
+    'case',
+    ['boolean', ['feature-state', 'hover'], false],
+    .9,
+    0.3
+    ]
+    }
+    });
+     
+    map.addLayer({
+    'id': 'state-borders',
+    'type': 'line',
+    'source': 'states',
+    'layout': {},
+    'paint': {
+    'line-color': '#3582a2',
+    'line-width': 2
+    }
+    });
+     
+    // When the user moves their mouse over the state-fill layer, we'll update the
+    // feature state for the feature under the mouse.
+    map.on('mousemove', 'state-fills', (e) => {
+    if (e.features.length > 0) {
+    if (hoveredStateId !== null) {
+    map.setFeatureState(
+    { source: 'states', id: hoveredStateId },
+    { hover: false }
+    );
+    }
+    hoveredStateId = e.features[0].id;
+    map.setFeatureState(
+    { source: 'states', id: hoveredStateId },
+    { hover: true }
+    );
+    }
+    });
+     
+    // When the mouse leaves the state-fill layer, update the feature state of the
+    // previously hovered feature.
+    map.on('mouseleave', 'state-fills', () => {
+    if (hoveredStateId !== null) {
+    map.setFeatureState(
+    { source: 'states', id: hoveredStateId },
+    { hover: false }
+    );
+    }
+    // Adding pop-ups
+    map.on('click', 'state-fills', (e) => {
+        new mapboxgl.Popup()
+        
+        .setLngLat(e.lngLat)
+        .setHTML(e.features[0].properties.STATE_NAME)
+        .addTo(map);
+        });
+         
+        // Change the cursor to a pointer when
+        // the mouse is over the states layer.
+        map.on('mouseenter', 'state-fills', () => {
+        map.getCanvas().style.cursor = 'pointer';
+        });
+         
+        // Change the cursor back to a pointer
+        // when it leaves the states layer.
+        map.on('mouseleave', 'state-fills', () => {
+        map.getCanvas().style.cursor = '';
         });
 
-
-// When a click event occurs on a feature in the states layer,
-// open a popup at the location of the click, with description
-// HTML from the click event's properties.
-// set html properties.(layer name)
-map.on('click', 'states-layer', (e) => {
-    new mapboxgl.Popup()
+    hoveredStateId = null;
+    });
+    });
     
-    .setLngLat(e.lngLat)
-    .setHTML(e.features[0].properties.STATE_NAME)
-    .addTo(map);
-    });
-     
-    // Change the cursor to a pointer when
-    // the mouse is over the states layer.
-    map.on('mouseenter', 'states-layer', () => {
-    map.getCanvas().style.cursor = 'pointer';
-    });
-     
-    // Change the cursor back to a pointer
-    // when it leaves the states layer.
-    map.on('mouseleave', 'states-layer', () => {
-    map.getCanvas().style.cursor = '';
-    });
-    });
-
+    
 //Flyto circles function
 map.on('load', () => {
   // Add a GeoJSON source with 3 points.
