@@ -3,7 +3,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Kampen"
+        "STATE_ID": 38,
+        "STATE_NAME": "Kampen"
       },
       "geometry": {
         "coordinates": [
@@ -77,7 +78,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Meyerlokka"
+        "STATE_ID": 43,
+        "STATE_NAME": "Meyerlokka"
       },
       "geometry": {
         "coordinates": [
@@ -142,7 +144,10 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "STATE_ID": 37,
+        "STATE_NAME": "Toyen"
+      },
       "geometry": {
         "coordinates": [
           [
@@ -203,7 +208,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Enerhaugen"
+        "STATE_ID": 10,
+        "STATE_NAME": "Enerhaugen"
       },
       "geometry": {
         "coordinates": [
@@ -289,7 +295,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Urbanienborg"
+        "STATE_ID": 46,
+        "STATE_NAME": "Urbanienborg"
       },
       "geometry": {
         "coordinates": [
@@ -395,7 +402,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Sankthanshaugen"
+        "STATE_ID": 33,
+        "STATE_NAME": "Sankthanshaugen"
       },
       "geometry": {
         "coordinates": [
@@ -437,7 +445,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Briskeby"
+        "STATE_ID": 29,
+        "STATE_NAME": "Briskeby"
       },
       "geometry": {
         "coordinates": [
@@ -515,7 +524,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Grunerlokka"
+        "STATE_ID": 35,
+        "STATE_NAME": "Grunerlokka"
       },
       "geometry": {
         "coordinates": [
@@ -581,7 +591,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Lille Toyen"
+        "STATE_ID": 12,
+        "STATE_NAME": "Lille Toyen"
       },
       "geometry": {
         "coordinates": [
@@ -599,8 +610,8 @@
               59.916282
             ],
             [
-              10.787689,
-              59.914616
+              10.78768,
+              59.914564
             ],
             [
               10.792336,
@@ -667,7 +678,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Adamstuen"
+        "STATE_ID": 4,
+        "STATE_NAME": "Adamstuen"
       },
       "geometry": {
         "coordinates": [
@@ -713,7 +725,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Frogner"
+        "STATE_ID": 1,
+        "STATE_NAME": "Frogner"
       },
       "geometry": {
         "coordinates": [
@@ -803,7 +816,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Dalenega"
+        "STATE_ID": 8,
+        "STATE_NAME": "Dalenega"
       },
       "geometry": {
         "coordinates": [
@@ -853,7 +867,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Hausmannskvartalene"
+        "STATE_ID": 41,
+        "STATE_NAME": "Hausmannskvartalene"
       },
       "geometry": {
         "coordinates": [
@@ -927,7 +942,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Gimle"
+        "STATE_ID": 28,
+        "STATE_NAME": "Gimle"
       },
       "geometry": {
         "coordinates": [
@@ -1001,7 +1017,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Galgeberg"
+        "STATE_ID": 39,
+        "STATE_NAME": "Galgeberg"
       },
       "geometry": {
         "coordinates": [
@@ -1083,7 +1100,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Vika"
+        "STATE_ID": 20,
+        "STATE_NAME": "Vika"
       },
       "geometry": {
         "coordinates": [
@@ -1153,7 +1171,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Sofienberg"
+        "STATE_ID": 36,
+        "STATE_NAME": "Sofienberg"
       },
       "geometry": {
         "coordinates": [
@@ -1223,7 +1242,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Jordal"
+        "STATE_ID": 16,
+        "STATE_NAME": "Jordal"
       },
       "geometry": {
         "coordinates": [
@@ -1293,7 +1313,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Kvadraturen"
+        "STATE_ID": 19,
+        "STATE_NAME": "Kvadraturen"
       },
       "geometry": {
         "coordinates": [
@@ -1579,7 +1600,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Akershus Festning"
+        "STATE_ID": 23,
+        "STATE_NAME": "Akershus Festning"
       },
       "geometry": {
         "coordinates": [
@@ -1765,7 +1787,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Homansbyen"
+        "STATE_ID": 31,
+        "STATE_NAME": "Homansbyen"
       },
       "geometry": {
         "coordinates": [
@@ -1815,7 +1838,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Majorstuen"
+        "STATE_ID": 2,
+        "STATE_NAME": "Majorstuen"
       },
       "geometry": {
         "coordinates": [
@@ -1853,7 +1877,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Hegdehaugen"
+        "STATE_ID": 30,
+        "STATE_NAME": "Hegdehaugen"
       },
       "geometry": {
         "coordinates": [
@@ -1907,7 +1932,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Gronlad"
+        "STATE_ID": 40,
+        "STATE_NAME": "Gronlad"
       },
       "geometry": {
         "coordinates": [
@@ -1977,7 +2003,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Bislett"
+        "STATE_ID": 34,
+        "STATE_NAME": "Bislett"
       },
       "geometry": {
         "coordinates": [
@@ -2055,7 +2082,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Aker Brygge"
+        "STATE_ID": 22,
+        "STATE_NAME": "Aker Brygge"
       },
       "geometry": {
         "coordinates": [
@@ -2285,7 +2313,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Boltelokka"
+        "STATE_ID": 32,
+        "STATE_NAME": "Boltelokka"
       },
       "geometry": {
         "coordinates": [
@@ -2335,7 +2364,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Helsfyr"
+        "STATE_ID": 14,
+        "STATE_NAME": "Helsfyr"
       },
       "geometry": {
         "coordinates": [
@@ -2409,7 +2439,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Lovisenberg"
+        "STATE_ID": 6,
+        "STATE_NAME": "Lovisenberg"
       },
       "geometry": {
         "coordinates": [
@@ -2467,7 +2498,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Rodelokka"
+        "STATE_ID": 9,
+        "STATE_NAME": "Rodelokka"
       },
       "geometry": {
         "coordinates": [
@@ -2517,7 +2549,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Hammersborg"
+        "STATE_ID": 42,
+        "STATE_NAME": "Hammersborg"
       },
       "geometry": {
         "coordinates": [
@@ -2599,7 +2632,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Hovin"
+        "STATE_ID": 13,
+        "STATE_NAME": "Hovin"
       },
       "geometry": {
         "coordinates": [
@@ -2705,7 +2739,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Sorenga"
+        "STATE_ID": 47,
+        "STATE_NAME": "Sorenga"
       },
       "geometry": {
         "coordinates": [
@@ -2831,7 +2866,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Keyeserlokka"
+        "STATE_ID": 11,
+        "STATE_NAME": "Keyeserlokka"
       },
       "geometry": {
         "coordinates": [
@@ -2937,7 +2973,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Juvholmen"
+        "STATE_ID": 24,
+        "STATE_NAME": "Juvholmen"
       },
       "geometry": {
         "coordinates": [
@@ -3083,7 +3120,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Ila"
+        "STATE_ID": 7,
+        "STATE_NAME": "Ila"
       },
       "geometry": {
         "coordinates": [
@@ -3157,7 +3195,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Old Town"
+        "STATE_ID": 18,
+        "STATE_NAME": "Old Town"
       },
       "geometry": {
         "coordinates": [
@@ -3275,7 +3314,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "valerenga"
+        "STATE_ID": 17,
+        "STATE_NAME": "valerenga"
       },
       "geometry": {
         "coordinates": [
@@ -3373,7 +3413,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Skillebekk"
+        "STATE_ID": 26,
+        "STATE_NAME": "Skillebekk"
       },
       "geometry": {
         "coordinates": [
@@ -3455,7 +3496,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Pilestredet"
+        "STATE_ID": 45,
+        "STATE_NAME": "Pilestredet"
       },
       "geometry": {
         "coordinates": [
@@ -3549,7 +3591,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Ruselokka"
+        "STATE_ID": 21,
+        "STATE_NAME": "Ruselokka"
       },
       "geometry": {
         "coordinates": [
@@ -3635,7 +3678,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Lindern"
+        "STATE_ID": 5,
+        "STATE_NAME": "Lindern"
       },
       "geometry": {
         "coordinates": [
@@ -3689,7 +3733,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Skaprsno"
+        "STATE_ID": 27,
+        "STATE_NAME": "Skaprsno"
       },
       "geometry": {
         "coordinates": [
@@ -3783,7 +3828,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Fredensborg"
+        "STATE_ID": 44,
+        "STATE_NAME": "Fredensborg"
       },
       "geometry": {
         "coordinates": [
@@ -3909,14 +3955,15 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Ensjo"
+        "STATE_ID": 15,
+        "STATE_NAME": "Ensjo"
       },
       "geometry": {
         "coordinates": [
           [
             [
-              10.787807,
-              59.914607
+              10.787687,
+              59.914559
             ],
             [
               10.789699,
@@ -3963,8 +4010,8 @@
               59.912678
             ],
             [
-              10.787807,
-              59.914607
+              10.787687,
+              59.914559
             ]
           ]
         ],
@@ -3975,7 +4022,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Filipstad"
+        "STATE_ID": 25,
+        "STATE_NAME": "Filipstad"
       },
       "geometry": {
         "coordinates": [
@@ -4053,7 +4101,8 @@
     {
       "type": "Feature",
       "properties": {
-        "Name": "Fagerborg"
+        "STATE_ID": 3,
+        "STATE_NAME": "Fagerborg"
       },
       "geometry": {
         "coordinates": [
@@ -4107,96 +4156,6 @@
         "type": "Polygon"
       },
       "id": "fc1f5fc7319a35b56a4c02a24d595c61"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Name": "Valle"
-      },
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              10.801008,
-              59.913214
-            ],
-            [
-              10.802834,
-              59.913739
-            ],
-            [
-              10.810846,
-              59.917424
-            ],
-            [
-              10.808314,
-              59.918815
-            ],
-            [
-              10.80768,
-              59.921427
-            ],
-            [
-              10.807364,
-              59.922513
-            ],
-            [
-              10.805562,
-              59.922562
-            ],
-            [
-              10.805391,
-              59.922379
-            ],
-            [
-              10.806414,
-              59.921952
-            ],
-            [
-              10.806974,
-              59.920072
-            ],
-            [
-              10.805196,
-              59.919779
-            ],
-            [
-              10.804636,
-              59.920231
-            ],
-            [
-              10.803005,
-              59.920915
-            ],
-            [
-              10.800667,
-              59.919792
-            ],
-            [
-              10.800009,
-              59.917753
-            ],
-            [
-              10.80035,
-              59.917375
-            ],
-            [
-              10.800789,
-              59.9153
-            ],
-            [
-              10.800594,
-              59.914042
-            ],
-            [
-              10.801008,
-              59.913214
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "fe3f1128a08b1fc8c4dfe07cdb7b1ac5"
     }
   ],
   "type": "FeatureCollection"
