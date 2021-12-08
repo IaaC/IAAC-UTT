@@ -29,9 +29,9 @@ document.getElementById('view01').addEventListener('click', () => {
  
     map.flyTo({
     // camera properties
-    center: [10.753865805902912, 59.92488797977771],
-    zoom: 18,
-    pitch:60,
+    center: [10.780161403334201, 59.92377145251343],
+    zoom: 17,
+    pitch:50,
     bearing:50,
     });
     
@@ -41,10 +41,10 @@ document.getElementById('view02').addEventListener('click', () => {
  
     map.flyTo({
     // camera properties
-    center: [10.753865805902912, 59.92488797977771],
-    zoom: 19,
-    pitch:30,
-    bearing:120,
+    center: [10.780161403334201, 59.92377145251343],
+    zoom: 16.5,
+    pitch:40,
+    bearing:190,
 
     });
 });
@@ -53,10 +53,10 @@ document.getElementById('view03').addEventListener('click', () => {
  
         map.flyTo({
         // camera properties
-        center: [10.753865805902912, 59.92488797977771],
-        zoom: 18,
+        center: [10.780161403334201, 59.92377145251343],
+        zoom: 16.5,
         pitch:45,
-        bearing:160,
+        bearing:300,
     
         });
 });
@@ -73,8 +73,107 @@ function rotateCamera(timestamp) {
 document.getElementById('animate').addEventListener('click', () => {
         rotateCamera(0);
     });
- 
-    
+
+
+//Flyto circles function
+map.on('load', () => {
+    // Add a GeoJSON source with 3 points.
+    map.addSource('points', {
+    'type': 'geojson',
+    'data': {
+    'type': 'FeatureCollection',
+    'features': [
+    {
+    'type': 'Feature',
+    'properties': {},
+    'geometry': {
+    'type': 'Point',
+    'coordinates': [10.735380129405243, 59.913330867746105]
+    }
+    },
+    {
+    'type': 'Feature',
+    'properties': {},
+    'geometry': {
+    'type': 'Point',
+    'coordinates': [10.802150689920747, 59.90842688069656]
+    }
+    },
+    {
+    'type': 'Feature',
+    'properties': {},
+    'geometry': {
+    'type': 'Point',
+    'coordinates': [10.753865805902912, 59.92488797977771]
+    }
+    }
+    ]
+    }
+    });
+
+    map.addSource('point02', {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features': [
+        {
+          'type': 'Feature',
+          'properties': {},
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [10.780161403334201, 59.92377145251343]
+          }
+          }
+        ]
+        }
+        });
+    // Add a circle layer
+    map.addLayer({
+    'id': 'circle',
+    'type': 'circle',
+    'source': 'points',
+    'paint': {
+    'circle-color': '#4264fb',
+    'circle-radius': 12,
+    'circle-stroke-width': 3,
+    'circle-stroke-color': '#ffffff'
+    }
+    });
+    map.addLayer({
+        'id': 'circle02',
+        'type': 'circle',
+        'source': 'point02',
+        'paint': {
+        'circle-color': '#ae1935',
+        'circle-radius': 12,
+        'circle-stroke-width': 3,
+        'circle-stroke-color': '#ffffff'
+        }
+        });
+   
+    // Center the map on the coordinates of any clicked circle from the 'circle' layer.
+    map.on('click', ['circle', 'circle02'], (e) => {
+    map.flyTo({
+    center: e.features[0].geometry.coordinates,
+    zoom: 16,
+    pitch:50,
+  
+  
+    });
+    });
+     
+    // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
+    map.on('mouseenter', ['circle', 'circle02'], () => {
+    map.getCanvas().style.cursor = 'pointer';
+    });
+     
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', ['circle', 'circle02'], () => {
+    map.getCanvas().style.cursor = '';
+    });
+    });
+
+
 //Add selectable Regions
 let hoveredStateId = null;
  
@@ -97,11 +196,11 @@ let hoveredStateId = null;
     'case',
     ['boolean', ['feature-state', 'hover'], false],
     .9,
-    0.3
+    0.05
     ]
     }
     });
-     
+    
     map.addLayer({
     'id': 'state-borders',
     'type': 'line',
@@ -109,13 +208,13 @@ let hoveredStateId = null;
     'layout': {},
     'paint': {
     'line-color': '#3582a2',
-    'line-width': 2
+    'line-width': 3
     }
     });
      
     // When the user moves their mouse over the state-fill layer, we'll update the
     // feature state for the feature under the mouse.
-    map.on('mousemove', 'state-fills', (e) => {
+    map.on('click', 'state-fills', (e) => {
     if (e.features.length > 0) {
     if (hoveredStateId !== null) {
     map.setFeatureState(
@@ -164,81 +263,8 @@ let hoveredStateId = null;
     hoveredStateId = null;
     });
     });
-    
-    
-//Flyto circles function
-map.on('load', () => {
-  // Add a GeoJSON source with 3 points.
-  map.addSource('points', {
-  'type': 'geojson',
-  'data': {
-  'type': 'FeatureCollection',
-  'features': [
-  {
-  'type': 'Feature',
-  'properties': {},
-  'geometry': {
-  'type': 'Point',
-  'coordinates': [10.735380129405243, 59.913330867746105]
-  }
-  },
-  {
-  'type': 'Feature',
-  'properties': {},
-  'geometry': {
-  'type': 'Point',
-  'coordinates': [10.802150689920747, 59.90842688069656]
-  }
-  },
-  {
-  'type': 'Feature',
-  'properties': {},
-  'geometry': {
-  'type': 'Point',
-  'coordinates': [10.753865805902912, 59.92488797977771]
-  }
-  }
-  ]
-  }
-  });
-  // Add a circle layer
-  map.addLayer({
-  'id': 'circle',
-  'type': 'circle',
-  'source': 'points',
-  'paint': {
-  'circle-color': '#4264fb',
-  'circle-radius': 12,
-  'circle-stroke-width': 3,
-  'circle-stroke-color': '#ffffff'
-  }
-  });
- 
-  // Center the map on the coordinates of any clicked circle from the 'circle' layer.
-  map.on('click', 'circle', (e) => {
-  map.flyTo({
-  center: e.features[0].geometry.coordinates,
-  zoom: 19,
-  pitch:60,
-
-
-  });
-  });
-   
-  // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
-  map.on('mouseenter', 'circle', () => {
-  map.getCanvas().style.cursor = 'pointer';
-  });
-   
-  // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'circle', () => {
-  map.getCanvas().style.cursor = '';
-  });
-  });
-
   
-  
-//3D Buildings
+//CONTEXT 3D BUILDINGS
   map.on('load', () => {
     // Insert the layer beneath any symbol layer.
     const layers = map.getStyle().layers;
@@ -288,7 +314,116 @@ map.on('load', () => {
     );
     });
 
+//GLTF LOADER - RHINO MODEL
+map.on('load', () => {
+    // parameters to ensure the model is georeferenced correctly on the map
+    const modelOrigin = [10.780161403334201, 59.92377145251343];
+    const modelAltitude = 0;
+    const modelRotate = [Math.PI / 2, 0, 0];
 
+    const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+        modelOrigin,
+        modelAltitude
+    );
+
+    // transformation parameters to position, rotate and scale the 3D model onto the map
+    const modelTransform = {
+        translateX: modelAsMercatorCoordinate.x,
+        translateY: modelAsMercatorCoordinate.y,
+        translateZ: modelAsMercatorCoordinate.z,
+        rotateX: modelRotate[0],
+        rotateY: modelRotate[1],
+        rotateZ: modelRotate[2],
+        /* Since the 3D model is in real world meters, a scale transform needs to be
+         * applied since the CustomLayerInterface expects units in MercatorCoordinates.
+         */
+        scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()
+    };
+
+    const THREE = window.THREE;
+
+    // configuration of the custom layer for a 3D model per the CustomLayerInterface
+    const customLayer = {
+        id: '3d-model',
+        type: 'custom',
+        renderingMode: '3d',
+        onAdd: function (map, gl) {
+            this.camera = new THREE.Camera();
+            this.scene = new THREE.Scene();
+
+            // create two three.js lights to illuminate the model
+            const directionalLight = new THREE.DirectionalLight(0xadebff);
+            directionalLight.position.set(0, -70, 100).normalize();
+            this.scene.add(directionalLight);
+
+            // add ambient light
+            const ambientLight = new THREE.AmbientLight(0xadebff, 2)
+            this.scene.add( ambientLight )
+
+            const directionalLight2 = new THREE.DirectionalLight(0xadebff);
+            directionalLight2.position.set(0, 70, 100).normalize();
+            this.scene.add(directionalLight2);
+
+            // use the three.js GLTF loader to add the 3D model to the three.js scene
+            var loader = new THREE.GLTFLoader();
+            loader.load(
+                'lib/viziers_observation_deck/scene.gltf',
+                (gltf) => {
+                    this.scene.scale.set(.05,.05,.05);
+                    this.scene.add(gltf.scene);
+                }
+            );
+            this.map = map;
+
+            // use the Mapbox GL JS map canvas for three.js
+            this.renderer = new THREE.WebGLRenderer({
+                canvas: map.getCanvas(),
+                context: gl,
+                antialias: true
+            });
+
+            this.renderer.autoClear = false;
+        },
+        render: function (gl, matrix) {
+            const rotationX = new THREE.Matrix4().makeRotationAxis(
+                new THREE.Vector3(1, 0, 0),
+                modelTransform.rotateX
+            );
+            const rotationY = new THREE.Matrix4().makeRotationAxis(
+                new THREE.Vector3(0, 1, 0),
+                modelTransform.rotateY
+            );
+            const rotationZ = new THREE.Matrix4().makeRotationAxis(
+                new THREE.Vector3(0, 0, 1),
+                modelTransform.rotateZ
+            );
+
+            const m = new THREE.Matrix4().fromArray(matrix);
+            const l = new THREE.Matrix4()
+                .makeTranslation(
+                    modelTransform.translateX,
+                    modelTransform.translateY,
+                    modelTransform.translateZ
+                )
+                .scale(
+                    new THREE.Vector3(
+                        modelTransform.scale,
+                        -modelTransform.scale,
+                        modelTransform.scale
+                    )
+                )
+                .multiply(rotationX)
+                .multiply(rotationY)
+                .multiply(rotationZ);
+
+            this.camera.projectionMatrix = m.multiply(l);
+            this.renderer.resetState();
+            this.renderer.render(this.scene, this.camera);
+            this.map.triggerRepaint();
+        }
+    };
+    map.addLayer(customLayer, 'waterway-label');
+});
 
  // Add geocoder to the map(search buttom)
 const geocoder = new MapboxGeocoder({
@@ -307,7 +442,6 @@ const geocoder = new MapboxGeocoder({
       },
       mapboxgl: mapboxgl
       });
-
 
 
 // Add geolocate control to the map to locate the user location.
