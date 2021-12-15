@@ -61,19 +61,26 @@ document.getElementById('view03').addEventListener('click', () => {
         });
 });
 // building animate
+
+
 function rotateCamera(timestamp) {
     // clamp the rotation between 0 -360 degrees
     // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
     map.rotateTo((timestamp / 50) % 360, { 
-    duration: 1 
+    duration: 10,
     });
     // Request the next frame of the animation.
-    requestAnimationFrame(rotateCamera);
+    requestId = window.requestAnimationFrame(rotateCamera);
     }
+
 document.getElementById('animate').addEventListener('click', () => {
         rotateCamera(0);
     });
 
+//Stop the animation
+document.getElementById('stopanimate').addEventListener('click', () => {
+    cancelAnimationFrame(requestId);
+    });
 
 //Flyto circles function
 map.on('load', () => {
