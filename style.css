@@ -102,14 +102,14 @@
 .btn-primary:hover,
 .btn-warning:hover,
 .btn:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   border-color: white;
   color: black;
 }
 .btn-primary,
 .btn-warning {
   color: white;
-  background-color: rgb(30, 36, 88);
+  background-color: #1e2458;
   border-color: white;
 }
 

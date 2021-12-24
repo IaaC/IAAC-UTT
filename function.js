@@ -4,179 +4,8 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/heshamshawqy/ckwluar2w5ig014n48da1j59q",
-  center: [10.768656923856573, 59.91248024216242],
+  center: [10.75023856573, 59.91248024216242],
   zoom: 12,
-});
-
-// Onclick go back to map view
-//event listner
-/* document.getElementById('fly').addEventListener('click', () => {
- 
-map.flyTo({
-// camera properties
-center: [10.768656923856573, 59.91248024216242],
-zoom: 12,
-bearing: 0,
-pitch: -180,
-
-// The zooming curve
-speed: 0.8, // make the flying slow
-curve: 2, // change the speed at which it zooms out
-
-});
-});
-// building view01
-document.getElementById('view01').addEventListener('click', () => {
- 
-    map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 17,
-    pitch:50,
-    bearing:50,
-    });
-    
-});
-// building view02
-document.getElementById('view02').addEventListener('click', () => {
- 
-    map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 16.5,
-    pitch:40,
-    bearing:190,
-
-    });
-});
-// building view03
-document.getElementById('view03').addEventListener('click', () => {
- 
-        map.flyTo({
-        // camera properties
-        center: [10.780161403334201, 59.92377145251343],
-        zoom: 16.5,
-        pitch:45,
-        bearing:300,
-    
-        });
-});
-// building animate
-
-
-function rotateCamera(timestamp) {
-    // clamp the rotation between 0 -360 degrees
-    // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-    map.rotateTo((timestamp / 50) % 360, { 
-    duration: 10,
-    });
-    // Request the next frame of the animation.
-    requestId = window.requestAnimationFrame(rotateCamera);
-    }
-
-document.getElementById('animate').addEventListener('click', () => {
-        rotateCamera(0);
-    });
-
-//Stop the animation
-document.getElementById('stopanimate').addEventListener('click', () => {
-    cancelAnimationFrame(requestId);
-    }); */
-
-//Flyto circles function
-map.on("load", () => {
-  // Add a GeoJSON source with 3 points.
-  map.addSource("points", {
-    type: "geojson",
-    data: {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "Point",
-            coordinates: [10.735380129405243, 59.913330867746105],
-          },
-        },
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "Point",
-            coordinates: [10.802150689920747, 59.90842688069656],
-          },
-        },
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "Point",
-            coordinates: [10.753865805902912, 59.92488797977771],
-          },
-        },
-      ],
-    },
-  });
-
-  map.addSource("point02", {
-    type: "geojson",
-    data: {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "Point",
-            coordinates: [10.780161403334201, 59.92377145251343],
-          },
-        },
-      ],
-    },
-  });
-  // Add a circle layer
-  map.addLayer({
-    id: "circle",
-    type: "circle",
-    source: "points",
-    paint: {
-      "circle-color": "#4264fb",
-      "circle-radius": 12,
-      "circle-stroke-width": 3,
-      "circle-stroke-color": "#ffffff",
-    },
-  });
-  map.addLayer({
-    id: "circle02",
-    type: "circle",
-    source: "point02",
-    paint: {
-      "circle-color": "#ae1935",
-      "circle-radius": 12,
-      "circle-stroke-width": 3,
-      "circle-stroke-color": "#ffffff",
-    },
-  });
-
-  // Center the map on the coordinates of any clicked circle from the 'circle' layer.
-  map.on("click", ["circle", "circle02"], (e) => {
-    map.flyTo({
-      center: e.features[0].geometry.coordinates,
-      zoom: 16,
-      pitch: 50,
-    });
-  });
-
-  // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
-  map.on("mouseenter", ["circle", "circle02"], () => {
-    map.getCanvas().style.cursor = "pointer";
-  });
-
-  // Change it back to a pointer when it leaves.
-  map.on("mouseleave", ["circle", "circle02"], () => {
-    map.getCanvas().style.cursor = "";
-  });
 });
 
 //Add selectable Regions
@@ -266,6 +95,192 @@ map.on("load", () => {
     });
 
     hoveredStateId = null;
+  });
+});
+
+// Onclick go back to map view
+//event listner
+/* document.getElementById("fly").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: [10.768656923856573, 59.91248024216242],
+    zoom: 12,
+    bearing: 0,
+    pitch: -180,
+
+    // The zooming curve
+    speed: 0.8, // make the flying slow
+    curve: 2, // change the speed at which it zooms out
+  });
+});
+// building view01
+document.getElementById("view01").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: [10.780161403334201, 59.92377145251343],
+    zoom: 17,
+    pitch: 50,
+    bearing: 50,
+  });
+});
+// building view02
+document.getElementById("view02").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: [10.780161403334201, 59.92377145251343],
+    zoom: 16.5,
+    pitch: 40,
+    bearing: 190,
+  });
+});
+// building view03
+document.getElementById("view03").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: [10.780161403334201, 59.92377145251343],
+    zoom: 16.5,
+    pitch: 45,
+    bearing: 300,
+  });
+});
+// building animate
+
+function rotateCamera(timestamp) {
+  // clamp the rotation between 0 -360 degrees
+  // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+  map.rotateTo((timestamp / 50) % 360, {
+    duration: 10,
+  });
+  // Request the next frame of the animation.
+  requestId = window.requestAnimationFrame(rotateCamera);
+}
+
+document.getElementById("animate").addEventListener("click", () => {
+  rotateCamera(0);
+});
+
+//Stop the animation
+document.getElementById("stopanimate").addEventListener("click", () => {
+  cancelAnimationFrame(requestId);
+}); */
+
+document.getElementById("project-one-button").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: [10.780161403334201, 59.92377145251343],
+    zoom: 16,
+    pitch: 50,
+    bearing: 50,
+  });
+});
+
+document.getElementById("project-two-button").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: [10.735380129405243, 59.913330867746105],
+    zoom: 16,
+    pitch: 50,
+    bearing: 50,
+  });
+});
+
+document
+  .getElementById("project-three-button")
+  .addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: [10.753865805902912, 59.92488797977771],
+      zoom: 16,
+      pitch: 50,
+      bearing: 50,
+    });
+  });
+
+//Flyto circles function
+map.on("load", () => {
+  // Add a GeoJSON source with 3 points.
+  map.addSource("points", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Point",
+            coordinates: [10.735380129405243, 59.913330867746105],
+          },
+        },
+        {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Point",
+            coordinates: [10.753865805902912, 59.92488797977771],
+          },
+        },
+      ],
+    },
+  });
+
+  map.addSource("point02", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Point",
+            coordinates: [10.780161403334201, 59.92377145251343],
+          },
+        },
+      ],
+    },
+  });
+  // Add a circle layer
+  map.addLayer({
+    id: "circle",
+    type: "circle",
+    source: "points",
+    paint: {
+      "circle-color": "#1e2458",
+      "circle-radius": 12,
+      "circle-stroke-width": 3,
+      "circle-stroke-color": "#ffffff",
+    },
+  });
+  map.addLayer({
+    id: "circle02",
+    type: "circle",
+    source: "point02",
+    paint: {
+      "circle-color": "#1e2458",
+      "circle-radius": 12,
+      "circle-stroke-width": 3,
+      "circle-stroke-color": "#ffffff",
+    },
+  });
+
+  // Center the map on the coordinates of any clicked circle from the 'circle' layer.
+  map.on("click", ["circle", "circle02"], (e) => {
+    map.flyTo({
+      center: e.features[0].geometry.coordinates,
+      zoom: 16,
+      pitch: 50,
+    });
+  });
+
+  // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
+  map.on("mouseenter", ["circle", "circle02"], () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+
+  // Change it back to a pointer when it leaves.
+  map.on("mouseleave", ["circle", "circle02"], () => {
+    map.getCanvas().style.cursor = "";
   });
 });
 
