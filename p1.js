@@ -8,6 +8,89 @@ const map = new mapboxgl.Map({
   zoom: 12,
 });
 
+const aerial = [10.75023856573, 59.91248024216242];
+const project01_location = [10.749895477789892, 59.92315353075296];
+const project02_location = [10.726669019577955, 59.91242763463297];
+const project03_location = [10.789910419474456, 59.91557188035373];
+
+//INITIAL POSITION
+//-------------------------------------------
+map.on("load", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 17,
+    pitch: 50,
+    bearing: 50,
+  });
+});
+
+//PROJECT VIEWS
+//-------------------------------------------
+
+document.getElementById("p1-aerial").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: aerial,
+    zoom: 12,
+    bearing: 0,
+    pitch: -180,
+
+    // The zooming curve
+    speed: 0.8, // make the flying slow
+    curve: 2, // change the speed at which it zooms out
+  });
+});
+
+document.getElementById("p1-v1").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 17,
+    pitch: 50,
+    bearing: 90,
+  });
+});
+
+document.getElementById("p1-v2").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 18,
+    pitch: 30,
+    bearing: 150,
+  });
+});
+
+document.getElementById("p1-v3").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 17,
+    pitch: 50,
+    bearing: 220,
+  });
+});
+
+// building animate
+
+function rotateCamera(timestamp) {
+  // clamp the rotation between 0 -360 degrees
+  // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+  map.rotateTo((timestamp / 50) % 360, {
+    duration: 10,
+  });
+  // Request the next frame of the animation.
+  requestId = window.requestAnimationFrame(rotateCamera);
+}
+function doalert(checkboxElem) {
+  if (checkboxElem.checked) {
+    rotateCamera(0);
+  } else {
+    cancelAnimationFrame(requestId);
+  }
+}
+
 //ADD SELECTABLE REGIONS
 //-------------------------------------------
 
@@ -168,10 +251,6 @@ map.on("load", () => {
           geometry: {
             type: "Point",
             coordinates: [10.749895477789892, 59.92315353075296], // icon position [lng, lat]
-            properties: {
-              description:
-                "<strong>Make it Mount Pleasant</strong><p>Make it Mount Pleasant is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>",
-            },
           },
         },
         {
