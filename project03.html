@@ -1,0 +1,383 @@
+<html>
+  <head>
+    <title>UTT Projects</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- OpenSreetMap + Leaflet -->
+    <script src="lib/leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="lib/OSMBuildings/OSMBuildings.css" />
+    <script src="lib/OSMBuildings/OSMBuildings.js"></script>
+
+    <!-- Mapbox -->
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+
+    <!-- Threejs -->
+    <script src="lib/GLTFLoader.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="sidebar" class="sidebar">
+        <!-- Page header and buttons 
+        ---------------------------------------------->
+        <header class="p-3 bg-dark text-white">
+          <div class="container">
+            <div
+              class="
+                d-flex
+                flex-wrap
+                align-items-center
+                justify-content-center justify-content-lg-start
+              "
+            >
+              <ul
+                class="
+                  nav
+                  col-12 col-lg-auto
+                  me-lg-auto
+                  mb-2
+                  justify-content-center
+                  mb-md-0
+                "
+              >
+                <li>
+                  <a href="index.html" class="nav-link px-2 text-white">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link px-2 text-white"
+                    href="#"
+                    id="dropdown03"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    >Projects</a
+                  >
+                  <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                    <li>
+                      <a class="dropdown-item" href="project01.html"
+                        >Hasel Complex</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="project02.html"
+                        >Fredensborg Market</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="project03.html"
+                        >Vika Hospital</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="nav-link px-2 text-white">Community</a>
+                </li>
+                <!-- <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li> -->
+                <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+              </ul>
+
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">
+                  Login
+                </button>
+                <button type="button" class="btn btn-warning">Sign-up</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Middle part 
+        ---------------------------------------------->
+        <article>
+          <h3>Vika Hospital</h3>
+          <p class="project-intro">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+            odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+            asperiores nihil quae nostrum architecto maxime? Hic omnis dolores
+            non laudantium Lorem ipsum dolor, sit amet consectetur adipisicing
+            elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate
+            eligendi dicta asperiores nihil quae nostrum architecto maxime? Hic
+            omnis dolores non laudantium.
+          </p>
+
+          <div class="navigation-buttons">
+            <button type="button" id="p1-aerial" class="btn btn-bcolor nav-btn">
+              Aerial
+            </button>
+            <button type="button" id="p1-v1" class="btn btn-bcolor nav-btn">
+              View 01
+            </button>
+            <button type="button" id="p1-v2" class="btn btn-bcolor nav-btn">
+              View 02
+            </button>
+            <button type="button" id="p1-v3" class="btn btn-bcolor nav-btn">
+              View 03
+            </button>
+            <div class="form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="p-animate"
+                onchange="doalert(this)"
+                unchecked
+              />
+              <label class="form-check-label" for="flexSwitchCheckChecked">
+                Animate
+              </label>
+            </div>
+          </div>
+        </article>
+
+        <div class="sliders-tab">
+          <h5 class="score-first-title">AESTHETICS</h5>
+
+          <div class="slidecontainer">
+            <input
+              class="slider"
+              type="range"
+              value="40"
+              min="1"
+              max="100"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output class="slide-out">40</output>
+          </div>
+          <h5 class="score-first-title">SA</h5>
+
+          <div class="slidecontainer">
+            <input
+              class="slider"
+              type="range"
+              value="65"
+              min="1"
+              max="100"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output class="slide-out">65</output>
+          </div>
+          <h5 class="score-first-title">Community Contribution</h5>
+
+          <div class="slidecontainer">
+            <input
+              class="slider"
+              type="range"
+              value="24"
+              min="1"
+              max="100"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output class="slide-out">24</output>
+          </div>
+        </div>
+
+        <div class="feed-form">
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend3"
+              >Feedback</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="validationServerUsername"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-c">Submit</button>
+        </div>
+
+        <!-- Carousel 
+        ---------------------------------------------->
+
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <svg
+                class="bd-placeholder-img"
+                width="100%"
+                height="100%"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <rect width="100%" height="100%" fill="#555" />
+              </svg>
+              <img
+                class=""
+                src="img/img-01.jpg"
+                alt="Connect K project"
+                style="width: 100%"
+              />
+              <div class="container">
+                <div class="carousel-caption carousel-text">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tempora, corrupti vero. Nam nihil ex sed reiciendis quidem
+                    officia numquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg
+                class="bd-placeholder-img"
+                width="100%"
+                height="100%"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <rect width="100%" height="100%" fill="#555" />
+              </svg>
+              <img
+                class=""
+                src="img/img-03.jpg"
+                alt="Connect K project"
+                style="width: 100%"
+              />
+
+              <div class="container">
+                <div class="carousel-caption carousel-text">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tempora, corrupti vero. Nam nihil ex sed reiciendis quidem
+                    officia numquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg
+                class="bd-placeholder-img"
+                width="100%"
+                height="100%"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <rect width="100%" height="100%" fill="#555" />
+              </svg>
+              <img
+                class=""
+                src="img/img-04.jpg"
+                alt="Connect K project"
+                style="width: 100%"
+              />
+
+              <div class="container">
+                <div class="carousel-caption carousel-text">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tempora, corrupti vero. Nam nihil ex sed reiciendis quidem
+                    officia numquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project map 
+        ---------------------------------------------->
+      <div id="map"></div>
+    </div>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+      integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+      integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dashboard.js"></script>
+  </body>
+  <script src="p3.js"></script>
+</html>
