@@ -19,9 +19,9 @@ map.on("load", () => {
   map.flyTo({
     // camera properties
     center: project01_location,
-    zoom: 17,
-    pitch: 50,
-    bearing: 50,
+    zoom: 18,
+    pitch: 60,
+    bearing: 215,
   });
 });
 
@@ -48,7 +48,7 @@ document.getElementById("p1-v1").addEventListener("click", () => {
     center: project01_location,
     zoom: 17,
     pitch: 50,
-    bearing: 90,
+    bearing: 280,
   });
 });
 
@@ -56,9 +56,9 @@ document.getElementById("p1-v2").addEventListener("click", () => {
   map.flyTo({
     // camera properties
     center: project01_location,
-    zoom: 18,
-    pitch: 30,
-    bearing: 150,
+    zoom: 19,
+    pitch: 100,
+    bearing: 200,
   });
 });
 
@@ -290,104 +290,6 @@ map.on("load", () => {
   });
 });
 
-// Onclick go back to map view
-//event listner
-/* document.getElementById("fly").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.768656923856573, 59.91248024216242],
-    zoom: 12,
-    bearing: 0,
-    pitch: -180,
-
-    // The zooming curve
-    speed: 0.8, // make the flying slow
-    curve: 2, // change the speed at which it zooms out
-  });
-});
-// building view01
-document.getElementById("view01").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 17,
-    pitch: 50,
-    bearing: 50,
-  });
-});
-// building view02
-document.getElementById("view02").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 16.5,
-    pitch: 40,
-    bearing: 190,
-  });
-});
-// building view03
-document.getElementById("view03").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 16.5,
-    pitch: 45,
-    bearing: 300,
-  });
-});
-// building animate
-
-function rotateCamera(timestamp) {
-  // clamp the rotation between 0 -360 degrees
-  // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-  map.rotateTo((timestamp / 50) % 360, {
-    duration: 10,
-  });
-  // Request the next frame of the animation.
-  requestId = window.requestAnimationFrame(rotateCamera);
-}
-
-document.getElementById("animate").addEventListener("click", () => {
-  rotateCamera(0);
-});
-
-//Stop the animation
-document.getElementById("stopanimate").addEventListener("click", () => {
-  cancelAnimationFrame(requestId);
-}); */
-
-/* document.getElementById("project-one-button").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 16,
-    pitch: 50,
-    bearing: 50,
-  });
-});
-
-document.getElementById("project-two-button").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.735380129405243, 59.913330867746105],
-    zoom: 16,
-    pitch: 50,
-    bearing: 50,
-  });
-});
-
-document
-  .getElementById("project-three-button")
-  .addEventListener("click", () => {
-    map.flyTo({
-      // camera properties
-      center: [10.753865805902912, 59.92488797977771],
-      zoom: 16,
-      pitch: 50,
-      bearing: 50,
-    });
-  }); */
-
 //CONTEXT 3D BUILDINGS
 //-------------------------------------------
 map.on("load", () => {
@@ -409,7 +311,7 @@ map.on("load", () => {
       type: "fill-extrusion",
       minzoom: 15,
       paint: {
-        "fill-extrusion-color": "#aaa",
+        "fill-extrusion-color": "#fff",
 
         // Use an 'interpolate' expression to
         // add a smooth transition effect to
@@ -443,9 +345,9 @@ map.on("load", () => {
 //-------------------------------------------
 map.on("load", () => {
   // parameters to ensure the model is georeferenced correctly on the map
-  const modelOrigin = [10.780161403334201, 59.92377145251343];
+  const modelOrigin = project01_location;
   const modelAltitude = 0;
-  const modelRotate = [Math.PI / 2, 0, 0];
+  const modelRotate = [Math.PI / 2, 260, 0];
 
   const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
     modelOrigin,
@@ -478,22 +380,21 @@ map.on("load", () => {
       this.scene = new THREE.Scene();
 
       // create two three.js lights to illuminate the model
-      const directionalLight = new THREE.DirectionalLight(0xadebff);
-      directionalLight.position.set(0, -70, 100).normalize();
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(-280, 0, 100).normalize();
+      directionalLight.castShadow = true;
       this.scene.add(directionalLight);
 
       // add ambient light
-      const ambientLight = new THREE.AmbientLight(0xadebff, 2);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      ambientLight.castShadow = true;
       this.scene.add(ambientLight);
 
-      const directionalLight2 = new THREE.DirectionalLight(0xadebff);
-      directionalLight2.position.set(0, 70, 100).normalize();
-      this.scene.add(directionalLight2);
-
+      //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
       var loader = new THREE.GLTFLoader();
-      loader.load("lib/viziers_observation_deck/scene.gltf", (gltf) => {
-        this.scene.scale.set(0.05, 0.05, 0.05);
+      loader.load("3d_models/01.glb", (gltf) => {
+        this.scene.scale.set(0.65, 0.65, 0.65);
         this.scene.add(gltf.scene);
       });
       this.map = map;
