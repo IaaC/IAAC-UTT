@@ -8,6 +8,11 @@ const map = new mapboxgl.Map({
   zoom: 12,
 });
 
+const aerial = [10.75023856573, 59.91248024216242];
+const project01_location = [10.749895477789892, 59.92315353075296];
+const project02_location = [10.726669019577955, 59.91242763463297];
+const project03_location = [10.789910419474456, 59.91557188035373];
+
 //ADD SELECTABLE REGIONS
 //-------------------------------------------
 
@@ -50,7 +55,7 @@ map.on("load", () => {
 
   // When the user moves their mouse over the state-fill layer, we'll update the
   // feature state for the feature under the mouse.
-  map.on("click", "state-fills", (e) => {
+  map.on("mousemove", "state-fills", (e) => {
     if (e.features.length > 0) {
       if (hoveredStateId !== null) {
         map.setFeatureState(
@@ -165,28 +170,37 @@ map.on("load", () => {
       features: [
         {
           type: "Feature",
+          properties: {
+            description:
+              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><button id=project01> Explore Project </button>",
+            image: "img/img-01",
+          },
           geometry: {
             type: "Point",
-            coordinates: [10.749895477789892, 59.92315353075296], // icon position [lng, lat]
-            properties: {
-              description:
-                "<strong>Make it Mount Pleasant</strong><p>Make it Mount Pleasant is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>",
-            },
+            coordinates: project01_location, // icon position [lng, lat]
           },
         },
         {
           type: "Feature",
+          properties: {
+            description:
+              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><button> Explore Project </button>",
+          },
           geometry: {
             type: "Point",
-            coordinates: [10.726669019577955, 59.91242763463297], // icon position [lng, lat]
+            coordinates: project02_location, // icon position [lng, lat]
           },
         },
 
         {
           type: "Feature",
+          properties: {
+            description:
+              "<h5><strong>VIKA HOSPITAL</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><button> Explore Project </button>",
+          },
           geometry: {
             type: "Point",
-            coordinates: [10.789910419474456, 59.91557188035373], // icon position [lng, lat]
+            coordinates: project03_location, // icon position [lng, lat]
           },
         },
       ],
@@ -211,103 +225,36 @@ map.on("load", () => {
   });
 });
 
-// Onclick go back to map view
-//event listner
-/* document.getElementById("fly").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.768656923856573, 59.91248024216242],
-    zoom: 12,
-    bearing: 0,
-    pitch: -180,
-
-    // The zooming curve
-    speed: 0.8, // make the flying slow
-    curve: 2, // change the speed at which it zooms out
-  });
-});
-// building view01
-document.getElementById("view01").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 17,
-    pitch: 50,
-    bearing: 50,
-  });
-});
-// building view02
-document.getElementById("view02").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 16.5,
-    pitch: 40,
-    bearing: 190,
-  });
-});
-// building view03
-document.getElementById("view03").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 16.5,
-    pitch: 45,
-    bearing: 300,
-  });
-});
-// building animate
-
-function rotateCamera(timestamp) {
-  // clamp the rotation between 0 -360 degrees
-  // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-  map.rotateTo((timestamp / 50) % 360, {
-    duration: 10,
-  });
-  // Request the next frame of the animation.
-  requestId = window.requestAnimationFrame(rotateCamera);
-}
-
-document.getElementById("animate").addEventListener("click", () => {
-  rotateCamera(0);
+// Create a popup, but don't add it to the map yet.
+const popup = new mapboxgl.Popup({
+  closeButton: false,
+  closeOnClick: false,
 });
 
-//Stop the animation
-document.getElementById("stopanimate").addEventListener("click", () => {
-  cancelAnimationFrame(requestId);
-}); */
+map.on("mouseenter", "layer-with-pulsing-dot", (e) => {
+  // Change the cursor style as a UI indicator.
+  map.getCanvas().style.cursor = "pointer";
 
-/* document.getElementById("project-one-button").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.780161403334201, 59.92377145251343],
-    zoom: 16,
-    pitch: 50,
-    bearing: 50,
-  });
+  // Copy coordinates array.
+  const coordinates = e.features[0].geometry.coordinates.slice();
+  const description = e.features[0].properties.description;
+
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+
+  // Populate the popup and set its coordinates
+  // based on the feature found.
+  popup.setLngLat(coordinates).setHTML(description).addTo(map);
 });
 
-document.getElementById("project-two-button").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: [10.735380129405243, 59.913330867746105],
-    zoom: 16,
-    pitch: 50,
-    bearing: 50,
-  });
+map.on("click", "layer-with-pulsing-dot", () => {
+  map.getCanvas().style.cursor = "";
+  popup.remove();
 });
-
-document
-  .getElementById("project-three-button")
-  .addEventListener("click", () => {
-    map.flyTo({
-      // camera properties
-      center: [10.753865805902912, 59.92488797977771],
-      zoom: 16,
-      pitch: 50,
-      bearing: 50,
-    });
-  }); */
 
 //CONTEXT 3D BUILDINGS
 //-------------------------------------------
