@@ -115,7 +115,7 @@ h3 {
   margin-left: -25%;
   overflow-y: auto;
   overflow-x: hidden;
-  background: rgb(255, 255, 255);
+  background: #f8f8f8;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -276,8 +276,14 @@ h3 {
 
 /* CUSTOMIZE CARDS
 -------------------------------------------------- */
-
+.btn-lg {
+  color: white !important;
+}
+.btn-lg:hover {
+  color: rgb(0, 0, 0) !important;
+}
 .card-text {
+  font-size: 12px;
   text-align: justify;
 }
 
@@ -343,13 +349,13 @@ h3 {
 .btn-primary:hover,
 .btn-warning:hover {
   background-color: #ffffff;
-  border-color: #1e2458;
+  border-color: #192483;
   color: black;
 }
 .btn-primary,
 .btn-warning {
   color: white;
-  background-color: #1e2458;
+  background-color: #192483;
   border-color: white;
 }
 
@@ -415,10 +421,10 @@ h3 {
 .btn-bcolor {
   border-radius: 10px;
   color: white;
-  background-color: #1e2458;
+  background-color: #04aa6d;
 }
 .btn-bcolor:hover {
-  background-color: #04aa6d;
+  background-color: #192483;
   border-radius: 10px;
   font-weight: bold;
   color: white;
@@ -426,7 +432,7 @@ h3 {
 
 .btn-c:hover {
   background-color: #ffffff;
-  border-color: #1e2458;
+  border-color: #04aa6d;
   color: black;
   font-weight: bold;
 }
@@ -453,14 +459,28 @@ h3 {
   border-radius: 2em;
   transition: background-position 0.15s ease-in-out;
   margin-bottom: 0px !important;
+  border-color: #04aa6d;
+}
+.btn-sign {
+  width: 500px;
 }
 
-.form-check-input:checked {
-  background-position: right center;
+.btn-lg {
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+  text-justify: center;
+  margin-left: -30px !important;
+  margin-top: 0px !important;
+  border-radius: 15px;
 }
 .form-check-input:checked {
-  background-color: #1e2458;
-  border-color: #1e2458;
+  background-position: right center;
+  border-color: #04aa6d;
+}
+.form-check-input:checked {
+  background-color: #04aa6d;
+  border-color: #04aa6d;
 }
 
 .form-check-label {
@@ -484,7 +504,7 @@ h3 {
 }
 .form-check-input {
   border-width: 3px;
-  border-color: #1e2458;
+  border-color: #04aa6d;
 }
 .form-check-input:hover {
   border-width: 3px;
@@ -536,7 +556,7 @@ h3 {
   display: flex;
   align-self: center;
   width: 30px;
-  color: #1e2458;
+  color: #192483;
   padding: 0px !important;
   margin-left: 10px;
   font-family: Oswald;
@@ -569,16 +589,34 @@ h3 {
   display: none;
 }
 
+.pop-link {
+  display: block;
+  color: white;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  text-align: center;
+  justify-self: right;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-right: 0px;
+  text-decoration: none !important;
+}
+
+.pop-link:hover {
+  color: #04aa6d !important;
+  font-style: normal;
+  text-decoration: none !important;
+}
+
 .mapboxgl-popup-content {
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 5px;
-  background-color: #91785d;
-  border-color: #91785d;
   max-width: 250px;
-  box-shadow: 3px 3px 2px #8b5d33;
   font-family: "Oswald";
 }
 

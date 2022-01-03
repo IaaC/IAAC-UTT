@@ -3,7 +3,7 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoiaGVzaGFtc2hhd3F5IiwiYSI6ImNrdnBvY2UwcTFkNDkzM3FmbTFhenM0M3MifQ.ZqIuL9khfbCyOF3DU_IH5w";
 const map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/heshamshawqy/ckwluar2w5ig014n48da1j59q",
+  style: "mapbox://styles/heshamshawqy/ckxynknb6e0r114ped9w2ifqc",
   center: [10.75023856573, 59.91248024216242],
   zoom: 12,
 });
@@ -32,7 +32,7 @@ map.on("load", () => {
     source: "states",
     layout: {},
     paint: {
-      "fill-color": "#3582a2",
+      "fill-color": "#8C6E5D",
       "fill-opacity": [
         "case",
         ["boolean", ["feature-state", "hover"], false],
@@ -48,8 +48,8 @@ map.on("load", () => {
     source: "states",
     layout: {},
     paint: {
-      "line-color": "#3582a2",
-      "line-width": 3,
+      "line-color": "#8C6E5D",
+      "line-width": 2,
     },
   });
 
@@ -136,13 +136,13 @@ const pulsingDot = {
     context.clearRect(0, 0, this.width, this.height);
     context.beginPath();
     context.arc(this.width / 2, this.height / 2, outerRadius, 0, Math.PI * 2);
-    context.fillStyle = `rgba(0, 170, 109, ${1 - t})`;
+    context.fillStyle = `rgba(191, 69, 69, ${1 - t})`;
     context.fill();
 
     // Draw the inner circle.
     context.beginPath();
     context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
-    context.fillStyle = "#04aa6d";
+    context.fillStyle = "#BF4545";
     context.strokeStyle = "white";
     context.lineWidth = 3 + 4 * (1 - t);
     context.fill();
@@ -172,7 +172,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><button id=project01> Explore Project </button>",
+              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a href='project01.html' class='pop-link'> <strong>Explore Project</strong></a>",
             image: "img/img-01",
           },
           geometry: {
@@ -184,7 +184,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><button> Explore Project </button>",
+              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a href='project01.html' class='pop-link'> <strong>Explore Project</strong></a>",
           },
           geometry: {
             type: "Point",
@@ -196,7 +196,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>VIKA HOSPITAL</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><button> Explore Project </button>",
+              "<h5><strong>VIKA HOSPITAL</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a href='project01.html' class='pop-link'> <strong>Explore Project</strong></a>",
           },
           geometry: {
             type: "Point",
@@ -277,7 +277,7 @@ map.on("load", () => {
       type: "fill-extrusion",
       minzoom: 15,
       paint: {
-        "fill-extrusion-color": "#aaa",
+        "fill-extrusion-color": "#5D718C",
 
         // Use an 'interpolate' expression to
         // add a smooth transition effect to
@@ -300,7 +300,7 @@ map.on("load", () => {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     },
     labelLayerId
