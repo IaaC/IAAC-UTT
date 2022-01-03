@@ -3,7 +3,7 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoiaGVzaGFtc2hhd3F5IiwiYSI6ImNrdnBvY2UwcTFkNDkzM3FmbTFhenM0M3MifQ.ZqIuL9khfbCyOF3DU_IH5w";
 const map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/heshamshawqy/ckwluar2w5ig014n48da1j59q",
+  style: "mapbox://styles/heshamshawqy/ckxynknb6e0r114ped9w2ifqc",
   center: [10.75023856573, 59.91248024216242],
   zoom: 12,
 });
@@ -90,98 +90,6 @@ function doalert(checkboxElem) {
     cancelAnimationFrame(requestId);
   }
 }
-
-//ADD SELECTABLE REGIONS
-//-------------------------------------------
-
-let hoveredStateId = null;
-
-map.on("load", () => {
-  map.addSource("states", {
-    type: "geojson",
-    data: "lib/oslo.geojson",
-  });
-
-  // The feature-state dependent fill-opacity expression will render the hover effect
-  // when a feature's hover state is set to true.
-  map.addLayer({
-    id: "state-fills",
-    type: "fill",
-    source: "states",
-    layout: {},
-    paint: {
-      "fill-color": "#3582a2",
-      "fill-opacity": [
-        "case",
-        ["boolean", ["feature-state", "hover"], false],
-        0.9,
-        0.05,
-      ],
-    },
-  });
-
-  map.addLayer({
-    id: "state-borders",
-    type: "line",
-    source: "states",
-    layout: {},
-    paint: {
-      "line-color": "#3582a2",
-      "line-width": 3,
-    },
-  });
-
-  // When the user moves their mouse over the state-fill layer, we'll update the
-  // feature state for the feature under the mouse.
-  map.on("click", "state-fills", (e) => {
-    if (e.features.length > 0) {
-      if (hoveredStateId !== null) {
-        map.setFeatureState(
-          { source: "states", id: hoveredStateId },
-          { hover: false }
-        );
-      }
-      hoveredStateId = e.features[0].id;
-      map.setFeatureState(
-        { source: "states", id: hoveredStateId },
-        { hover: true }
-      );
-    }
-  });
-
-  // When the mouse leaves the state-fill layer, update the feature state of the
-  // previously hovered feature.
-  map.on("mouseleave", "state-fills", () => {
-    if (hoveredStateId !== null) {
-      map.setFeatureState(
-        { source: "states", id: hoveredStateId },
-        { hover: false }
-      );
-    }
-    // Adding pop-ups
-    map.on("click", "state-fills", (e) => {
-      new mapboxgl.Popup()
-
-        .setLngLat(e.lngLat)
-        .setHTML(e.features[0].properties.STATE_NAME)
-        .addTo(map);
-    });
-
-    // Change the cursor to a pointer when
-    // the mouse is over the states layer.
-    map.on("mouseenter", "state-fills", () => {
-      map.getCanvas().style.cursor = "pointer";
-    });
-
-    // Change the cursor back to a pointer
-    // when it leaves the states layer.
-    map.on("mouseleave", "state-fills", () => {
-      map.getCanvas().style.cursor = "";
-    });
-
-    hoveredStateId = null;
-  });
-});
 
 const size = 150;
 
@@ -311,7 +219,7 @@ map.on("load", () => {
       type: "fill-extrusion",
       minzoom: 15,
       paint: {
-        "fill-extrusion-color": "#fff",
+        "fill-extrusion-color": "#5D718C",
 
         // Use an 'interpolate' expression to
         // add a smooth transition effect to
@@ -334,7 +242,7 @@ map.on("load", () => {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     },
     labelLayerId
