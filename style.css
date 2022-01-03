@@ -5,44 +5,69 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Helvetica;
 }
 h3 {
   margin-top: 20px;
 }
+
 #app {
   background-color: #f8f8f8;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   height: -webkit-fill-available;
   overflow-x: auto;
   overflow-y: hidden;
-  gap: 15px;
+  gap: 0px;
   padding: 10px;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 5 px;
-  align-items: stretch;
-  width: 30%;
+  gap: 0px;
+  padding-left: 10px;
 }
 #map {
   height: 100%;
-  width: 70%;
+  width: 100%;
   top: 0;
   bottom: 0;
   margin-top: 0px;
   margin-right: 0;
   padding-right: 0;
+  border-radius: 20px;
 }
 
 /* CUSTOMIZE THE HEADER
 -------------------------------------------------- */
+.logo {
+  font-size: 30px;
+  position: fixed;
+  display: flex;
+  margin-left: 5%;
+  top: 10px;
+}
+
+.side-title {
+  font-weight: lighter;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  margin-left: 15%;
+  padding: 10px;
+  background-color: #04aa6d !important;
+  border-radius: 10px;
+}
+
 .p-3 {
   display: flex;
-  border-radius: 10px;
+  border-radius: 0px;
   background-color: #04aa6d !important;
   height: 60px;
   align-items: center;
@@ -51,10 +76,217 @@ h3 {
   margin-bottom: 0;
 }
 
-.nav-link:link:hover,
-.px-2:link:hover,
-.text-white:link:hover {
-  font-weight: bold;
+/*-------------------------------*/
+/*           Wrappers            */
+/*-------------------------------*/
+
+.sign-button {
+  top: 15px;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  margin-left: 95%;
+  background: transparent;
+  border: none;
+}
+#wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 25%;
+}
+
+#sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  left: 25%;
+  width: 0;
+  padding-top: 0%;
+  height: 100%;
+  margin-left: -25%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgb(255, 255, 255);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 25%;
+}
+
+#page-content-wrapper {
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 3%;
+}
+
+.top-nav-btn {
+  display: flex;
+  gap: 20px;
+}
+
+.navigation-buttons {
+  font-size: 22px;
+  padding: 20px;
+  cursor: pointer;
+  position: absolute;
+  /* top: 50px;
+  left: 50px; */
+  top: 55px;
+  left: -55%;
+}
+
+/*-------------------------------*/
+/*     Sidebar nav styles        */
+/*-------------------------------*/
+.navbar {
+  padding: 0;
+}
+
+.sidebar-nav {
+  margin-top: 5px;
+}
+
+/*       side-toggle-Cross         */
+/*-------------------------------*/
+
+.side-toggle {
+  position: fixed;
+  top: 20px;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+}
+.side-toggle:hover,
+.side-toggle:focus,
+.side-toggle:active {
+  outline: none;
+}
+.side-toggle.is-closed:before {
+  content: "";
+  display: block;
+  width: 100px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 32px;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.35s ease-in-out;
+}
+.side-toggle.is-closed:hover:before {
+  opacity: 1;
+  display: block;
+  -webkit-transform: translate3d(-100px, 0, 0);
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+.side-toggle.is-closed .hamb-top,
+.side-toggle.is-closed .hamb-middle,
+.side-toggle.is-closed .hamb-bottom,
+.side-toggle.is-open .hamb-top,
+.side-toggle.is-open .hamb-middle,
+.side-toggle.is-open .hamb-bottom {
+  position: absolute;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+.side-toggle.is-closed .hamb-top,
+.side-toggle.is-closed .hamb-middle,
+.side-toggle.is-closed .hamb-bottom {
+  background-color: #1a1a1a;
+}
+.side-toggle.is-closed .hamb-top {
+  top: 5px;
+  -webkit-transition: all 0.35s ease-in-out;
+}
+.side-toggle.is-closed .hamb-middle {
+  top: 50%;
+  margin-top: -2px;
+}
+.side-toggle.is-closed .hamb-bottom {
+  bottom: 5px;
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+.side-toggle.is-closed:hover .hamb-top {
+  top: 0;
+  -webkit-transition: all 0.35s ease-in-out;
+}
+.side-toggle.is-closed:hover .hamb-bottom {
+  bottom: 0;
+  -webkit-transition: all 0.35s ease-in-out;
+}
+.side-toggle.is-open .hamb-top,
+.side-toggle.is-open .hamb-middle,
+.side-toggle.is-open .hamb-bottom {
+  background-color: #1a1a1a;
+}
+.side-toggle.is-open .hamb-top,
+.side-toggle.is-open .hamb-bottom {
+  top: 50%;
+  margin-top: -2px;
+}
+.side-toggle.is-open .hamb-top {
+  -webkit-transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+}
+.side-toggle.is-open .hamb-middle {
+  display: none;
+}
+.side-toggle.is-open .hamb-bottom {
+  -webkit-transform: rotate(-45deg);
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+}
+.side-toggle.is-open:before {
+  content: "";
+  display: block;
+  width: 100px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 32px;
+  text-align: center;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.35s ease-in-out;
+}
+.side-toggle.is-open:hover:before {
+  opacity: 1;
+  display: block;
+  -webkit-transform: translate3d(-100px, 0, 0);
+  -webkit-transition: all 0.35s ease-in-out;
+}
+
+/* CUSTOMIZE CARDS
+-------------------------------------------------- */
+
+.card-text {
+  text-align: justify;
+}
+
+.side-card {
+  margin: 0 15 15 15;
+}
+#sidebar-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 /* CUSTOMIZE THE INTRO
 -------------------------------------------------- */
@@ -100,7 +332,7 @@ h3 {
   color: rgb(255, 255, 255);
   text-align: justify;
   background-color: rgba(143, 143, 143, 0.582);
-  font-family: sans-serif;
+  font-family: Oswald;
 }
 /* Customize buttons */
 
@@ -160,15 +392,24 @@ h3 {
 /* NAVIGATION BUTTONS
 -------------------------------------------------- */
 
+#p1-aerial {
+  float: left;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+}
 .navigation-buttons {
   display: flex;
   align-items: stretch;
   gap: 10px;
   margin-bottom: 5px;
+  margin-left: 71.5%;
 }
 
 .nav-btn {
-  width: 300px;
+  width: 100px;
 }
 
 .btn-bcolor {
@@ -199,8 +440,13 @@ h3 {
 /* TOGGLE BUTTONS
 -------------------------------------------------- */
 
-.form-switch .form-check-input {
-  width: 6.5em;
+.form-switch {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.form-check-input {
+  width: 4.5em;
   height: 1em;
   justify-content: stretch;
   background-position: left center;
@@ -209,7 +455,7 @@ h3 {
   margin-bottom: 0px !important;
 }
 
-.form-switch .form-check-input:checked {
+.form-check-input:checked {
   background-position: right center;
 }
 .form-check-input:checked {
@@ -218,16 +464,24 @@ h3 {
 }
 
 .form-check-label {
-  font-weight: bold;
+  color: white;
+  font-size: 18px;
   align-items: center !important;
   justify-content: center !important;
   justify-self: center !important;
-  padding-left: 0px !important;
-  margin-left: -15px !important;
-  margin-top: 1px;
+  padding-left: 5px !important;
+  margin-left: -5px !important;
+  margin-top: 2px;
   margin-bottom: 0px !important;
 }
 
+.home-btn {
+  color: white;
+}
+
+.home-btn:hover {
+  color: white;
+}
 .form-check-input {
   border-width: 3px;
   border-color: #1e2458;
@@ -285,7 +539,7 @@ h3 {
   color: #1e2458;
   padding: 0px !important;
   margin-left: 10px;
-  font-family: sans-serif;
+  font-family: Oswald;
   font-weight: bold;
 }
 
@@ -316,18 +570,27 @@ h3 {
 }
 
 .mapboxgl-popup-content {
-  font-size: 10px;
-  font-family: sans-serif;
-  padding: 0;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: justify;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 5px;
+  background-color: #91785d;
+  border-color: #91785d;
+  max-width: 250px;
+  box-shadow: 3px 3px 2px #8b5d33;
+  font-family: "Oswald";
 }
 
 .mapboxgl-popup-content-wrapper {
-  padding: 1%;
+  padding: 5;
+  margin: 5px;
+  border-radius: 20px;
 }
 
 .form-control .input-group-text {
   width: 5;
   font-size: 14px;
-  font-family: sans-serif;
+  font-family: Oswald;
   word-wrap: break-all;
 }
