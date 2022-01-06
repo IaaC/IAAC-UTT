@@ -45,7 +45,20 @@ function signToggle() {
     element.style.display = "flex";
   }
 }
+
 function leftpaddingToggle() {
   var element = document.getElementById("wrapper");
   element.classList.toggle("toggled");
 }
+
+document.getElementById("p1-view").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot", "visibility", "none");
+  map.setLayoutProperty("state-fills", "visibility", "none");
+  map.setLayoutProperty("state-borders", "visibility", "none");
+});
+
+document.getElementById("p1-aerial").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot", "visibility", "visible");
+  map.setLayoutProperty("state-fills", "visibility", "visible");
+  map.setLayoutProperty("state-borders", "visibility", "visible");
+});

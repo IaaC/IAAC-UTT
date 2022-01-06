@@ -260,7 +260,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a class='pop-link'> <strong>Explore Project</strong></a>",
+              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a  href='#'class='pop-link'> <strong>Explore Project</strong></a>",
           },
           geometry: {
             type: "Point",
@@ -272,7 +272,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>VIKA HOSPITAL</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a class='pop-link'> <strong>Explore Project</strong></a>",
+              "<h5><strong>VIKA HOSPITAL</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a  href='#' class='pop-link'> <strong>Explore Project</strong></a>",
           },
           geometry: {
             type: "Point",
