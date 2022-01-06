@@ -13,6 +13,81 @@ const project01_location = [10.749895477789892, 59.92315353075296];
 const project02_location = [10.726669019577955, 59.91242763463297];
 const project03_location = [10.789910419474456, 59.91557188035373];
 
+//PROJECT VIEWS
+//-------------------------------------------
+document.getElementById("p1-view").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 18,
+    pitch: 60,
+    bearing: 215,
+  });
+});
+
+document.getElementById("p1-aerial").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: aerial,
+    zoom: 12,
+    bearing: 0,
+    pitch: -180,
+
+    // The zooming curve
+    speed: 0.8, // make the flying slow
+    curve: 2, // change the speed at which it zooms out
+  });
+});
+
+document.getElementById("p1-v1").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 17,
+    pitch: 50,
+    bearing: 280,
+  });
+});
+
+document.getElementById("p1-v2").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 19,
+    pitch: 100,
+    bearing: 200,
+  });
+});
+
+document.getElementById("p1-v3").addEventListener("click", () => {
+  map.flyTo({
+    // camera properties
+    center: project01_location,
+    zoom: 17,
+    pitch: 50,
+    bearing: 220,
+  });
+});
+
+// building animate
+
+function rotateCamera(timestamp) {
+  // clamp the rotation between 0 -360 degrees
+  // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+  map.rotateTo((timestamp / 50) % 360, {
+    duration: 10,
+  });
+  // Request the next frame of the animation.
+  requestId = window.requestAnimationFrame(rotateCamera);
+}
+function doalert(checkboxElem) {
+  if (checkboxElem.checked) {
+    rotateCamera(0);
+  } else {
+    cancelAnimationFrame(requestId);
+  }
+}
+
 //ADD SELECTABLE REGIONS
 //-------------------------------------------
 
@@ -80,25 +155,26 @@ map.on("load", () => {
         { hover: false }
       );
     }
-    // Adding pop-ups
-    map.on("click", "state-fills", (e) => {
-      new mapboxgl.Popup()
 
+    // Adding pop-ups
+    var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+    });
+    popup.addClassName("region-popup");
+
+    map.on("mouseenter", "state-fills", (e) => {
+      map.getCanvas().style.cursor = "";
+
+      popup
         .setLngLat(e.lngLat)
         .setHTML(e.features[0].properties.STATE_NAME)
         .addTo(map);
     });
 
-    // Change the cursor to a pointer when
-    // the mouse is over the states layer.
-    map.on("mouseenter", "state-fills", () => {
-      map.getCanvas().style.cursor = "pointer";
-    });
-
-    // Change the cursor back to a pointer
-    // when it leaves the states layer.
     map.on("mouseleave", "state-fills", () => {
-      map.getCanvas().style.cursor = "";
+      /*       map.getCanvas().style.cursor = ""; */
+      popup.remove();
     });
 
     hoveredStateId = null;
@@ -172,7 +248,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a href='project01.html' class='pop-link'> <strong>Explore Project</strong></a>",
+              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a href='#' class='pop-link' id='p1-view'> <strong>Explore Project</strong></a>",
             image: "img/img-01",
           },
           geometry: {
@@ -217,6 +293,7 @@ map.on("load", () => {
   });
 
   map.on("click", ["layer-with-pulsing-dot"], (e) => {
+    map.getCanvas().style.cursor = "pointer";
     map.flyTo({
       center: e.features[0].geometry.coordinates,
       zoom: 16,
@@ -225,10 +302,12 @@ map.on("load", () => {
   });
 });
 
-// Create a popup, but don't add it to the map yet.
+// Animate Dots pop-ups
 const popup = new mapboxgl.Popup({
-  closeButton: false,
-  closeOnClick: false,
+  closeButton: true,
+  closeOnClick: true,
+  closeOnMove: true,
+  className: "dots-pop",
 });
 
 map.on("mouseenter", "layer-with-pulsing-dot", (e) => {
@@ -300,7 +379,7 @@ map.on("load", () => {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 1,
+        "fill-extrusion-opacity": 0.6,
       },
     },
     labelLayerId
@@ -311,9 +390,9 @@ map.on("load", () => {
 //-------------------------------------------
 map.on("load", () => {
   // parameters to ensure the model is georeferenced correctly on the map
-  const modelOrigin = [10.780161403334201, 59.92377145251343];
+  const modelOrigin = project01_location;
   const modelAltitude = 0;
-  const modelRotate = [Math.PI / 2, 0, 0];
+  const modelRotate = [Math.PI / 2, 260, 0];
 
   const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
     modelOrigin,
@@ -346,22 +425,21 @@ map.on("load", () => {
       this.scene = new THREE.Scene();
 
       // create two three.js lights to illuminate the model
-      const directionalLight = new THREE.DirectionalLight(0xadebff);
-      directionalLight.position.set(0, -70, 100).normalize();
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(-280, 0, 100).normalize();
+      directionalLight.castShadow = true;
       this.scene.add(directionalLight);
 
       // add ambient light
-      const ambientLight = new THREE.AmbientLight(0xadebff, 2);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      ambientLight.castShadow = true;
       this.scene.add(ambientLight);
 
-      const directionalLight2 = new THREE.DirectionalLight(0xadebff);
-      directionalLight2.position.set(0, 70, 100).normalize();
-      this.scene.add(directionalLight2);
-
+      //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
       var loader = new THREE.GLTFLoader();
-      loader.load("lib/viziers_observation_deck/scene.gltf", (gltf) => {
-        this.scene.scale.set(0.05, 0.05, 0.05);
+      loader.load("3d_models/01.glb", (gltf) => {
+        this.scene.scale.set(0.65, 0.65, 0.65);
         this.scene.add(gltf.scene);
       });
       this.map = map;
@@ -435,21 +513,6 @@ const geocoder = new MapboxGeocoder({
   mapboxgl: mapboxgl,
 });
 
-// Add geolocate control to the map to locate the user location.
-//-------------------------------------------
-map.addControl(
-  new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true,
-    },
-    // When active the map will receive updates to the device's location as it changes.
-    trackUserLocation: true,
-    showAccuracyCircle: true,
-    // Draw an arrow next to the location dot to indicate which direction the device is heading.
-    showUserHeading: true,
-  })
-);
-
 // Add navigation tools
 //-------------------------------------------
 class PitchToggle {
@@ -495,7 +558,25 @@ class PitchToggle {
     this._map = undefined;
   }
 }
-map.addControl(geocoder, "top-left");
+
+// Mapbox Controls
+//-------------------------------------------
+map.addControl(geocoder, "top-right");
 map.addControl(new mapboxgl.FullscreenControl());
-map.addControl(new mapboxgl.NavigationControl(), "top-left");
-map.addControl(new PitchToggle({ minpitchzoom: 15 }), "top-left");
+map.addControl(new mapboxgl.NavigationControl(), "top-right");
+map.addControl(new PitchToggle({ minpitchzoom: 15 }), "top-right");
+
+// Add geolocate control to the map to locate the user location.
+//-------------------------------------------
+map.addControl(
+  new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true,
+    },
+    // When active the map will receive updates to the device's location as it changes.
+    trackUserLocation: true,
+    showAccuracyCircle: true,
+    // Draw an arrow next to the location dot to indicate which direction the device is heading.
+    showUserHeading: true,
+  })
+);
