@@ -35,6 +35,16 @@ function sideToggle() {
   }
 }
 
+function signToggle() {
+  var element = document.getElementById("sign-wrapper");
+  if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else {
+    element.style.display = "flex";
+  }
+}
 function leftpaddingToggle() {
   var element = document.getElementById("wrapper");
   element.classList.toggle("toggled");
