@@ -8,7 +8,18 @@
   font-family: Helvetica;
 }
 h3 {
-  margin-top: 20px;
+  margin-top: 0px;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
 }
 
 #app {
@@ -38,21 +49,17 @@ h3 {
   margin-right: 0;
   padding-right: 0;
   border-radius: 20px;
+  margin-bottom: 1% !important;
 }
 
 /* CUSTOMIZE THE HEADER
 -------------------------------------------------- */
 .logo {
   font-size: 30px;
-  position: fixed;
-  display: flex;
-  margin-left: 5%;
-  top: 10px;
 }
 
 .side-title {
   font-weight: lighter;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 20px;
   display: flex;
   width: 100%;
@@ -82,10 +89,6 @@ h3 {
 
 .sign-button {
   top: 15px;
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  margin-left: 95%;
   background: transparent;
   border: none;
 }
@@ -102,6 +105,10 @@ h3 {
 
 #wrapper.toggled {
   padding-left: 25%;
+}
+
+.not-toggled {
+  padding-left: 5% !important;
 }
 
 #sidebar-wrapper {
@@ -122,6 +129,9 @@ h3 {
   transition: all 0.5s ease;
 }
 
+#wrapper {
+  height: 6%;
+}
 #wrapper.toggled #sidebar-wrapper {
   width: 25%;
 }
@@ -130,7 +140,6 @@ h3 {
   display: flex !important;
   flex-direction: column;
   width: 100%;
-  padding-top: 3%;
 }
 
 .top-nav-btn {
@@ -140,13 +149,14 @@ h3 {
 
 .navigation-buttons {
   font-size: 22px;
-  padding: 20px;
+  padding: 25px;
+  padding-left: 5;
   cursor: pointer;
   position: absolute;
   /* top: 50px;
   left: 50px; */
   top: 55px;
-  left: -55%;
+  left: -70%;
 }
 
 /*-------------------------------*/
@@ -164,7 +174,6 @@ h3 {
 /*-------------------------------*/
 
 .side-toggle {
-  position: fixed;
   top: 20px;
   display: flex;
   width: 32px;
@@ -298,6 +307,14 @@ h3 {
 -------------------------------------------------- */
 .project-intro {
   text-align: justify;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.score-first-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 2px;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -305,8 +322,8 @@ h3 {
 
 /* Carousel base class */
 .carousel {
-  margin-top: 8px;
-  margin-bottom: 0px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -317,7 +334,7 @@ h3 {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 270px;
+  height: 200px;
 }
 .carousel-item > img {
   position: absolute;
@@ -338,7 +355,6 @@ h3 {
   color: rgb(255, 255, 255);
   text-align: justify;
   background-color: rgba(143, 143, 143, 0.582);
-  font-family: Oswald;
 }
 /* Customize buttons */
 
@@ -404,7 +420,8 @@ h3 {
 
 .top-bar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .navigation-buttons {
   display: flex;
@@ -421,10 +438,10 @@ h3 {
 .btn-bcolor {
   border-radius: 10px;
   color: white;
-  background-color: #04aa6d;
+  background-color: #192483;
 }
 .btn-bcolor:hover {
-  background-color: #192483;
+  background-color: #04aa6d;
   border-radius: 10px;
   font-weight: bold;
   color: white;
@@ -448,6 +465,10 @@ h3 {
 
 .form-switch {
   display: flex !important;
+  background-color: #192483;
+  padding-right: 5px;
+  border-radius: 10px;
+  padding-top: 2px;
   flex-direction: column !important;
 }
 
@@ -484,12 +505,13 @@ h3 {
 }
 
 .form-check-label {
+  display: block;
+  font-weight: normal !important;
   color: white;
   font-size: 18px;
   align-items: center !important;
   justify-content: center !important;
   justify-self: center !important;
-  padding-left: 5px !important;
   margin-left: -5px !important;
   margin-top: 2px;
   margin-bottom: 0px !important;
@@ -504,7 +526,7 @@ h3 {
 }
 .form-check-input {
   border-width: 3px;
-  border-color: #04aa6d;
+  border-color: #192483;
 }
 .form-check-input:hover {
   border-width: 3px;
@@ -556,11 +578,9 @@ h3 {
   display: flex;
   align-self: center;
   width: 30px;
-  color: #192483;
-  padding: 0px !important;
+  color: #000000;
+  padding: 2px !important;
   margin-left: 10px;
-  font-family: Oswald;
-  font-weight: bold;
 }
 
 .sliders-tab {
@@ -571,6 +591,7 @@ h3 {
 .feed-form {
   margin-bottom: 12px;
   display: flex;
+  flex-shrink: stretch;
   height: 100px;
   gap: 10px;
 }
@@ -586,7 +607,10 @@ h3 {
 }
 
 .mapboxgl-popup-close-button {
-  display: none;
+  size: 20px;
+  font-size: 40px;
+  margin: 5px;
+  margin-top: 15px;
 }
 
 .pop-link {
@@ -611,13 +635,12 @@ h3 {
 }
 
 .mapboxgl-popup-content {
+  background: none;
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 5px;
   max-width: 250px;
-  font-family: "Oswald";
 }
 
 .mapboxgl-popup-content-wrapper {
@@ -628,7 +651,136 @@ h3 {
 
 .form-control .input-group-text {
   width: 5;
-  font-size: 14px;
-  font-family: Oswald;
-  word-wrap: break-all;
+  font-size: 12px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.form-control {
+  font-size: 12px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.region-popup .mapboxgl-popup-content {
+  color: rgb(255, 255, 255);
+  font-weight: normal !important;
+  background-color: #bb9b88 !important;
+
+  box-shadow: none;
+}
+
+.region-popup .mapboxgl-popup-tip {
+  display: none;
+}
+
+/* TESTIMONIALS SECTION
+-------------------------------------------------- */
+.section-testimonials {
+  display: none;
+  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 22%;
+  height: 78%;
+  background-color: #fdf2e9;
+  align-items: center;
+  margin-top: 150px;
+  margin-right: 85px;
+  margin-bottom: 150px !important;
+  flex-direction: column;
+  align-content: flex-start;
+  padding-top: 0%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8f8f8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.subheading {
+  display: block;
+  background-color: #192483;
+  color: white;
+  padding: 5 3 3 15;
+  border-radius: 10px;
+  margin-top: 20px !important;
+  margin-bottom: 25px !important;
+  font-size: 1.3rem;
+}
+.testimonials-container {
+  padding: 30px;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.testimonial {
+  margin-bottom: 5px;
+}
+
+.testimonial-img {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.1;
+  margin-bottom: 5px;
+  text-align: justify;
+}
+
+.testimonial-name {
+  font-size: 16px;
+  color: #6f6f6f;
+  margin-bottom: 5px !important;
+}
+
+/* SCROLL BAR 
+-------------------------------------------------- */
+
+/* width */
+::-webkit-scrollbar {
+  width: 17px;
+  cursor: pointer !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #04aa6d;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #036e47;
+}
+
+.project-title {
+  color: #192483;
+  font-weight: bold;
+}
+
+#nav-wrapper {
+  display: none;
+}
+
+#sign-wrapper {
+  display: none;
 }

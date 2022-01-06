@@ -242,7 +242,7 @@ map.on("load", () => {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 1,
+        "fill-extrusion-opacity": 0.5,
       },
     },
     labelLayerId
