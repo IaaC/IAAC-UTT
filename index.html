@@ -112,7 +112,7 @@
                       odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
                       asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
                     </p>
-                    <button id="p1-view" onclick="navToggle(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn btn-primary"  >Explore Project</button>
+                    <button id="p1-view" onclick="navToggleP1(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn btn-primary"  >Explore Project</button>
                   </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@
                       odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
                       asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
                     </p>
-                    <a href="project02.html" class="btn btn-primary">Explore Project</a>
+                    <button id="p2-view" onclick="navToggleP2(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn btn-primary"  >Explore Project</button>
                   </div>
                 </div>
               </div>
@@ -152,7 +152,7 @@
                       odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
                       asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
                     </p>
-                    <a href="project01.html" class="btn btn-primary">Explore Project</a>
+                    <button id="p3-view" onclick="navToggleP3(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn btn-primary"  >Explore Project</button>
                   </div>
                 </div>
               </div>
@@ -226,11 +226,11 @@
 
     <!-- NAVIGATION BUTTONS
       ---------------------------------------------->
-    <div id="nav-wrapper" class="navigation-buttons">
+    <div id="nav-wrapper-p1" class="navigation-buttons">
 
 
 
-      <button type="button" id="p1-aerial" class="btn btn-bcolor nav-btn" onclick="navToggle(),testiToggle()">
+      <button type="button" id="p1-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP1(),testiToggle()">
         Map
       </button>
       <button type="button" id="p1-v1" class="btn btn-bcolor nav-btn">
@@ -240,6 +240,68 @@
         View 02
       </button>
       <button type="button" id="p1-v3" class="btn btn-bcolor nav-btn">
+        View 03
+      </button>
+      <div class="form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="p-animate"
+          onchange="doalert(this)"
+          unchecked
+        />
+        <label class="form-check-label" for="flexSwitchCheckChecked">
+          Animate
+        </label>
+      </div>
+    </div>
+
+    <div id="nav-wrapper-p2" class="navigation-buttons">
+
+
+
+      <button type="button" id="p2-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP2(),testiToggle()">
+        Map
+      </button>
+      <button type="button" id="p2-v1" class="btn btn-bcolor nav-btn">
+        View 01
+      </button>
+      <button type="button" id="p2-v2" class="btn btn-bcolor nav-btn">
+        View 02
+      </button>
+      <button type="button" id="p2-v3" class="btn btn-bcolor nav-btn">
+        View 03
+      </button>
+      <div class="form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="p-animate"
+          onchange="doalert(this)"
+          unchecked
+        />
+        <label class="form-check-label" for="flexSwitchCheckChecked">
+          Animate
+        </label>
+      </div>
+    </div>
+
+    <div id="nav-wrapper-p3" class="navigation-buttons">
+
+
+
+      <button type="button" id="p3-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP3(),testiToggle()">
+        Map
+      </button>
+      <button type="button" id="p3-v1" class="btn btn-bcolor nav-btn">
+        View 01
+      </button>
+      <button type="button" id="p3-v2" class="btn btn-bcolor nav-btn">
+        View 02
+      </button>
+      <button type="button" id="p3-v3" class="btn btn-bcolor nav-btn">
         View 03
       </button>
       <div class="form-switch">

@@ -148,7 +148,7 @@ map.on("load", () => {
 
   // When the mouse leaves the state-fill layer, update the feature state of the
   // previously hovered feature.
-  map.on("mouseleave", "state-fills", () => {
+  map.on("mouseout", "state-fills", () => {
     if (hoveredStateId !== null) {
       map.setFeatureState(
         { source: "states", id: hoveredStateId },
@@ -163,16 +163,14 @@ map.on("load", () => {
     });
     popup.addClassName("region-popup");
 
-    map.on("mouseenter", "state-fills", (e) => {
-      map.getCanvas().style.cursor = "";
-
+    map.on("click", "state-fills", (e) => {
       popup
         .setLngLat(e.lngLat)
         .setHTML(e.features[0].properties.STATE_NAME)
         .addTo(map);
     });
 
-    map.on("mouseleave", "state-fills", () => {
+    map.on("mousemove", "state-fills", () => {
       /*       map.getCanvas().style.cursor = ""; */
       popup.remove();
     });
@@ -185,6 +183,7 @@ const size = 150;
 
 //ADD ANIMATED POINTS
 //-------------------------------------------
+
 const pulsingDot = {
   width: size,
   height: size,
@@ -239,7 +238,7 @@ const pulsingDot = {
 map.on("load", () => {
   map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
 
-  map.addSource("dot-point", {
+  map.addSource("dot-point-01", {
     type: "geojson",
     data: {
       type: "FeatureCollection",
@@ -248,31 +247,49 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a href='#' class='pop-link' id='p1-view'> <strong>Explore Project</strong></a>",
-            image: "img/img-01",
+              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p>",
+
+            button: "Add move",
           },
           geometry: {
             type: "Point",
             coordinates: project01_location, // icon position [lng, lat]
           },
         },
+      ],
+    },
+  });
+
+  map.addSource("dot-point-02", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [
         {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a  href='#'class='pop-link'> <strong>Explore Project</strong></a>",
+              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p>",
           },
           geometry: {
             type: "Point",
             coordinates: project02_location, // icon position [lng, lat]
           },
         },
+      ],
+    },
+  });
 
+  map.addSource("dot-point-03", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [
         {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>VIKA HOSPITAL</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p><a  href='#' class='pop-link'> <strong>Explore Project</strong></a>",
+              "<h5><strong>VIKA HOSPITAL</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p>",
           },
           geometry: {
             type: "Point",
@@ -284,56 +301,137 @@ map.on("load", () => {
   });
 
   map.addLayer({
-    id: "layer-with-pulsing-dot",
+    id: "layer-with-pulsing-dot-01",
     type: "symbol",
-    source: "dot-point",
+    source: "dot-point-01",
     layout: {
       "icon-image": "pulsing-dot",
     },
   });
 
-  map.on("click", ["layer-with-pulsing-dot"], (e) => {
+  map.addLayer({
+    id: "layer-with-pulsing-dot-02",
+    type: "symbol",
+    source: "dot-point-02",
+    layout: {
+      "icon-image": "pulsing-dot",
+    },
+  });
+
+  map.addLayer({
+    id: "layer-with-pulsing-dot-03",
+    type: "symbol",
+    source: "dot-point-03",
+    layout: {
+      "icon-image": "pulsing-dot",
+    },
+  });
+
+  map.on("click", ["layer-with-pulsing-dot-01"], (e) => {
     map.getCanvas().style.cursor = "pointer";
     map.flyTo({
       center: e.features[0].geometry.coordinates,
-      zoom: 16,
-      pitch: 50,
+      zoom: 17.5,
+      pitch: 55.5,
+      bearing: -152,
     });
+    navToggleP1();
+    testiToggle();
+    map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
+    map.setLayoutProperty("state-fills", "visibility", "none");
+    map.setLayoutProperty("state-borders", "visibility", "none");
+    remove.mapboxgl.popup();
+  });
+  map.on("click", ["layer-with-pulsing-dot-02"], (e) => {
+    map.getCanvas().style.cursor = "pointer";
+    map.flyTo({
+      center: e.features[0].geometry.coordinates,
+      zoom: 17.5,
+      pitch: 55.5,
+      bearing: -152,
+    });
+    navToggleP1();
+    testiToggle();
+    map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
+    map.setLayoutProperty("state-fills", "visibility", "none");
+    map.setLayoutProperty("state-borders", "visibility", "none");
+    remove.mapboxgl.popup();
+  });
+  map.on("click", ["layer-with-pulsing-dot-03"], (e) => {
+    map.getCanvas().style.cursor = "pointer";
+    map.flyTo({
+      center: e.features[0].geometry.coordinates,
+      zoom: 17.5,
+      pitch: 55.5,
+      bearing: -152,
+    });
+    navToggleP1();
+    testiToggle();
+    map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
+    map.setLayoutProperty("state-fills", "visibility", "none");
+    map.setLayoutProperty("state-borders", "visibility", "none");
+    remove.mapboxgl.popup();
   });
 });
 
 // Animate Dots pop-ups
-const popup = new mapboxgl.Popup({
+var popup = new mapboxgl.Popup({
   closeButton: true,
   closeOnClick: true,
   closeOnMove: true,
   className: "dots-pop",
 });
 
-map.on("mouseenter", "layer-with-pulsing-dot", (e) => {
-  // Change the cursor style as a UI indicator.
-  map.getCanvas().style.cursor = "pointer";
+map.on(
+  "mouseenter",
+  [
+    "layer-with-pulsing-dot-01",
+    "layer-with-pulsing-dot-02",
+    "layer-with-pulsing-dot-03",
+  ],
+  (e) => {
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = "pointer";
 
-  // Copy coordinates array.
-  const coordinates = e.features[0].geometry.coordinates.slice();
-  const description = e.features[0].properties.description;
+    // Copy coordinates array.
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const description = e.features[0].properties.description;
 
-  // Ensure that if the map is zoomed out such that multiple
-  // copies of the feature are visible, the popup appears
-  // over the copy being pointed to.
-  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(coordinates).setHTML(description).addTo(map);
   }
-
-  // Populate the popup and set its coordinates
-  // based on the feature found.
-  popup.setLngLat(coordinates).setHTML(description).addTo(map);
-});
-
-map.on("click", "layer-with-pulsing-dot", () => {
-  map.getCanvas().style.cursor = "";
-  popup.remove();
-});
+);
+map.on(
+  "mouseleave",
+  [
+    "layer-with-pulsing-dot-01",
+    "layer-with-pulsing-dot-02",
+    "layer-with-pulsing-dot-03",
+  ],
+  (e) => {
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = "";
+    popup.remove();
+  }
+);
+map.on(
+  "click",
+  [
+    "layer-with-pulsing-dot-01 , layer-with-pulsing-dot-02, layer-with-pulsing-dot-03",
+  ],
+  () => {
+    map.getCanvas().style.cursor = "pointer";
+    popup.remove();
+  }
+);
 
 //CONTEXT 3D BUILDINGS
 //-------------------------------------------
@@ -580,3 +678,27 @@ map.addControl(
     showUserHeading: true,
   })
 );
+
+document.getElementById("p1-view").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
+  map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
+  map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
+  map.setLayoutProperty("state-fills", "visibility", "none");
+  map.setLayoutProperty("state-borders", "visibility", "none");
+});
+
+document.getElementById("p1-aerial").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "visible");
+  map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "visible");
+  map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "visible");
+  map.setLayoutProperty("state-fills", "visibility", "visible");
+  map.setLayoutProperty("state-borders", "visibility", "visible");
+});
+
+/* map.on("click", ["layer-with-pulsing-dot-01"], (e) => {
+  map.getCanvas().style.cursor = "pointer";
+  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
+  map.setLayoutProperty("state-fills", "visibility", "none");
+  map.setLayoutProperty("state-borders", "visibility", "none");
+});
+ */

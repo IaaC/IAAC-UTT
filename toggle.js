@@ -2,8 +2,8 @@ $('[data-toggle="offcanvas"]').click(function () {
   $("#wrapper").toggleClass("toggled");
 });
 
-function navToggle() {
-  var element = document.getElementById("nav-wrapper");
+function navToggleP1() {
+  var element = document.getElementById("nav-wrapper-p1");
   if (element.style.display === "none") {
     element.style.display = "flex";
   } else if (element.style.display === "flex") {
@@ -13,6 +13,27 @@ function navToggle() {
   }
 }
 
+function navToggleP2() {
+  var element = document.getElementById("nav-wrapper-p2");
+  if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "flex";
+  }
+}
+
+function navToggleP3() {
+  var element = document.getElementById("nav-wrapper-p3");
+  if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "flex";
+  }
+}
 function testiToggle() {
   var element = document.getElementById("testi-wrapper");
   if (element.style.display === "none") {
@@ -50,15 +71,3 @@ function leftpaddingToggle() {
   var element = document.getElementById("wrapper");
   element.classList.toggle("toggled");
 }
-
-document.getElementById("p1-view").addEventListener("click", () => {
-  map.setLayoutProperty("layer-with-pulsing-dot", "visibility", "none");
-  map.setLayoutProperty("state-fills", "visibility", "none");
-  map.setLayoutProperty("state-borders", "visibility", "none");
-});
-
-document.getElementById("p1-aerial").addEventListener("click", () => {
-  map.setLayoutProperty("layer-with-pulsing-dot", "visibility", "visible");
-  map.setLayoutProperty("state-fills", "visibility", "visible");
-  map.setLayoutProperty("state-borders", "visibility", "visible");
-});
