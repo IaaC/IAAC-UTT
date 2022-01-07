@@ -159,6 +159,13 @@ textarea {
   left: -70%;
 }
 
+#p1-aerial {
+  background-color: #04aa6d;
+}
+
+#p1-aerial:hover {
+  background-color: #192483;
+}
 /*-------------------------------*/
 /*     Sidebar nav styles        */
 /*-------------------------------*/
@@ -607,6 +614,7 @@ textarea {
 }
 
 .mapboxgl-popup-close-button {
+  display: none;
   size: 20px;
   font-size: 40px;
   margin: 5px;
@@ -777,7 +785,13 @@ textarea {
   font-weight: bold;
 }
 
-#nav-wrapper {
+#nav-wrapper-p1 {
+  display: none;
+}
+#nav-wrapper-p2 {
+  display: none;
+}
+#nav-wrapper-p3 {
   display: none;
 }
 
