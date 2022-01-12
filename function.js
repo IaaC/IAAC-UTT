@@ -659,14 +659,14 @@ class PitchToggle {
 
 // Mapbox Controls
 //-------------------------------------------
-map.addControl(geocoder, "top-right");
-map.addControl(new mapboxgl.FullscreenControl());
+/* map.addControl(geocoder, "top-right"); */
+/* map.addControl(new mapboxgl.FullscreenControl()); */
 map.addControl(new mapboxgl.NavigationControl(), "top-right");
-map.addControl(new PitchToggle({ minpitchzoom: 15 }), "top-right");
+/* map.addControl(new PitchToggle({ minpitchzoom: 15 }), "top-right"); */
 
 // Add geolocate control to the map to locate the user location.
 //-------------------------------------------
-map.addControl(
+/* map.addControl(
   new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true,
@@ -677,7 +677,7 @@ map.addControl(
     // Draw an arrow next to the location dot to indicate which direction the device is heading.
     showUserHeading: true,
   })
-);
+); */
 
 document.getElementById("p1-view").addEventListener("click", () => {
   map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");

@@ -5,7 +5,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Helvetica;
+  font-family: monospace;
 }
 h3 {
   margin-top: 0px;
@@ -16,10 +16,12 @@ textarea {
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
+  border-radius: 0px;
+  background-color: #cccccc;
   font-size: 16px;
-  resize: none;
+}
+textarea:checked {
+  border-color: white !important;
 }
 
 #app {
@@ -58,9 +60,16 @@ textarea {
   font-size: 30px;
 }
 
+.utt-logo {
+  font-family: monospace !important;
+  align-self: center;
+  font-size: 40px;
+  font-weight: bolder;
+}
 .side-title {
+  color: black;
   font-weight: lighter;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -68,8 +77,14 @@ textarea {
   font-size: 30px;
   margin-left: 15%;
   padding: 10px;
-  background-color: #04aa6d !important;
   border-radius: 10px;
+}
+
+.bg-secondary .side-title .badge {
+  background-color: none;
+}
+.bg-secondary {
+  background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .p-3 {
@@ -129,9 +144,11 @@ textarea {
   transition: all 0.5s ease;
 }
 
-#wrapper {
-  height: 6%;
+.top-logo {
+  display: flex;
+  align-items: center !important;
 }
+
 #wrapper.toggled #sidebar-wrapper {
   width: 25%;
 }
@@ -160,19 +177,33 @@ textarea {
 }
 
 #p1-aerial {
+  font-weight: bold;
   background-color: #04aa6d;
 }
 
 #p1-aerial:hover {
-  background-color: #192483;
+  background-color: #642a66;
 }
 /*-------------------------------*/
 /*     Sidebar nav styles        */
 /*-------------------------------*/
 .navbar {
+  background-color: rgba(255, 255, 255, 0.822) !important;
   padding: 0;
 }
 
+.btn-second {
+  color: white;
+  background-color: #04aa6d;
+  padding: 6px;
+  border-radius: 10px;
+  border-color: white;
+}
+
+.btn-second:hover {
+  background-color: rgb(4, 195, 125);
+  font-weight: bold;
+}
 .sidebar-nav {
   margin-top: 5px;
 }
@@ -181,7 +212,9 @@ textarea {
 /*-------------------------------*/
 
 .side-toggle {
-  top: 20px;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+
   display: flex;
   width: 32px;
   height: 32px;
@@ -312,13 +345,18 @@ textarea {
 }
 /* CUSTOMIZE THE INTRO
 -------------------------------------------------- */
+
 .project-intro {
+  color: #cccccc;
+  font-size: 14px;
+  line-height: 1.1;
+  margin-bottom: 5px;
   text-align: justify;
-  font-size: 13px;
-  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .score-first-title {
+  color: white;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 2px;
@@ -378,8 +416,9 @@ textarea {
 .btn-primary,
 .btn-warning {
   color: white;
-  background-color: #192483;
+  background-color: #000000;
   border-color: white;
+  border-radius: 15px !important;
 }
 
 /* RESPONSIVE CSS
@@ -439,13 +478,15 @@ textarea {
 }
 
 .nav-btn {
+  font-family: monospace;
+  font-size: 18px;
   width: 100px;
 }
 
 .btn-bcolor {
   border-radius: 10px;
   color: white;
-  background-color: #192483;
+  background-color: #642a66;
 }
 .btn-bcolor:hover {
   background-color: #04aa6d;
@@ -472,7 +513,7 @@ textarea {
 
 .form-switch {
   display: flex !important;
-  background-color: #192483;
+  background-color: #642a66;
   padding-right: 5px;
   border-radius: 10px;
   padding-top: 2px;
@@ -533,7 +574,6 @@ textarea {
 }
 .form-check-input {
   border-width: 3px;
-  border-color: #192483;
 }
 .form-check-input:hover {
   border-width: 3px;
@@ -553,15 +593,15 @@ textarea {
   -webkit-appearance: none;
   width: 100%;
   height: 20px;
-  background: #d3d3d3;
+  background: #04aa6d;
   outline: none;
-  opacity: 0.7;
+  opacity: 1;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
 }
 
 .slider:hover {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .slider::-webkit-slider-thumb {
@@ -569,7 +609,7 @@ textarea {
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #04aa6d;
+  background: #ffffff;
   cursor: pointer;
 }
 
@@ -585,7 +625,7 @@ textarea {
   display: flex;
   align-self: center;
   width: 30px;
-  color: #000000;
+  color: #ffffff;
   padding: 2px !important;
   margin-left: 10px;
 }
@@ -692,11 +732,11 @@ textarea {
   top: 0;
   right: 0;
   width: 22%;
-  height: 78%;
+  height: 85.5%;
   background-color: #fdf2e9;
   align-items: center;
-  margin-top: 150px;
-  margin-right: 85px;
+  margin-top: 4%;
+  margin-right: 3.5%;
   margin-bottom: 150px !important;
   flex-direction: column;
   align-content: flex-start;
@@ -708,11 +748,12 @@ textarea {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  background-image: linear-gradient(to bottom, #4b2c4c, #151f28);
 }
 
 .subheading {
   display: block;
-  background-color: #192483;
+  background-color: #4b2c4c;
   color: white;
   padding: 5 3 3 15;
   border-radius: 10px;
@@ -732,24 +773,30 @@ textarea {
 }
 
 .testimonial {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
   margin-bottom: 5px;
+  justify-content: flex-start !;
 }
 
 .testimonial-img {
   width: 80px;
+  height: 80px;
   border-radius: 50%;
   margin-bottom: 5px;
 }
 
 .testimonial-text {
-  font-size: 16px;
+  color: #cccccc;
+  font-size: 14px;
   line-height: 1.1;
   margin-bottom: 5px;
   text-align: justify;
 }
 
 .testimonial-name {
-  font-size: 16px;
+  font-size: 14px;
   color: #6f6f6f;
   margin-bottom: 5px !important;
 }
@@ -781,9 +828,13 @@ textarea {
 }
 
 .project-title {
-  color: #192483;
+  font-size: 30px;
+  color: #ffffff;
   font-weight: bold;
 }
+
+/* HIDDEN DIVS
+-------------------------------------------------- */
 
 #nav-wrapper-p1 {
   display: none;
@@ -797,4 +848,45 @@ textarea {
 
 #sign-wrapper {
   display: none;
+}
+
+#hidden-comment {
+  display: none;
+}
+
+/* COMMENT PANEL
+-------------------------------------------------- */
+.img-circle {
+  background-color: white;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.comment-panel {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.comment-container {
+  padding: 5px;
+}
+
+.panel-heading {
+  color: white;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+.media-list {
+  padding-left: 0;
+}
+
+.user-text {
+  color: #cccccc;
+}
+
+.btn-info {
+  margin-bottom: 20px;
 }

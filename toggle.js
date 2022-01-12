@@ -67,7 +67,36 @@ function signToggle() {
   }
 }
 
+function DVsignToggle() {
+  var element = document.getElementById("developer-sign");
+  if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "flex";
+  }
+}
+
+function DVsignOff() {
+  var element = document.getElementById("developer-sign");
+  if (element.style.display === "flex") {
+    element.style.display = "none";
+  }
+}
+
 function leftpaddingToggle() {
   var element = document.getElementById("wrapper");
   element.classList.toggle("toggled");
+}
+
+function commentToggle() {
+  var element = document.getElementById("hidden-comment");
+  if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "flex";
+  }
 }
