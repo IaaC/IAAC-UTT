@@ -22,6 +22,8 @@
 
 .modal-content {
   background-color: rgba(255, 255, 255, 0.753);
+  width: 500px;
+  height: 750px;
 }
 .rounded-4 {
   border-radius: 0.5rem;
@@ -67,4 +69,21 @@
 
 .sign-title {
   font-size: 25px;
+}
+
+.sign-options {
+  display: flex;
+  gap: 5px;
+}
+
+.sign-option-01 {
+  background-color: #04aa6d;
+}
+
+.sign-option-02 {
+  background-color: #065a3b;
+}
+
+#developer-sign {
+  display: none;
 }
