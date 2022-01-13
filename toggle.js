@@ -77,9 +77,26 @@ function DVsignToggle() {
     element.style.display = "flex";
   }
 }
+function USsignToggle() {
+  var element = document.getElementById("user-sign");
+  if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "flex";
+  }
+}
 
 function DVsignOff() {
   var element = document.getElementById("developer-sign");
+  if (element.style.display === "flex") {
+    element.style.display = "none";
+  }
+}
+
+function USsignOff() {
+  var element = document.getElementById("user-sign");
   if (element.style.display === "flex") {
     element.style.display = "none";
   }
@@ -100,3 +117,32 @@ function commentToggle() {
     element.style.display = "flex";
   }
 }
+
+function user_comment() {
+  var x = document.getElementById("user-input").value;
+  document.getElementById("user-output").innerHTML = x;
+}
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  "use strict";
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();
