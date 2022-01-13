@@ -24,6 +24,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css"
     />
+    <link href="form-validation.css" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
 
     <!-- Font Awesome Icons Library -->
@@ -183,7 +184,7 @@
 
 
           <div class="sign-button">
-            <a type="button" type="button" class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" onclick="signToggle(),DVsignOff()">Sign-In</a>
+            <a type="button" type="button" class="w-100 mb-2 btn btn-lg rounded-4 btn-primary top-sign" onclick="signToggle(),DVsignOff(),USsignOff()">Sign-In</a>
           </div>
         </div>
 
@@ -546,21 +547,24 @@
 
     <div id="sign-wrapper" class="signPage text-center">
 
+
               <div class="modal-dialog" role="document">
                 <div class="modal-content rounded-5 shadow">
+                  <button id="close" type="button" class="btn-close" aria-label="Close" onclick="signToggle()"></button>
                   <div>
                     <img class="mb-4" src="img/logo.png" alt="" width="150" height="150" />
                   <p class="sign-title"><strong>UTT </strong>MAPPING</p>
                 </div>
     
                   <div class="modal-body p-5 pt-0">
-                    <form class="">
+                    <form class="needs-validation" novalidate>
                       <div class="form-floating mb-3">
                         <input
                           type="email"
                           class="form-control rounded-4"
                           id="floatingInput"
                           placeholder="name@example.com"
+                          value="" required
                         />
                         <label for="floatingInput">Email address</label>
                       </div>
@@ -570,20 +574,23 @@
                           class="form-control rounded-4"
                           id="floatingPassword"
                           placeholder="Password"
+                          required
                         />
-                        <label for="floatingPassword">Password</label>
+                        <label for="floatingPassword"  >Password</label>
                       </div>
                       <div class="sign-options" >
                       <button
                         class="w-100 mb-2 btn btn-lg rounded-4 btn-primary sign-option-01"
-                        type="button"
+                        type="submit"
                         onclick="DVsignToggle(), signToggle()" 
+                        
                       >
                         Sign as Developer
                       </button>
                       <button
                       class="w-100 mb-2 btn btn-lg rounded-4 btn-primary sign-option-02"
-                      type="button"
+                      type="submit"
+                      onclick="USsignToggle(), signToggle()" 
                     >
                       Sign as User
                     </button>
@@ -627,18 +634,209 @@
     <div id="developer-sign" class="signPage text-center">
       <div class="modal-dialog" role="document">
         <div class="modal-content rounded-5 shadow">
-
-
-          <div>
+          <button id="close" type="button" class="btn-close" aria-label="Close" onclick="DVsignToggle()"></button>
+          <div class="project-info-container">
             <img class="mb-4" src="img/logo.png" alt="" width="150" height="150" />
           <p class="sign-title"><strong>UTT </strong>MAPPING</p>
 
-          <input type="file" id="myfile" name="myfile">
-        </div>
-        </div>
-      </div>
+          <div class="dev-sign-content">
+          <div class="mb-dv">
+            <input type="file" class="form-control form-control-lg select-file" aria-label="Large file input example">
+            <div class="p-info">
+              <div class="user-info-side">
+                <textarea id="user-input" class="user-info p-info-title" placeholder="Project Title" rows="3"></textarea>
+                <textarea id="user-input" class="user-info p-info-location" placeholder="Location" rows="3"></textarea>
+  
+              </div>
+            <textarea  class="user-info user-project-info" placeholder="Project Description..." rows="3"></textarea>
 
+          </div>
+          </div>
+
+          <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary submit-project" onclick="DVsignToggle()">Upload Your Project</button>
+
+          
+          
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Area</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td>Hassel Complex</td>
+                  <td>59.92, 10.74</td>
+                  <td>Mixed-Use</td>
+                  <td>20,000 m2</td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td>Next Library</td>
+                  <td>59.82, 10.94</td>
+                  <td>Public</td>
+                  <td>15,000 m2</td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td>Toyen Tower</td>
+                  <td>59.75, 10.25</td>
+                  <td>Residential</td>
+                  <td>5,000 m2</td>
+                </tr>
+                <tr>
+                  <td>04</td>
+                  <td>Alan Hospital</td>
+                  <td>59.25, 10.45</td>
+                  <td>Residential</td>
+                  <td>25,000 m2</td>
+                </tr>
+                <tr>
+                  <td>05</td>
+                  <td>Tetad Center</td>
+                  <td>59.27, 10.12</td>
+                  <td>Commercial</td>
+                  <td>52,000 m2</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <p class="footer-text">Projects History</p>
+
+
+        </div>
+
+
+
+
+          </div>
+        </div>
+        </div>
     </div>
+
+    <div id="user-sign" class="signPage text-center">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-5 shadow">
+              <button id="close" type="button" class="btn-close" aria-label="Close" onclick="USsignToggle()"></button>
+              <div class="project-info-container">
+                <img class="mb-4" src="img/logo.png" alt="" width="150" height="150" />
+              <p class="sign-title"><strong>UTT </strong>MAPPING</p>
+    
+              <div class="user-sign-content">
+              <div class="mb-dv">
+                <ul class="media-list-sign">
+                    <li class="media">
+                        <a href="#" class="pull-left">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="60"  class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <span class="text-muted pull-right">
+                                <small class="text-muted">Hasel Complex</small>
+                            </span>
+                            <strong class="text-success">@AndreaMat</strong>
+                            <p class="user-text-black">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <a href="#" class="pull-left">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="60" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <span class="text-muted pull-right">
+                                <small class="text-muted"> Fredensborg Market</small>
+                            </span>
+                            <strong class="text-success">@AndreaMat</strong>
+                            <p class="user-text-black" >
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <a href="#" class="pull-left">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="60" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <span class="text-muted pull-right">
+                                <small class="text-muted"> Vika Hospital</small>
+                            </span>
+                            <strong class="text-success">@AndreaMat</strong>
+                            <p class="user-text-black">
+                                Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="media">
+                      <a href="#" class="pull-left">
+                          <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="60" class="img-circle">
+                      </a>
+                      <div class="media-body">
+                          <span class="text-muted pull-right">
+                              <small class="text-muted"> Vika Hospital</small>
+                          </span>
+                          <strong class="text-success">@AndreaMat</strong>
+                          <p class="user-text-black">
+                              Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                          </p>
+                      </div>
+                  </li>
+                  <li class="media">
+                    <a href="#" class="pull-left">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="60" class="img-circle">
+                    </a>
+                    <div class="media-body">
+                        <span class="text-muted pull-right">
+                            <small class="text-muted"> Vika Hospital</small>
+                        </span>
+                        <strong class="text-success">@AndreaMat</strong>
+                        <p class="user-text-black">
+                            Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </li>
+                <li class="media">
+                  <a href="#" class="pull-left">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="60" class="img-circle">
+                  </a>
+                  <div class="media-body">
+                      <span class="text-muted pull-right">
+                          <small class="text-muted"> Vika Hospital</small>
+                      </span>
+                      <strong class="text-success">@AndreaMat</strong>
+                      <p class="user-text-black">
+                          Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                      </p>
+                  </div>
+              </li>
+                </ul>
+
+
+              </div>
+    
+    
+    
+            </div>
+            <p class="footer-text">Feedback History</p>
+    
+    
+    
+    
+              </div>
+            </div>
+            </div>
+    </div>
+
+      </div>
 
 
 
@@ -658,6 +856,7 @@
 
   <script src="function.js"></script>
   <script src="user-input.js"></script>
+  <script src="dashboard.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="./toggle.js"></script>
 </html>
