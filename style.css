@@ -36,8 +36,6 @@ textarea:checked {
   padding: 10px;
 }
 
-  
-}
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -189,6 +187,32 @@ textarea:checked {
 /*-------------------------------*/
 /*     Sidebar nav styles        */
 /*-------------------------------*/
+
+.project-list {
+  display: none;
+  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 22%;
+  height: 85.5%;
+  background-color: #fdf2e9;
+  align-items: center;
+  margin-top: 4%;
+  margin-right: 3.5%;
+  margin-bottom: 150px !important;
+  flex-direction: column;
+  align-content: flex-start;
+  padding-top: 0%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8f8f8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-image: linear-gradient(to bottom, #4b2c4c, #151f28);
+}
 .navbar {
   background-color: rgba(255, 255, 255, 0.822) !important;
   padding: 0;
