@@ -1,9 +1,7 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-body{
-  height: 100%;
-}
+
 * {
   margin: 0;
   padding: 0;
@@ -35,7 +33,7 @@ textarea:checked {
   flex-direction: column;
   justify-content: space-between;
   height: -webkit-fill-available;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   gap: 0px;
   padding: 10px;
