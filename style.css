@@ -1,7 +1,9 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
+body{
+  height: 100%;
+}
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +28,9 @@ textarea:checked {
 
 #app {
   background-color: #f8f8f8;
+  height: 100%;
+  width: 100%;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

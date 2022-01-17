@@ -1,17 +1,33 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <title>UTT Projects</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="description" content="" />
 
+        <!-- Mapbox -->
+
+        <link
+        href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css"
+        rel="stylesheet"
+      />
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
+        type="text/css"
+      />
+    
     <!-- Bootstrap core CSS -->
     <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet/less" type="text/css" href="styles.less" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
-    />
+    />  
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css"
@@ -34,19 +50,7 @@
     <link rel="stylesheet" href="lib/OSMBuildings/OSMBuildings.css" />
     <script src="lib/OSMBuildings/OSMBuildings.js"></script>
 
-    <!-- Mapbox -->
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
-      type="text/css"
-    />
+
 
     <!-- Threejs -->
     <script src="lib/GLTFLoader.js"></script>
