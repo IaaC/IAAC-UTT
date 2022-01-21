@@ -100,15 +100,16 @@ class="project-list"
 role="navigation"
 >
 <p class="h2"><span class="badge bg-secondary side-title
-">Projects List</span></p>
+" >Projects List</span></p>
 <ul class="nav sidebar-nav">
   <li class="side-card">
     <div class="col">
       <div class="card">
+        <div class="side-img-col">
 
           <img src="img/img-01.jpg" class="img-fluid" alt="Responsive image">
-
-        </svg>
+          <button id="p1-view" onclick="navToggleP1(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
+        </div>
 
         <div class="card-body">
           <h5 class="card-title">Hasel Complex</h5>
@@ -117,27 +118,28 @@ role="navigation"
             odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
             asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
           </p>
+          
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="side-card">
+    <div class="col">
+      <div class="card">
+        <div class="side-img-col">
+
+          <img src="img/img-01.jpg" class="img-fluid" alt="Responsive image">
           <button id="p1-view" onclick="navToggleP1(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
         </div>
-      </div>
-    </div>
-  </li>
-  <li class="side-card">
-    <div class="col">
-      <div class="card">
-
-          <img src="img/img-02.jpg" class="img-fluid" alt="Responsive image">
-
-        </svg>
 
         <div class="card-body">
-          <h5 class="card-title">Fredensborg Market</h5>
+          <h5 class="card-title">Hasel Complex</h5>
           <p class="card-text">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
             odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
             asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
           </p>
-          <button id="p2-view" onclick="navToggleP2(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
+          
         </div>
       </div>
     </div>
@@ -145,19 +147,20 @@ role="navigation"
   <li class="side-card">
     <div class="col">
       <div class="card">
+        <div class="side-img-col">
 
-          <img src="img/img-03.jpg" class="img-fluid" alt="Responsive image">
-
-        </svg>
+          <img src="img/img-01.jpg" class="img-fluid" alt="Responsive image">
+          <button id="p1-view" onclick="navToggleP1(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
+        </div>
 
         <div class="card-body">
-          <h5 class="card-title">Vika Hospital</h5>
+          <h5 class="card-title">Hasel Complex</h5>
           <p class="card-text">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
             odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
             asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
           </p>
-          <button id="p3-view" onclick="navToggleP3(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
+          
         </div>
       </div>
     </div>
@@ -592,7 +595,7 @@ role="navigation"
     <div id="developer-sign" class="signPage text-center">
       <div class="modal-dialog" role="document">
         <div class="modal-content rounded-5 shadow">
-          <button id="close" type="button" class="btn-close" aria-label="Close" onclick="USsignToggle()"></button>
+          <button id="close" type="button" class="btn-close" aria-label="Close" onclick="DVsignToggle()"></button>
           <div class="project-info-container">
             <img class="mb-4" src="img/logo.png" alt="" width="150" height="150" />
           <div class="sign-page-title">
@@ -619,7 +622,7 @@ role="navigation"
         <!-- Dashboard
         ---------------------------------------------->
         <div id="dash-board" class="dash-board-chart">
-          <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart" width="900" height="600"></canvas>
         </div>
 
         </div>
@@ -783,13 +786,6 @@ role="navigation"
                     <td>59.25, 10.45</td>
                     <td>Residential</td>
                     <td>25,000 m2</td>
-                  </tr>
-                  <tr>
-                    <td>05</td>
-                    <td>Tetad Center</td>
-                    <td>59.27, 10.12</td>
-                    <td>Commercial</td>
-                    <td>52,000 m2</td>
                   </tr>
   
                 </tbody>

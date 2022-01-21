@@ -192,20 +192,22 @@ textarea:checked {
 /*-------------------------------*/
 
 .project-list {
-  display: none;
+  /* display: none; */
   border-radius: 10px;
   position: fixed;
+  padding: 30px;
   top: 0;
-  right: 0;
-  width: 22%;
+  left: 0;
+  width: 25%;
   height: 85.5%;
   background-color: #fdf2e9;
   align-items: center;
   margin-top: 4%;
-  margin-right: 3.5%;
+  margin-left: 1.5%;
   margin-bottom: 150px !important;
   flex-direction: column;
   align-content: flex-start;
+  gap: 30px !important;
   padding-top: 0%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -221,6 +223,12 @@ textarea:checked {
   padding: 0;
 }
 
+.side-img-col{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+}
 .btn-second {
   color: white;
   background-color: #04aa6d;
@@ -235,6 +243,8 @@ textarea:checked {
 }
 .sidebar-nav {
   margin-top: 5px;
+  gap: 30px !important;
+  width: 100%;
 }
 
 /*       side-toggle-Cross         */
@@ -361,16 +371,36 @@ textarea:checked {
   color: rgb(0, 0, 0) !important;
 }
 .card-text {
+  color: white;
   font-size: 12px;
   text-align: justify;
 }
 
+.card-title{
+  color: white;
+font-size: 20px;}
+.card{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: none;
+  border: none;
+}
+
+.card-body{
+  padding-top: 0px;
+  height: 100%;
+}
 .side-card {
   margin: 0 15 15 15;
+
 }
 #sidebar-wrapper {
   display: flex;
   flex-direction: row;
+}
+
+.img-fluid{
 }
 /* CUSTOMIZE THE INTRO
 -------------------------------------------------- */
@@ -760,7 +790,7 @@ textarea:checked {
   position: fixed;
   top: 0;
   right: 0;
-  width: 22%;
+  width: 25%;
   height: 85.5%;
   background-color: #fdf2e9;
   align-items: center;
