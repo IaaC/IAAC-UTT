@@ -70,16 +70,17 @@ textarea:checked {
   font-weight: bolder;
 }
 .side-title {
-  color: black;
+  color: rgb(255, 255, 255);
   font-weight: lighter;
-  margin-top: 10px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   width: 100%;
-  justify-content: center;
-  text-align: center;
+  justify-content: left;
+  text-align: left;
   font-size: 30px;
-  margin-left: 15%;
-  padding: 10px;
+  padding: 0px;
   border-radius: 10px;
 }
 
@@ -223,22 +224,21 @@ textarea:checked {
   padding: 0;
 }
 
-.side-img-col{
+.side-img-col {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  gap: 20px;
+  height: 100% !important;
+  gap: 25px;
 }
 .btn-second {
   color: white;
   background-color: #04aa6d;
   padding: 6px;
-  border-radius: 10px;
-  border-color: white;
+  border: none;
 }
 
 .btn-second:hover {
-  background-color: rgb(4, 195, 125);
+  background-color: rgb(18, 63, 47);
   font-weight: bold;
 }
 .sidebar-nav {
@@ -376,10 +376,11 @@ textarea:checked {
   text-align: justify;
 }
 
-.card-title{
+.card-title {
   color: white;
-font-size: 20px;}
-.card{
+  font-size: 24px;
+}
+.card {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -387,20 +388,18 @@ font-size: 20px;}
   border: none;
 }
 
-.card-body{
-  padding-top: 0px;
+.card-body {
+  padding: 0;
+  padding-left: 20px;
   height: 100%;
 }
-.side-card {
-  margin: 0 15 15 15;
 
-}
 #sidebar-wrapper {
   display: flex;
   flex-direction: row;
 }
 
-.img-fluid{
+.img-fluid {
 }
 /* CUSTOMIZE THE INTRO
 -------------------------------------------------- */
