@@ -14,7 +14,12 @@ const project02_location = [10.726669019577955, 59.91242763463297];
 const project03_location = [10.789910419474456, 59.91557188035373];
 
 //PROJECT VIEWS
-//-------------------------------------------
+//------------------------------------------
+
+
+//PROJECT 01
+//------------------------------------------
+map.on("load", () => {
 document.getElementById("p1-view").addEventListener("click", () => {
   map.flyTo({
     // camera properties
@@ -68,6 +73,126 @@ document.getElementById("p1-v3").addEventListener("click", () => {
     bearing: 220,
   });
 });
+});
+
+//PROJECT 02
+//------------------------------------------
+map.on("load", () => {
+  document.getElementById("p2-view").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project02_location,
+      zoom: 18,
+      pitch: 60,
+      bearing: 215,
+    });
+  });
+  
+  document.getElementById("p2-aerial").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: aerial,
+      zoom: 12,
+      bearing: 0,
+      pitch: -180,
+  
+      // The zooming curve
+      speed: 0.8, // make the flying slow
+      curve: 2, // change the speed at which it zooms out
+    });
+  });
+  
+  document.getElementById("p2-v1").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 280,
+    });
+  });
+  
+  document.getElementById("p2-v2").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 19,
+      pitch: 100,
+      bearing: 200,
+    });
+  });
+  
+  document.getElementById("p2-v3").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 220,
+    });
+  });
+  });
+
+  //PROJECT 03
+//------------------------------------------
+map.on("load", () => {
+  document.getElementById("p3-view").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project03_location,
+      zoom: 18,
+      pitch: 60,
+      bearing: 215,
+    });
+  });
+  
+  document.getElementById("p3-aerial").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: aerial,
+      zoom: 12,
+      bearing: 0,
+      pitch: -180,
+  
+      // The zooming curve
+      speed: 0.8, // make the flying slow
+      curve: 2, // change the speed at which it zooms out
+    });
+  });
+  
+  document.getElementById("p3-v1").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 280,
+    });
+  });
+  
+  document.getElementById("p3-v2").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 19,
+      pitch: 100,
+      bearing: 200,
+    });
+  });
+  
+  document.getElementById("p3-v3").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 220,
+    });
+  });
+  });
+
+
+
 
 // building animate
 
@@ -337,11 +462,13 @@ map.on("load", () => {
     });
     navToggleP1();
     testiToggle();
+    listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
     remove.mapboxgl.popup();
   });
+
   map.on("click", ["layer-with-pulsing-dot-02"], (e) => {
     map.getCanvas().style.cursor = "pointer";
     map.flyTo({
@@ -352,6 +479,7 @@ map.on("load", () => {
     });
     navToggleP1();
     testiToggle();
+    listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
@@ -367,6 +495,7 @@ map.on("load", () => {
     });
     navToggleP1();
     testiToggle();
+    listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");

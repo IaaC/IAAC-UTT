@@ -192,8 +192,14 @@ textarea:checked {
 /*     Sidebar nav styles        */
 /*-------------------------------*/
 
+.utt-intro{
+  color: white;
+  line-height: 18px;
+  text-align: justify;
+  font-size: 16px;
+}
 .project-list {
-  /* display: none; */
+  display: block;
   border-radius: 10px;
   position: fixed;
   padding: 30px;
@@ -231,10 +237,15 @@ textarea:checked {
   gap: 25px;
 }
 .btn-second {
+  display: block;
+  width: 100%;
   color: white;
   background-color: #04aa6d;
-  padding: 6px;
+  padding: 10px;
+  font-size: 18px;
   border: none;
+  margin-bottom: 15px;
+  border-radius: 10px;
 }
 
 .btn-second:hover {
@@ -243,10 +254,12 @@ textarea:checked {
 }
 .sidebar-nav {
   margin-top: 5px;
-  gap: 30px !important;
   width: 100%;
 }
 
+.side-card{
+  margin-bottom: 40px;
+}
 /*       side-toggle-Cross         */
 /*-------------------------------*/
 
@@ -399,8 +412,7 @@ textarea:checked {
   flex-direction: row;
 }
 
-.img-fluid {
-}
+
 /* CUSTOMIZE THE INTRO
 -------------------------------------------------- */
 
@@ -741,11 +753,11 @@ textarea:checked {
 }
 
 .mapboxgl-popup-content {
-  background: none;
+  background: white;
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
-  padding: 5px;
+  padding: 15px;
   max-width: 250px;
 }
 
