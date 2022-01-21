@@ -66,8 +66,9 @@ textarea:checked {
 .utt-logo {
   font-family: monospace !important;
   align-self: center;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bolder;
+  padding-left: 20px;
 }
 .side-title {
   color: rgb(255, 255, 255);
@@ -169,14 +170,16 @@ textarea:checked {
 }
 
 .navigation-buttons {
-  font-size: 22px;
-  padding: 25px;
-  padding-left: 5;
+  display: flex;
+  width: 60%;
+  height: 12%;
+  padding: 30px;
+  padding-left: 1%;
   cursor: pointer;
   position: absolute;
   /* top: 50px;
   left: 50px; */
-  top: 55px;
+  top:6.5%;
   left: -70%;
 }
 
@@ -209,7 +212,7 @@ textarea:checked {
   height: 85.5%;
   background-color: #fdf2e9;
   align-items: center;
-  margin-top: 4%;
+  margin-top: 4.5%;
   margin-left: 1.5%;
   margin-bottom: 150px !important;
   flex-direction: column;
@@ -494,6 +497,18 @@ textarea:checked {
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
+.media{
+  display: flex;
+}
+.media-body{
+  display: flex;
+  text-align: justify;
+  flex-direction: column;
+}
+.pull-right{
+  align-self: flex-end;
+  
+}
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
   .carousel-caption p {
@@ -549,8 +564,8 @@ textarea:checked {
 
 .nav-btn {
   font-family: monospace;
-  font-size: 18px;
-  width: 100px;
+  font-size: 20px;
+  width: 150px;
 }
 
 .btn-bcolor {
@@ -584,15 +599,19 @@ textarea:checked {
 .form-switch {
   display: flex !important;
   background-color: #642a66;
-  padding-right: 5px;
   border-radius: 10px;
-  padding-top: 2px;
-  flex-direction: column !important;
+  width: 180px;
+  flex-direction: row !important;
+  gap: 20px;
+  align-content: center;
+  justify-content: center !important;
+  align-items: center;
+  padding-right: 5px;
 }
 
 .form-check-input {
-  width: 4.5em;
-  height: 1em;
+  width: 100% !important;
+  height: 80%;
   justify-content: stretch;
   background-position: left center;
   border-radius: 2em;
@@ -600,6 +619,7 @@ textarea:checked {
   margin-bottom: 0px !important;
   border-color: #04aa6d;
 }
+
 .btn-sign {
   width: 500px;
 }
@@ -626,7 +646,7 @@ textarea:checked {
   display: block;
   font-weight: normal !important;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   align-items: center !important;
   justify-content: center !important;
   justify-self: center !important;
@@ -646,6 +666,7 @@ textarea:checked {
   border-width: 3px;
 }
 .form-check-input:hover {
+  cursor: pointer;
   border-width: 3px;
   border-color: #04aa6d;
 }
@@ -805,7 +826,7 @@ textarea:checked {
   height: 85.5%;
   background-color: #fdf2e9;
   align-items: center;
-  margin-top: 4%;
+  margin-top: 4.5%;
   margin-right: 3.5%;
   margin-bottom: 150px !important;
   flex-direction: column;

@@ -4,11 +4,17 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/heshamshawqy/ckxynknb6e0r114ped9w2ifqc",
-  center: [10.75023856573, 59.91248024216242],
+  center: [10.71523856573, 59.91248024216242],
   zoom: 12,
 });
+// disable map rotation using right click + drag
+// disable map rotation using touch rotation gesture
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
 
-const aerial = [10.75023856573, 59.91248024216242];
+
+
+const aerial = [10.71523856573, 59.91248024216242];
 const project01_location = [10.749895477789892, 59.92315353075296];
 const project02_location = [10.726669019577955, 59.91242763463297];
 const project03_location = [10.789910419474456, 59.91557188035373];
@@ -27,8 +33,14 @@ document.getElementById("p1-view").addEventListener("click", () => {
     zoom: 18,
     pitch: 60,
     bearing: 215,
+    
   });
+
+  map.dragRotate.enable();
+  map.touchZoomRotate.enable();
+
 });
+
 
 document.getElementById("p1-aerial").addEventListener("click", () => {
   map.flyTo({
@@ -42,6 +54,8 @@ document.getElementById("p1-aerial").addEventListener("click", () => {
     speed: 0.8, // make the flying slow
     curve: 2, // change the speed at which it zooms out
   });
+  map.dragRotate.disable();
+  map.touchZoomRotate.disableRotation();
 });
 
 document.getElementById("p1-v1").addEventListener("click", () => {
@@ -86,6 +100,8 @@ map.on("load", () => {
       pitch: 60,
       bearing: 215,
     });
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
   });
   
   document.getElementById("p2-aerial").addEventListener("click", () => {
@@ -100,6 +116,8 @@ map.on("load", () => {
       speed: 0.8, // make the flying slow
       curve: 2, // change the speed at which it zooms out
     });
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
   });
   
   document.getElementById("p2-v1").addEventListener("click", () => {
@@ -144,6 +162,8 @@ map.on("load", () => {
       pitch: 60,
       bearing: 215,
     });
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
   });
   
   document.getElementById("p3-aerial").addEventListener("click", () => {
@@ -158,6 +178,8 @@ map.on("load", () => {
       speed: 0.8, // make the flying slow
       curve: 2, // change the speed at which it zooms out
     });
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
   });
   
   document.getElementById("p3-v1").addEventListener("click", () => {
@@ -197,10 +219,12 @@ map.on("load", () => {
 // building animate
 
 function rotateCamera(timestamp) {
+  map.dragRotate.enable();
+  map.touchZoomRotate.enable();
   // clamp the rotation between 0 -360 degrees
   // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-  map.rotateTo((timestamp / 50) % 360, {
-    duration: 10,
+  map.rotateTo((timestamp / 60) % 360, {
+    duration: 1000,
   });
   // Request the next frame of the animation.
   requestId = window.requestAnimationFrame(rotateCamera);
@@ -466,6 +490,8 @@ map.on("load", () => {
     map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
     remove.mapboxgl.popup();
   });
 
@@ -483,6 +509,8 @@ map.on("load", () => {
     map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
     remove.mapboxgl.popup();
   });
   map.on("click", ["layer-with-pulsing-dot-03"], (e) => {
@@ -499,6 +527,8 @@ map.on("load", () => {
     map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
     remove.mapboxgl.popup();
   });
 });
