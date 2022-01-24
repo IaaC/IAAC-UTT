@@ -20,13 +20,7 @@
   padding-top: 0%;
 }
 
-.top-sign{
-  font-size: 20px;
-  padding: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  height: 90%;
-}
+
 .modal-dialog{
   width: 800px;
   height: 100%;
@@ -151,7 +145,7 @@
   align-items: center;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   align-content: flex-start;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -171,6 +165,7 @@
   align-content: flex-start;
   height: 32%;
   overflow-x: hidden;
+  overflow-y: auto;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -248,4 +243,6 @@
 .dash-board-chart {
   padding: 0 !important;
   margin: 0 !important;
+  overflow-x: hidden;
+  overflow-y: auto !important;
 }
