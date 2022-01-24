@@ -45,17 +45,6 @@ function testiToggle() {
   }
 }
 
-function sideToggle() {
-  var element = document.getElementById("sidebar-wrapper");
-  if (element.style.display === "flex") {
-    element.style.display = "none";
-  } else if (element.style.display === "none") {
-    element.style.display = "flex";
-  } else {
-    element.style.display = "flex";
-  }
-}
-
 function signToggle() {
   var element = document.getElementById("sign-wrapper");
   if (element.style.display === "flex") {
@@ -107,7 +96,19 @@ function leftpaddingToggle() {
   element.classList.toggle("toggled");
 }
 
-function commentToggle() {
+function listToggle() {
+  var element = document.getElementById("listWrapper");
+  if (element.style.display === "block") {
+    element.style.display = "none";
+  }
+  else if (element.style.display === "none") {
+    element.style.display = "block";
+  } else {
+    element.style.display = "none";
+  }
+}
+// Interactive User Comment
+function commentToggle() {  
   var element = document.getElementById("hidden-comment");
   if (element.style.display === "none") {
     element.style.display = "flex";

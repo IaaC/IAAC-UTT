@@ -33,10 +33,11 @@ textarea:checked {
   flex-direction: column;
   justify-content: space-between;
   height: -webkit-fill-available;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
   gap: 0px;
   padding: 10px;
+  margin-top: 0% !important;
 }
 
 .sidebar {
@@ -54,7 +55,8 @@ textarea:checked {
   margin-right: 0;
   padding-right: 0;
   border-radius: 20px;
-  margin-bottom: 1% !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 
 /* CUSTOMIZE THE HEADER
@@ -66,20 +68,41 @@ textarea:checked {
 .utt-logo {
   font-family: monospace !important;
   align-self: center;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bolder;
+  padding-left: 20px;
+}
+
+.top-sign{
+  align-self: center;
+  font-size: 20px !important;
+  font-weight: bolder;
+  font-weight: normal;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  font-style: normal;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.top-sign:hover{
+background-color: #04aa6d;
+color: black;
 }
 .side-title {
-  color: black;
+  color: rgb(255, 255, 255);
   font-weight: lighter;
-  margin-top: 10px;
+  text-transform: uppercase;
+  margin-top: 20px;
   display: flex;
   width: 100%;
-  justify-content: center;
-  text-align: center;
-  font-size: 30px;
-  margin-left: 15%;
-  padding: 10px;
+  justify-content: left;
+  text-align: left;
+  font-size: 26px;
+  padding: 0px;
   border-radius: 10px;
 }
 
@@ -119,6 +142,8 @@ textarea:checked {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  height: 7% !important;
+  padding-bottom: 10px;
 }
 
 #wrapper.toggled {
@@ -152,6 +177,8 @@ textarea:checked {
   align-items: center !important;
 }
 
+
+
 #wrapper.toggled #sidebar-wrapper {
   width: 25%;
 }
@@ -159,6 +186,7 @@ textarea:checked {
 #page-content-wrapper {
   display: flex !important;
   flex-direction: column;
+  height: 100% !important;
   width: 100%;
 }
 
@@ -168,14 +196,16 @@ textarea:checked {
 }
 
 .navigation-buttons {
-  font-size: 22px;
-  padding: 25px;
-  padding-left: 5;
+  display: flex;
+  width: 50%;
+  height: 110px;
+  padding: 30px;
+  padding-left: 1%;
   cursor: pointer;
   position: absolute;
   /* top: 50px;
   left: 50px; */
-  top: 55px;
+  top:6.5%;
   left: -70%;
 }
 
@@ -191,21 +221,38 @@ textarea:checked {
 /*     Sidebar nav styles        */
 /*-------------------------------*/
 
+.utt-intro{
+  color: #d6d6d6;
+  line-height: 18px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.utt-info{
+  color: #d6d6d6;
+  line-height: 14px;
+  text-align: justify;
+  font-size: 10px;
+  margin-top: 5px;
+
+}
 .project-list {
-  display: none;
+  display: block;
   border-radius: 10px;
   position: fixed;
+  padding: 30px;
   top: 0;
-  right: 0;
-  width: 22%;
+  left: 0;
+  width: 25%;
   height: 85.5%;
   background-color: #fdf2e9;
   align-items: center;
-  margin-top: 4%;
-  margin-right: 3.5%;
+  margin-top: 4.5%;
+  margin-left: 1.5%;
   margin-bottom: 150px !important;
   flex-direction: column;
   align-content: flex-start;
+  gap: 30px !important;
   padding-top: 0%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -221,22 +268,41 @@ textarea:checked {
   padding: 0;
 }
 
+.nav{
+  gap: 0px !important;
+}
+.img-fluid{
+  margin-top: 0px !important;
+}
+.side-img-col {
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+}
 .btn-second {
+  display: block;
+  width: 100%;
   color: white;
   background-color: #04aa6d;
-  padding: 6px;
-  border-radius: 10px;
-  border-color: white;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  margin-bottom: 0px !important;
 }
 
 .btn-second:hover {
-  background-color: rgb(4, 195, 125);
+  background-color: rgb(18, 63, 47);
   font-weight: bold;
 }
 .sidebar-nav {
   margin-top: 5px;
+  width: 100%;
+  gap: 0 !important;
 }
 
+.side-card{
+  margin-bottom: 30px;
+}
 /*       side-toggle-Cross         */
 /*-------------------------------*/
 
@@ -361,17 +427,35 @@ textarea:checked {
   color: rgb(0, 0, 0) !important;
 }
 .card-text {
+  color: white;
   font-size: 12px;
   text-align: justify;
 }
 
-.side-card {
-  margin: 0 15 15 15;
+.card-title {
+  color: white;
+  font-size: 24px;
 }
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: none;
+  border: none;
+}
+
+.card-body {
+  padding: 0;
+  padding-left: 20px;
+  height: 100%;
+}
+
 #sidebar-wrapper {
   display: flex;
   flex-direction: row;
 }
+
+
 /* CUSTOMIZE THE INTRO
 -------------------------------------------------- */
 
@@ -453,6 +537,24 @@ textarea:checked {
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
+.media{
+  display: flex;
+}
+.media-body{
+  display: flex;
+  text-align: justify;
+  flex-direction: column;
+}
+.pull-right{
+  align-self: flex-end;
+  
+}
+
+.pull-left{
+  display: flex;
+  flex-direction: column;
+  gap: 0px !important;
+}
 @media (min-width: 40em) {
   /* Bump up size of carousel content */
   .carousel-caption p {
@@ -497,6 +599,7 @@ textarea:checked {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 100%;
 }
 .navigation-buttons {
   display: flex;
@@ -508,8 +611,8 @@ textarea:checked {
 
 .nav-btn {
   font-family: monospace;
-  font-size: 18px;
-  width: 100px;
+  font-size: 20px;
+  width: 150px;
 }
 
 .btn-bcolor {
@@ -543,15 +646,19 @@ textarea:checked {
 .form-switch {
   display: flex !important;
   background-color: #642a66;
-  padding-right: 5px;
   border-radius: 10px;
-  padding-top: 2px;
-  flex-direction: column !important;
+  width: 180px;
+  flex-direction: row !important;
+  gap: 20px;
+  align-content: center;
+  justify-content: center !important;
+  align-items: center;
+  padding-right: 5px;
 }
 
 .form-check-input {
-  width: 4.5em;
-  height: 1em;
+  width: 60% !important;
+  height: 60% !important;
   justify-content: stretch;
   background-position: left center;
   border-radius: 2em;
@@ -559,6 +666,7 @@ textarea:checked {
   margin-bottom: 0px !important;
   border-color: #04aa6d;
 }
+
 .btn-sign {
   width: 500px;
 }
@@ -585,7 +693,7 @@ textarea:checked {
   display: block;
   font-weight: normal !important;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   align-items: center !important;
   justify-content: center !important;
   justify-self: center !important;
@@ -605,6 +713,7 @@ textarea:checked {
   border-width: 3px;
 }
 .form-check-input:hover {
+  cursor: pointer;
   border-width: 3px;
   border-color: #04aa6d;
 }
@@ -712,11 +821,11 @@ textarea:checked {
 }
 
 .mapboxgl-popup-content {
-  background: none;
+  background: white;
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
-  padding: 5px;
+  padding: 15px;
   max-width: 250px;
 }
 
@@ -760,11 +869,11 @@ textarea:checked {
   position: fixed;
   top: 0;
   right: 0;
-  width: 22%;
+  width: 25%;
   height: 85.5%;
   background-color: #fdf2e9;
   align-items: center;
-  margin-top: 4%;
+  margin-top: 4.5%;
   margin-right: 3.5%;
   margin-bottom: 150px !important;
   flex-direction: column;
@@ -779,6 +888,32 @@ textarea:checked {
   transition: all 0.5s ease;
   background-image: linear-gradient(to bottom, #4b2c4c, #151f28);
 }
+
+.vote-section{
+  display: flex;
+}
+
+.icon:hover{
+  opacity: 20%;
+  cursor: pointer;
+}
+
+.up-vote{
+  color: white;
+  text-decoration: none !important;
+}
+
+.down-vote{
+  color: white;
+  text-decoration: none !important;
+}
+.vote-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+}
+
 
 .subheading {
   display: block;
@@ -889,7 +1024,6 @@ textarea:checked {
   background-color: white;
   height: auto;
   border-radius: 50%;
-  margin-bottom: 10px;
   margin-right: 20px;
 }
 

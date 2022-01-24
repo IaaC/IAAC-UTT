@@ -3,7 +3,7 @@
   <head>
     <title>UTT Projects</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta name="description" content="" />
 
         <!-- Mapbox -->
@@ -24,6 +24,7 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css" />
+    
     
     <!-- CSS file -->
     <link rel="stylesheet" href="style.css" />
@@ -68,21 +69,8 @@
 <!-- HEADER
 ---------------------------------------------->
       <div id="wrapper">
-
-        <div id="page-content-wrapper">
-          <div class="top-bar">
-
           <h3 class="utt-logo">UTT</h3>
-
-
-          <div class="sign-button">
-            <a type="button" type="button" class="w-100 mb-2 btn btn-lg rounded-4 btn-primary top-sign" onclick="signToggle(),DVsignOff(),USsignOff()">Sign-In</a>
-          </div>
-        </div>
-
-
-
-        </div>
+          <a type="button" class="top-sign" onclick="signToggle(),DVsignOff(),USsignOff()">Sign-In</a>
       </div>
 
 
@@ -97,69 +85,53 @@
 ---------------------------------------------->
 <div
 class="project-list"
-role="navigation"
+id="listWrapper"
 >
 <p class="h2"><span class="badge bg-secondary side-title
-">Projects List</span></p>
+  " >UTT MAPPING PROJECT</span></p>
+
+  <p class="utt-intro">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+    odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+    asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+    odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+    asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
+  </p>
+<p class="h2"><span class="badge bg-secondary side-title
+" >Projects List</span></p>
 <ul class="nav sidebar-nav">
   <li class="side-card">
     <div class="col">
-      <div class="card">
+        <div class="side-img-col">
 
           <img src="img/img-01.jpg" class="img-fluid" alt="Responsive image">
-
-        </svg>
-
-        <div class="card-body">
-          <h5 class="card-title">Hasel Complex</h5>
-          <p class="card-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
-            odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
-            asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
-          </p>
-          <button id="p1-view" onclick="navToggleP1(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
-        </div>
-      </div>
+          <button id="p1-view" onclick="navToggleP1(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Hassel Complex</button>
+            <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+              odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+              asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
     </div>
   </li>
   <li class="side-card">
     <div class="col">
-      <div class="card">
+        <div class="side-img-col">
 
           <img src="img/img-02.jpg" class="img-fluid" alt="Responsive image">
-
-        </svg>
-
-        <div class="card-body">
-          <h5 class="card-title">Fredensborg Market</h5>
-          <p class="card-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
-            odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
-            asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
-          </p>
-          <button id="p2-view" onclick="navToggleP2(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
-        </div>
-      </div>
+          <button id="p2-view" onclick="navToggleP1(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Fredensborg Market</button>
+            <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+              odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+              asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
     </div>
   </li>
   <li class="side-card">
     <div class="col">
-      <div class="card">
+        <div class="side-img-col">
 
           <img src="img/img-03.jpg" class="img-fluid" alt="Responsive image">
-
-        </svg>
-
-        <div class="card-body">
-          <h5 class="card-title">Vika Hospital</h5>
-          <p class="card-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
-            odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
-            asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.
-          </p>
-          <button id="p3-view" onclick="navToggleP3(),testiToggle(),sideToggle(),leftpaddingToggle()"  class="btn-second"  >Explore Project</button>
-        </div>
-      </div>
+          <button id="p3-view" onclick="navToggleP1(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Vika Hospital</button>
+            <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+              odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+              asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
     </div>
   </li>
 </ul>
@@ -174,7 +146,7 @@ role="navigation"
 
 
 
-      <button type="button" id="p1-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP1(),testiToggle()">
+      <button type="button" id="p1-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP1(),testiToggle(),listToggle()">
         Map
       </button>
       <button type="button" id="p1-v1" class="btn btn-bcolor nav-btn">
@@ -205,7 +177,7 @@ role="navigation"
 
 
 
-      <button type="button" id="p2-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP2(),testiToggle()">
+      <button type="button" id="p2-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP2(),testiToggle(),listToggle()">
         Map
       </button>
       <button type="button" id="p2-v1" class="btn btn-bcolor nav-btn">
@@ -236,7 +208,7 @@ role="navigation"
 
 
 
-      <button type="button" id="p3-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP3(),testiToggle()">
+      <button type="button" id="p3-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP3(),testiToggle(),listToggle()">
         Map
       </button>
       <button type="button" id="p3-v1" class="btn btn-bcolor nav-btn">
@@ -283,7 +255,7 @@ role="navigation"
             non laudantium Lorem ipsum dolor, sit amet consectetur adipisicing
             elit. Ea quos odit asperiores ex, est nesciunt.
           </p>
-
+          <a href="#">#consecteturadipiscing </a> <a href="#">#sitamet </a> <a href="#">#communityhelper </a> <a href="#">#mustvisit </a> <a href="#">#constructionsite </a> <a href="#">#wonderfulplace </a>
         </article>
 
         <div class="sliders-tab">
@@ -348,9 +320,20 @@ role="navigation"
                               <div class="clearfix"></div>
                               <ul class="media-list">
                                 <li id="hidden-comment" class="media">
-                                  <a href="#" class="pull-left">
-                                      <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="60" class="img-circle">
-                                  </a>
+                                  <div href="#" class="pull-left">
+                                    <img src="img/avatar6.png" alt="" width="60"  class="img-circle">
+                                    <div class="vote-section">
+                                      <div class="vote-icon"> 
+                                      <img src="img/up.png" alt="" width="30" class="icon">
+                                      <p class="up-vote">0</p>
+                                    </div>
+                                    <div class="vote-icon"> 
+                                      <img src="img/down.png" alt="" width="30" class="icon">
+                                      <p class="down-vote">0</p>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
                                   <div class="media-body">
                                       <span class="text-muted pull-right">
                                           <small class="text-muted">just now</small>
@@ -361,9 +344,20 @@ role="navigation"
                                   </div>
                               </li>
                                   <li class="media">
-                                      <a href="#" class="pull-left">
-                                          <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" width="60"  class="img-circle">
-                                      </a>
+                                      <div href="#" class="pull-left">
+                                          <img src="img/avatar3.png" alt="" width="60"  class="img-circle">
+                                          <div class="vote-section">
+                                            <div class="vote-icon"> 
+                                            <img src="img/up.png" alt="" width="30" class="icon">
+                                            <p class="up-vote">5</p>
+                                          </div>
+                                          <div class="vote-icon"> 
+                                            <img src="img/down.png" alt="" width="30" class="icon">
+                                            <p class="down-vote">2</p>
+                                          </div>
+                                          
+                                          </div>
+                                      </div>
                                       <div class="media-body">
                                           <span class="text-muted pull-right">
                                               <small class="text-muted">30 min ago</small>
@@ -373,12 +367,24 @@ role="navigation"
                                               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                               Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
                                           </p>
+                                          
                                       </div>
                                   </li>
                                   <li class="media">
-                                      <a href="#" class="pull-left">
-                                          <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" width="60" class="img-circle">
-                                      </a>
+                                    <div href="#" class="pull-left">
+                                      <img src="img/avatar4.png" alt="" width="60"  class="img-circle">
+                                      <div class="vote-section">
+                                        <div class="vote-icon"> 
+                                        <img src="img/up.png" alt="" width="30" class="icon">
+                                        <p class="up-vote">23</p>
+                                      </div>
+                                      <div class="vote-icon"> 
+                                        <img src="img/down.png" alt="" width="30" class="icon">
+                                        <p class="down-vote">10</p>
+                                      </div>
+                                      
+                                      </div>
+                                  </div>
                                       <div class="media-body">
                                           <span class="text-muted pull-right">
                                               <small class="text-muted"> 2 hours ago</small>
@@ -391,9 +397,20 @@ role="navigation"
                                       </div>
                                   </li>
                                   <li class="media">
-                                      <a href="#" class="pull-left">
-                                          <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" width="60" class="img-circle">
-                                      </a>
+                                    <div href="#" class="pull-left">
+                                      <img src="img/avatar8.png" alt="" width="60"  class="img-circle">
+                                      <div class="vote-section">
+                                        <div class="vote-icon"> 
+                                        <img src="img/up.png" alt="" width="30" class="icon">
+                                        <p class="up-vote">15</p>
+                                      </div>
+                                      <div class="vote-icon"> 
+                                        <img src="img/down.png" alt="" width="30" class="icon">
+                                        <p class="down-vote">25</p>
+                                      </div>
+                                      
+                                      </div>
+                                  </div>
                                       <div class="media-body">
                                           <span class="text-muted pull-right">
                                               <small class="text-muted"> 5 days ago</small>
@@ -592,7 +609,7 @@ role="navigation"
     <div id="developer-sign" class="signPage text-center">
       <div class="modal-dialog" role="document">
         <div class="modal-content rounded-5 shadow">
-          <button id="close" type="button" class="btn-close" aria-label="Close" onclick="USsignToggle()"></button>
+          <button id="close" type="button" class="btn-close" aria-label="Close" onclick="DVsignToggle()"></button>
           <div class="project-info-container">
             <img class="mb-4" src="img/logo.png" alt="" width="150" height="150" />
           <div class="sign-page-title">
@@ -619,7 +636,7 @@ role="navigation"
         <!-- Dashboard
         ---------------------------------------------->
         <div id="dash-board" class="dash-board-chart">
-          <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart" width="900" height="600"></canvas>
         </div>
 
         </div>
@@ -783,13 +800,6 @@ role="navigation"
                     <td>59.25, 10.45</td>
                     <td>Residential</td>
                     <td>25,000 m2</td>
-                  </tr>
-                  <tr>
-                    <td>05</td>
-                    <td>Tetad Center</td>
-                    <td>59.27, 10.12</td>
-                    <td>Commercial</td>
-                    <td>52,000 m2</td>
                   </tr>
   
                 </tbody>
