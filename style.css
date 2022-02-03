@@ -49,14 +49,7 @@ textarea:checked {
 #map {
   height: 100%;
   width: 100%;
-  top: 0;
-  bottom: 0;
-  margin-top: 0px;
-  margin-right: 0;
-  padding-right: 0;
-  border-radius: 20px;
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
+  position: absolute;
 }
 
 /* CUSTOMIZE THE HEADER
@@ -70,7 +63,13 @@ textarea:checked {
   align-self: center;
   font-size: 50px;
   font-weight: bolder;
+  margin-top: 5px;
+  color: white;
+  margin-left: 20px;
   padding-left: 20px;
+  padding-right: 20px;
+  background-color: #000000;
+  
 }
 
 .top-sign{
@@ -135,17 +134,24 @@ color: black;
 }
 #wrapper {
   display: flex;
+  width: 98%;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  position: absolute;
   justify-content: space-between;
   align-content: center;
-  padding-left: 0;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   height: 7% !important;
-  padding-bottom: 10px;
 }
 
+.top-header{
+  display: flex;
+  flex-direction: row;
+}
 #wrapper.toggled {
   padding-left: 25%;
 }
@@ -232,8 +238,9 @@ color: black;
   color: #d6d6d6;
   line-height: 14px;
   text-align: justify;
-  font-size: 10px;
+  font-size: 12px;
   margin-top: 5px;
+  margin-bottom: 0;
 
 }
 .project-list {
@@ -244,10 +251,10 @@ color: black;
   top: 0;
   left: 0;
   width: 25%;
-  height: 85.5%;
+  height: 89%;
   background-color: #fdf2e9;
   align-items: center;
-  margin-top: 4.5%;
+  margin-top: 3.5%;
   margin-left: 1.5%;
   margin-bottom: 150px !important;
   flex-direction: column;
@@ -605,8 +612,8 @@ color: black;
   display: flex;
   align-items: stretch;
   gap: 10px;
-  margin-bottom: 5px;
-  margin-left: 71.5%;
+  top: 4%;
+  margin-left: 70.5%;
 }
 
 .nav-btn {
@@ -870,11 +877,11 @@ color: black;
   top: 0;
   right: 0;
   width: 25%;
-  height: 85.5%;
+  height: 89%;
   background-color: #fdf2e9;
   align-items: center;
-  margin-top: 4.5%;
-  margin-right: 3.5%;
+  margin-top: 3.5%;
+  margin-right: 2.8%;
   margin-bottom: 150px !important;
   flex-direction: column;
   align-content: flex-start;
