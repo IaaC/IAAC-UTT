@@ -39,8 +39,6 @@
 
 
     <!-- Threejs -->
-    <script src="lib/GLTFLoader.js"></script>
-    <script src="lib/OrbitControls.js"></script>
     <script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>
     <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
 
@@ -62,24 +60,21 @@
   </head>
 
   <body>
-    <!-- APPLICATION
-      ---------------------------------------------->
-    <div id="app">
+<!-- MAPBOX
+---------------------------------------------->
+<div id="map"></div>
+
 
 <!-- HEADER
 ---------------------------------------------->
-      <div id="wrapper">
-          <h3 class="utt-logo">UTT</h3>
-          <a type="button" class="top-sign" onclick="signToggle(),DVsignOff(),USsignOff()">Sign-In</a>
-      </div>
+<div id="wrapper">
+  
+  <h3 class="utt-logo">UTT</h3>
+
+  <a type="button" class="top-sign" onclick="signToggle(),DVsignOff(),USsignOff()">Sign-In</a>
+</div>
 
 
-
-
-<!-- MAPBOX
----------------------------------------------->
-      <div id="map"></div>
-    </div>
 
 <!-- PROJECT LIST
 ---------------------------------------------->
@@ -117,7 +112,7 @@ id="listWrapper"
         <div class="side-img-col">
 
           <img src="img/img-02.jpg" class="img-fluid" alt="Responsive image">
-          <button id="p2-view" onclick="navToggleP1(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Fredensborg Market</button>
+          <button id="p2-view" onclick="navToggleP2(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Fredensborg Market</button>
             <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
               odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
               asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
@@ -128,7 +123,7 @@ id="listWrapper"
         <div class="side-img-col">
 
           <img src="img/img-03.jpg" class="img-fluid" alt="Responsive image">
-          <button id="p3-view" onclick="navToggleP1(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Vika Hospital</button>
+          <button id="p3-view" onclick="navToggleP3(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Vika Hospital</button>
             <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
               odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
               asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
