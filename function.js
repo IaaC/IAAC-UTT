@@ -12,8 +12,6 @@ const map = new mapboxgl.Map({
 map.dragRotate.disable();
 map.touchZoomRotate.disableRotation();
 
-
-
 const aerial = [10.71523856573, 59.91248024216242];
 const project01_location = [10.749895477789892, 59.92315353075296];
 const project02_location = [10.726669019577955, 59.91242763463297];
@@ -22,71 +20,67 @@ const project03_location = [10.789910419474456, 59.91557188035373];
 //PROJECT VIEWS
 //------------------------------------------
 
-
 //PROJECT 01
 //------------------------------------------
 map.on("load", () => {
-document.getElementById("p1-view").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 18,
-    pitch: 60,
-    bearing: 215,
-    
+  document.getElementById("p1-view").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 18,
+      pitch: 60,
+      bearing: 215,
+    });
+
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
   });
 
-  map.dragRotate.enable();
-  map.touchZoomRotate.enable();
+  document.getElementById("p1-aerial").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: aerial,
+      zoom: 12,
+      bearing: 0,
+      pitch: -180,
 
-});
-
-
-document.getElementById("p1-aerial").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: aerial,
-    zoom: 12,
-    bearing: 0,
-    pitch: -180,
-
-    // The zooming curve
-    speed: 0.8, // make the flying slow
-    curve: 2, // change the speed at which it zooms out
+      // The zooming curve
+      speed: 0.8, // make the flying slow
+      curve: 2, // change the speed at which it zooms out
+    });
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
   });
-  map.dragRotate.disable();
-  map.touchZoomRotate.disableRotation();
-});
 
-document.getElementById("p1-v1").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 17,
-    pitch: 50,
-    bearing: 280,
+  document.getElementById("p1-v1").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 280,
+    });
   });
-});
 
-document.getElementById("p1-v2").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 19,
-    pitch: 100,
-    bearing: 200,
+  document.getElementById("p1-v2").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 19,
+      pitch: 100,
+      bearing: 200,
+    });
   });
-});
 
-document.getElementById("p1-v3").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 17,
-    pitch: 50,
-    bearing: 220,
+  document.getElementById("p1-v3").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 220,
+    });
   });
-});
 });
 
 //PROJECT 02
@@ -103,7 +97,7 @@ map.on("load", () => {
     map.dragRotate.enable();
     map.touchZoomRotate.enable();
   });
-  
+
   document.getElementById("p2-aerial").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -111,7 +105,7 @@ map.on("load", () => {
       zoom: 12,
       bearing: 0,
       pitch: -180,
-  
+
       // The zooming curve
       speed: 0.8, // make the flying slow
       curve: 2, // change the speed at which it zooms out
@@ -119,7 +113,7 @@ map.on("load", () => {
     map.dragRotate.disable();
     map.touchZoomRotate.disableRotation();
   });
-  
+
   document.getElementById("p2-v1").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -129,7 +123,7 @@ map.on("load", () => {
       bearing: 280,
     });
   });
-  
+
   document.getElementById("p2-v2").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -139,7 +133,7 @@ map.on("load", () => {
       bearing: 150,
     });
   });
-  
+
   document.getElementById("p2-v3").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -149,9 +143,9 @@ map.on("load", () => {
       bearing: 360,
     });
   });
-  });
+});
 
-  //PROJECT 03
+//PROJECT 03
 //------------------------------------------
 map.on("load", () => {
   document.getElementById("p3-view").addEventListener("click", () => {
@@ -165,7 +159,7 @@ map.on("load", () => {
     map.dragRotate.enable();
     map.touchZoomRotate.enable();
   });
-  
+
   document.getElementById("p3-aerial").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -173,7 +167,7 @@ map.on("load", () => {
       zoom: 12,
       bearing: 0,
       pitch: -180,
-  
+
       // The zooming curve
       speed: 0.8, // make the flying slow
       curve: 2, // change the speed at which it zooms out
@@ -181,7 +175,7 @@ map.on("load", () => {
     map.dragRotate.disable();
     map.touchZoomRotate.disableRotation();
   });
-  
+
   document.getElementById("p3-v1").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -191,7 +185,7 @@ map.on("load", () => {
       bearing: 280,
     });
   });
-  
+
   document.getElementById("p3-v2").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -201,7 +195,7 @@ map.on("load", () => {
       bearing: 200,
     });
   });
-  
+
   document.getElementById("p3-v3").addEventListener("click", () => {
     map.flyTo({
       // camera properties
@@ -211,10 +205,7 @@ map.on("load", () => {
       bearing: 5,
     });
   });
-  });
-
-
-
+});
 
 // building animate
 
@@ -504,7 +495,7 @@ map.on("load", () => {
       bearing: -30,
     });
     navToggleP2();
-    testiToggle();
+    testiToggleP2();
     listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
@@ -522,7 +513,7 @@ map.on("load", () => {
       bearing: -200,
     });
     navToggleP3();
-    testiToggle();
+    testiToggleP3();
     listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
@@ -643,9 +634,6 @@ map.on("load", () => {
   );
 });
 
-
-
-
 //GLTF LOADER - RHINO MODEL
 //-------------------------------------------
 
@@ -693,8 +681,8 @@ map.on("load", () => {
       directionalLight.castShadow = false;
       this.scene.add(directionalLight);
 
-      const directionalLight_2 = new THREE.DirectionalLight(0xe6b484, 0.5);
-      directionalLight_2.position.set(30,120, 60).normalize();
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
       directionalLight_2.castShadow = false;
       this.scene.add(directionalLight_2);
 
@@ -704,22 +692,24 @@ map.on("load", () => {
       this.scene.add(ambientLight);
 
       const path = "pisa/";
-      const format = '.png';
+      const format = ".png";
       const urls = [
-        path + 'px' + format, path + 'nx' + format,
-        path + 'py' + format, path + 'ny' + format,
-        path + 'pz' + format, path + 'nz' + format
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
       ];
 
-      const textureCube = new THREE.CubeTextureLoader().load( urls );
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
 
       scene = new THREE.Scene();
       scene.background = textureCube;
 
-
       //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
-      
+
       var loader = new THREE.GLTFLoader();
       loader.load("3d_models/01.glb", (gltf) => {
         this.scene.scale.set(0.65, 0.65, 0.65);
@@ -727,7 +717,6 @@ map.on("load", () => {
 
         var model = gltf.scene;
         var newMaterial = new THREE.MeshPhysicalMaterial({
-          
           color: 0x848380,
           /* envMap: textureCube, */
           clearcoat: 1,
@@ -735,9 +724,9 @@ map.on("load", () => {
           roughness: 1,
         });
         model.traverse((o) => {
-        if (o.isMesh) o.material = newMaterial;
+          if (o.isMesh) o.material = newMaterial;
         });
-        });
+      });
       this.map = map;
 
       // use the Mapbox GL JS map canvas for three.js
@@ -832,7 +821,7 @@ map.on("load", () => {
       this.scene.add(directionalLight);
 
       const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
-      directionalLight_2.position.set(30,120, 60).normalize();
+      directionalLight_2.position.set(30, 120, 60).normalize();
       directionalLight_2.castShadow = false;
       this.scene.add(directionalLight_2);
 
@@ -842,22 +831,24 @@ map.on("load", () => {
       this.scene.add(ambientLight);
 
       const path = "pisa/";
-      const format = '.png';
+      const format = ".png";
       const urls = [
-        path + 'px' + format, path + 'nx' + format,
-        path + 'py' + format, path + 'ny' + format,
-        path + 'pz' + format, path + 'nz' + format
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
       ];
 
-      const textureCube = new THREE.CubeTextureLoader().load( urls );
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
 
       scene = new THREE.Scene();
       scene.background = textureCube;
 
-
       //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
-      
+
       var loader = new THREE.GLTFLoader();
       loader.load("3d_models/01Glass.gltf", (gltf) => {
         this.scene.scale.set(0.65, 0.65, 0.65);
@@ -865,17 +856,15 @@ map.on("load", () => {
 
         var model = gltf.scene;
         var newMaterial = new THREE.MeshPhysicalMaterial({
-          
           color: 0x2d5c72,
           /* envMap: textureCube, ,*/
           transparent: true,
-          opacity: 0.4
-        
+          opacity: 0.4,
         });
         model.traverse((o) => {
-        if (o.isMesh) o.material = newMaterial;
+          if (o.isMesh) o.material = newMaterial;
         });
-        });
+      });
       this.map = map;
 
       // use the Mapbox GL JS map canvas for three.js
@@ -971,8 +960,8 @@ map.on("load", () => {
       directionalLight.castShadow = false;
       this.scene.add(directionalLight);
 
-      const directionalLight_2 = new THREE.DirectionalLight(0xe6b484, 0.5);
-      directionalLight_2.position.set(30,120, 60).normalize();
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
       directionalLight_2.castShadow = false;
       this.scene.add(directionalLight_2);
 
@@ -982,22 +971,24 @@ map.on("load", () => {
       this.scene.add(ambientLight);
 
       const path = "pisa/";
-      const format = '.png';
+      const format = ".png";
       const urls = [
-        path + 'px' + format, path + 'nx' + format,
-        path + 'py' + format, path + 'ny' + format,
-        path + 'pz' + format, path + 'nz' + format
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
       ];
 
-      const textureCube = new THREE.CubeTextureLoader().load( urls );
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
 
       scene = new THREE.Scene();
       scene.background = textureCube;
 
-
       //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
-      
+
       var loader = new THREE.GLTFLoader();
       loader.load("3d_models/02.glb", (gltf) => {
         this.scene.scale.set(0.65, 0.65, 0.65);
@@ -1005,7 +996,6 @@ map.on("load", () => {
 
         var model = gltf.scene;
         var newMaterial = new THREE.MeshPhysicalMaterial({
-          
           color: 0x848380,
           /* envMap: textureCube, */
           clearcoat: 1,
@@ -1013,9 +1003,9 @@ map.on("load", () => {
           roughness: 1,
         });
         model.traverse((o) => {
-        if (o.isMesh) o.material = newMaterial;
+          if (o.isMesh) o.material = newMaterial;
         });
-        });
+      });
       this.map = map;
 
       // use the Mapbox GL JS map canvas for three.js
@@ -1109,8 +1099,8 @@ map.on("load", () => {
       directionalLight.castShadow = false;
       this.scene.add(directionalLight);
 
-      const directionalLight_2 = new THREE.DirectionalLight(0xe6b484, 0.5);
-      directionalLight_2.position.set(30,120, 60).normalize();
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
       directionalLight_2.castShadow = false;
       this.scene.add(directionalLight_2);
 
@@ -1120,22 +1110,24 @@ map.on("load", () => {
       this.scene.add(ambientLight);
 
       const path = "pisa/";
-      const format = '.png';
+      const format = ".png";
       const urls = [
-        path + 'px' + format, path + 'nx' + format,
-        path + 'py' + format, path + 'ny' + format,
-        path + 'pz' + format, path + 'nz' + format
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
       ];
 
-      const textureCube = new THREE.CubeTextureLoader().load( urls );
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
 
       scene = new THREE.Scene();
       scene.background = textureCube;
 
-
       //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
-      
+
       var loader = new THREE.GLTFLoader();
       loader.load("3d_models/02Glass.glb", (gltf) => {
         this.scene.scale.set(0.65, 0.65, 0.65);
@@ -1143,16 +1135,15 @@ map.on("load", () => {
 
         var model = gltf.scene;
         var newMaterial = new THREE.MeshPhysicalMaterial({
-          
           color: 0x2d5c72,
           /* envMap: textureCube, ,*/
           transparent: true,
-          opacity: 0.4
+          opacity: 0.4,
         });
         model.traverse((o) => {
-        if (o.isMesh) o.material = newMaterial;
+          if (o.isMesh) o.material = newMaterial;
         });
-        });
+      });
       this.map = map;
 
       // use the Mapbox GL JS map canvas for three.js
@@ -1248,8 +1239,8 @@ map.on("load", () => {
       directionalLight.castShadow = false;
       this.scene.add(directionalLight);
 
-      const directionalLight_2 = new THREE.DirectionalLight(0xe6b484, 0.5);
-      directionalLight_2.position.set(30,120, 60).normalize();
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
       directionalLight_2.castShadow = false;
       this.scene.add(directionalLight_2);
 
@@ -1259,22 +1250,24 @@ map.on("load", () => {
       this.scene.add(ambientLight);
 
       const path = "pisa/";
-      const format = '.png';
+      const format = ".png";
       const urls = [
-        path + 'px' + format, path + 'nx' + format,
-        path + 'py' + format, path + 'ny' + format,
-        path + 'pz' + format, path + 'nz' + format
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
       ];
 
-      const textureCube = new THREE.CubeTextureLoader().load( urls );
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
 
       scene = new THREE.Scene();
       scene.background = textureCube;
 
-
       //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
-      
+
       var loader = new THREE.GLTFLoader();
       loader.load("3d_models/03.glb", (gltf) => {
         this.scene.scale.set(1, 1, 1);
@@ -1282,7 +1275,6 @@ map.on("load", () => {
 
         var model = gltf.scene;
         var newMaterial = new THREE.MeshPhysicalMaterial({
-          
           color: 0x848380,
           /* envMap: textureCube, */
           clearcoat: 1,
@@ -1290,9 +1282,9 @@ map.on("load", () => {
           roughness: 1,
         });
         model.traverse((o) => {
-        if (o.isMesh) o.material = newMaterial;
+          if (o.isMesh) o.material = newMaterial;
         });
-        });
+      });
       this.map = map;
 
       // use the Mapbox GL JS map canvas for three.js
@@ -1386,8 +1378,8 @@ map.on("load", () => {
       directionalLight.castShadow = false;
       this.scene.add(directionalLight);
 
-      const directionalLight_2 = new THREE.DirectionalLight(0xe6b484, 0.5);
-      directionalLight_2.position.set(30,120, 60).normalize();
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
       directionalLight_2.castShadow = false;
       this.scene.add(directionalLight_2);
 
@@ -1397,22 +1389,24 @@ map.on("load", () => {
       this.scene.add(ambientLight);
 
       const path = "pisa/";
-      const format = '.png';
+      const format = ".png";
       const urls = [
-        path + 'px' + format, path + 'nx' + format,
-        path + 'py' + format, path + 'ny' + format,
-        path + 'pz' + format, path + 'nz' + format
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
       ];
 
-      const textureCube = new THREE.CubeTextureLoader().load( urls );
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
 
       scene = new THREE.Scene();
       scene.background = textureCube;
 
-
       //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
-      
+
       var loader = new THREE.GLTFLoader();
       loader.load("3d_models/03Glass.glb", (gltf) => {
         this.scene.scale.set(1, 1, 1);
@@ -1420,16 +1414,15 @@ map.on("load", () => {
 
         var model = gltf.scene;
         var newMaterial = new THREE.MeshPhysicalMaterial({
-          
           color: 0x2d5c72,
           /* envMap: textureCube, ,*/
           transparent: true,
-          opacity: 0.4
+          opacity: 0.4,
         });
         model.traverse((o) => {
-        if (o.isMesh) o.material = newMaterial;
+          if (o.isMesh) o.material = newMaterial;
         });
-        });
+      });
       this.map = map;
 
       // use the Mapbox GL JS map canvas for three.js
@@ -1485,7 +1478,6 @@ map.on("load", () => {
 //-------------------------------------------
 
 map.addControl(new mapboxgl.NavigationControl(), "top-right");
-
 
 document.getElementById("p1-view").addEventListener("click", () => {
   map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
