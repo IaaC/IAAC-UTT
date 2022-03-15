@@ -9,21 +9,26 @@
   top: 0;
   right: 0;
   width: 100%;
-  height: 78%;
+  height: 84% !important;
   align-items: center;
-  margin-top: 110px;
+  margin-top: 4%;
+  margin-bottom: 2% !important;
   margin-right: auto !important;
   margin-left: auto !important;
-  margin-bottom: 150px !important;
   flex-direction: column;
   align-content: flex-start;
   padding-top: 0%;
 }
 
+
+.modal-dialog{
+  width: 800px;
+  height: 100%;
+  }
 .modal-content {
   background-color: rgba(255, 255, 255, 0.842);
   width: 100%;
-  height: 750px;
+  height: 100%;
 }
 .rounded-4 {
   border-radius: 0.5rem;
@@ -139,9 +144,9 @@
 .dev-sign-content {
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
   align-content: flex-start;
-  height: 100%;
-  overflow: hidden;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -159,8 +164,8 @@
   flex-direction: column;
   align-content: flex-start;
   height: 32%;
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -238,4 +243,6 @@
 .dash-board-chart {
   padding: 0 !important;
   margin: 0 !important;
+  overflow-x: hidden;
+  overflow-y: auto !important;
 }

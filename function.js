@@ -4,78 +4,218 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/heshamshawqy/ckxynknb6e0r114ped9w2ifqc",
-  center: [10.75023856573, 59.91248024216242],
+  center: [10.71523856573, 59.91248024216242],
   zoom: 12,
 });
+// disable map rotation using right click + drag
+// disable map rotation using touch rotation gesture
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
 
-const aerial = [10.75023856573, 59.91248024216242];
+const aerial = [10.71523856573, 59.91248024216242];
 const project01_location = [10.749895477789892, 59.92315353075296];
 const project02_location = [10.726669019577955, 59.91242763463297];
 const project03_location = [10.789910419474456, 59.91557188035373];
 
 //PROJECT VIEWS
-//-------------------------------------------
-document.getElementById("p1-view").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 18,
-    pitch: 60,
-    bearing: 215,
+//------------------------------------------
+
+//PROJECT 01
+//------------------------------------------
+map.on("load", () => {
+  document.getElementById("p1-view").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 18,
+      pitch: 60,
+      bearing: 215,
+    });
+
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
+  });
+
+  document.getElementById("p1-aerial").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: aerial,
+      zoom: 12,
+      bearing: 0,
+      pitch: -180,
+
+      // The zooming curve
+      speed: 0.8, // make the flying slow
+      curve: 2, // change the speed at which it zooms out
+    });
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
+  });
+
+  document.getElementById("p1-v1").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 280,
+    });
+  });
+
+  document.getElementById("p1-v2").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 19,
+      pitch: 100,
+      bearing: 200,
+    });
+  });
+
+  document.getElementById("p1-v3").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project01_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 220,
+    });
   });
 });
 
-document.getElementById("p1-aerial").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: aerial,
-    zoom: 12,
-    bearing: 0,
-    pitch: -180,
+//PROJECT 02
+//------------------------------------------
+map.on("load", () => {
+  document.getElementById("p2-view").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project02_location,
+      zoom: 18,
+      pitch: 60,
+      bearing: -30,
+    });
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
+  });
 
-    // The zooming curve
-    speed: 0.8, // make the flying slow
-    curve: 2, // change the speed at which it zooms out
+  document.getElementById("p2-aerial").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: aerial,
+      zoom: 12,
+      bearing: 0,
+      pitch: -180,
+
+      // The zooming curve
+      speed: 0.8, // make the flying slow
+      curve: 2, // change the speed at which it zooms out
+    });
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
+  });
+
+  document.getElementById("p2-v1").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project02_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 280,
+    });
+  });
+
+  document.getElementById("p2-v2").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project02_location,
+      zoom: 19,
+      pitch: 100,
+      bearing: 150,
+    });
+  });
+
+  document.getElementById("p2-v3").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project02_location,
+      zoom: 17.5,
+      pitch: 50,
+      bearing: 360,
+    });
   });
 });
 
-document.getElementById("p1-v1").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 17,
-    pitch: 50,
-    bearing: 280,
+//PROJECT 03
+//------------------------------------------
+map.on("load", () => {
+  document.getElementById("p3-view").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project03_location,
+      zoom: 17.5,
+      pitch: 55.5,
+      bearing: -200,
+    });
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
   });
-});
 
-document.getElementById("p1-v2").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 19,
-    pitch: 100,
-    bearing: 200,
+  document.getElementById("p3-aerial").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: aerial,
+      zoom: 12,
+      bearing: 0,
+      pitch: -180,
+
+      // The zooming curve
+      speed: 0.8, // make the flying slow
+      curve: 2, // change the speed at which it zooms out
+    });
+    map.dragRotate.disable();
+    map.touchZoomRotate.disableRotation();
   });
-});
 
-document.getElementById("p1-v3").addEventListener("click", () => {
-  map.flyTo({
-    // camera properties
-    center: project01_location,
-    zoom: 17,
-    pitch: 50,
-    bearing: 220,
+  document.getElementById("p3-v1").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project03_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 280,
+    });
+  });
+
+  document.getElementById("p3-v2").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project03_location,
+      zoom: 19,
+      pitch: 100,
+      bearing: 200,
+    });
+  });
+
+  document.getElementById("p3-v3").addEventListener("click", () => {
+    map.flyTo({
+      // camera properties
+      center: project03_location,
+      zoom: 17,
+      pitch: 50,
+      bearing: 5,
+    });
   });
 });
 
 // building animate
 
 function rotateCamera(timestamp) {
+  map.dragRotate.enable();
+  map.touchZoomRotate.enable();
   // clamp the rotation between 0 -360 degrees
   // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-  map.rotateTo((timestamp / 50) % 360, {
-    duration: 10,
+  map.rotateTo((timestamp / 100) % 360, {
+    duration: 0,
   });
   // Request the next frame of the animation.
   requestId = window.requestAnimationFrame(rotateCamera);
@@ -337,24 +477,31 @@ map.on("load", () => {
     });
     navToggleP1();
     testiToggle();
+    listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
     remove.mapboxgl.popup();
   });
+
   map.on("click", ["layer-with-pulsing-dot-02"], (e) => {
     map.getCanvas().style.cursor = "pointer";
     map.flyTo({
       center: e.features[0].geometry.coordinates,
-      zoom: 17.5,
-      pitch: 55.5,
-      bearing: -152,
+      zoom: 18,
+      pitch: 60,
+      bearing: -30,
     });
-    navToggleP1();
-    testiToggle();
+    navToggleP2();
+    testiToggleP2();
+    listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
     remove.mapboxgl.popup();
   });
   map.on("click", ["layer-with-pulsing-dot-03"], (e) => {
@@ -363,13 +510,16 @@ map.on("load", () => {
       center: e.features[0].geometry.coordinates,
       zoom: 17.5,
       pitch: 55.5,
-      bearing: -152,
+      bearing: -200,
     });
-    navToggleP1();
-    testiToggle();
+    navToggleP3();
+    testiToggleP3();
+    listToggle();
     map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
     map.setLayoutProperty("state-fills", "visibility", "none");
     map.setLayoutProperty("state-borders", "visibility", "none");
+    map.dragRotate.enable();
+    map.touchZoomRotate.enable();
     remove.mapboxgl.popup();
   });
 });
@@ -486,6 +636,9 @@ map.on("load", () => {
 
 //GLTF LOADER - RHINO MODEL
 //-------------------------------------------
+
+//PROJECT01
+//-------------------------------------------
 map.on("load", () => {
   // parameters to ensure the model is georeferenced correctly on the map
   const modelOrigin = project01_location;
@@ -524,21 +677,55 @@ map.on("load", () => {
 
       // create two three.js lights to illuminate the model
       const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-      directionalLight.position.set(-280, 0, 100).normalize();
-      directionalLight.castShadow = true;
+      directionalLight.position.set(120, 0, 100).normalize();
+      directionalLight.castShadow = false;
       this.scene.add(directionalLight);
 
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
+      directionalLight_2.castShadow = false;
+      this.scene.add(directionalLight_2);
+
       // add ambient light
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
       ambientLight.castShadow = true;
       this.scene.add(ambientLight);
 
+      const path = "pisa/";
+      const format = ".png";
+      const urls = [
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
+      ];
+
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
+
+      scene = new THREE.Scene();
+      scene.background = textureCube;
+
       //GLTF IMPORT
       // use the three.js GLTF loader to add the 3D model to the three.js scene
+
       var loader = new THREE.GLTFLoader();
       loader.load("3d_models/01.glb", (gltf) => {
         this.scene.scale.set(0.65, 0.65, 0.65);
         this.scene.add(gltf.scene);
+
+        var model = gltf.scene;
+        var newMaterial = new THREE.MeshPhysicalMaterial({
+          color: 0x848380,
+          /* envMap: textureCube, */
+          clearcoat: 1,
+          clearcoatRoughness: 0.2,
+          roughness: 1,
+        });
+        model.traverse((o) => {
+          if (o.isMesh) o.material = newMaterial;
+        });
       });
       this.map = map;
 
@@ -591,93 +778,706 @@ map.on("load", () => {
   };
   map.addLayer(customLayer, "waterway-label");
 });
+map.on("load", () => {
+  // parameters to ensure the model is georeferenced correctly on the map
+  const modelOrigin = project01_location;
+  const modelAltitude = 0;
+  const modelRotate = [Math.PI / 2, 260, 0];
 
-// Add geocoder to the map(search buttom)
-//-------------------------------------------
-const geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken,
-  types: "poi",
-  // see https://docs.mapbox.com/api/search/#geocoding-response-object for information about the schema of each response feature
-  render: function (item) {
-    // extract the item's maki icon or use a default
-    const maki = item.properties.maki || "marker";
-    return `<div class='geocoder-dropdown-item'>
-      <img class='geocoder-dropdown-icon' src='https://unpkg.com/@mapbox/maki@6.1.0/icons/${maki}-15.svg'>
-      <span class='geocoder-dropdown-text'>
-      ${item.text}
-      </span>
-      </div>`;
-  },
-  mapboxgl: mapboxgl,
+  const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+    modelOrigin,
+    modelAltitude
+  );
+
+  // transformation parameters to position, rotate and scale the 3D model onto the map
+  const modelTransform = {
+    translateX: modelAsMercatorCoordinate.x,
+    translateY: modelAsMercatorCoordinate.y,
+    translateZ: modelAsMercatorCoordinate.z,
+    rotateX: modelRotate[0],
+    rotateY: modelRotate[1],
+    rotateZ: modelRotate[2],
+    /* Since the 3D model is in real world meters, a scale transform needs to be
+     * applied since the CustomLayerInterface expects units in MercatorCoordinates.
+     */
+    scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits(),
+  };
+
+  const THREE = window.THREE;
+
+  // configuration of the custom layer for a 3D model per the CustomLayerInterface
+  const customLayer = {
+    id: "3d-model-02",
+    type: "custom",
+    renderingMode: "3d",
+    onAdd: function (map, gl) {
+      this.camera = new THREE.Camera();
+      this.scene = new THREE.Scene();
+
+      // create two three.js lights to illuminate the model
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(120, 0, 100).normalize();
+      directionalLight.castShadow = false;
+      this.scene.add(directionalLight);
+
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
+      directionalLight_2.castShadow = false;
+      this.scene.add(directionalLight_2);
+
+      // add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+      ambientLight.castShadow = true;
+      this.scene.add(ambientLight);
+
+      const path = "pisa/";
+      const format = ".png";
+      const urls = [
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
+      ];
+
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
+
+      scene = new THREE.Scene();
+      scene.background = textureCube;
+
+      //GLTF IMPORT
+      // use the three.js GLTF loader to add the 3D model to the three.js scene
+
+      var loader = new THREE.GLTFLoader();
+      loader.load("3d_models/01Glass.gltf", (gltf) => {
+        this.scene.scale.set(0.65, 0.65, 0.65);
+        this.scene.add(gltf.scene);
+
+        var model = gltf.scene;
+        var newMaterial = new THREE.MeshPhysicalMaterial({
+          color: 0x2d5c72,
+          /* envMap: textureCube, ,*/
+          transparent: true,
+          opacity: 0.4,
+        });
+        model.traverse((o) => {
+          if (o.isMesh) o.material = newMaterial;
+        });
+      });
+      this.map = map;
+
+      // use the Mapbox GL JS map canvas for three.js
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: map.getCanvas(),
+        context: gl,
+        antialias: true,
+      });
+
+      this.renderer.autoClear = false;
+    },
+    render: function (gl, matrix) {
+      const rotationX = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(1, 0, 0),
+        modelTransform.rotateX
+      );
+      const rotationY = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 1, 0),
+        modelTransform.rotateY
+      );
+      const rotationZ = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 0, 1),
+        modelTransform.rotateZ
+      );
+
+      const m = new THREE.Matrix4().fromArray(matrix);
+      const l = new THREE.Matrix4()
+        .makeTranslation(
+          modelTransform.translateX,
+          modelTransform.translateY,
+          modelTransform.translateZ
+        )
+        .scale(
+          new THREE.Vector3(
+            modelTransform.scale,
+            -modelTransform.scale,
+            modelTransform.scale
+          )
+        )
+        .multiply(rotationX)
+        .multiply(rotationY)
+        .multiply(rotationZ);
+
+      this.camera.projectionMatrix = m.multiply(l);
+      this.renderer.resetState();
+      this.renderer.render(this.scene, this.camera);
+      this.map.triggerRepaint();
+    },
+  };
+  map.addLayer(customLayer, "waterway-label");
 });
-
-// Add navigation tools
+//PROJECT02
 //-------------------------------------------
-class PitchToggle {
-  constructor({ bearing = -20, pitch = 50, minpitchzoom = null }) {
-    this._bearing = bearing;
-    this._pitch = pitch;
-    this._minpitchzoom = minpitchzoom;
-  }
+map.on("load", () => {
+  // parameters to ensure the model is georeferenced correctly on the map
+  const modelOrigin = project02_location;
+  const modelAltitude = 0;
+  const modelRotate = [Math.PI / 2, 20, 0];
 
-  onAdd(map) {
-    this._map = map;
-    let _this = this;
+  const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+    modelOrigin,
+    modelAltitude
+  );
 
-    this._btn = document.createElement("button");
-    this._btn.className = "mapboxgl-ctrl-icon mapboxgl-ctrl-pitchtoggle-3d";
-    this._btn.type = "button";
-    this._btn["aria-label"] = "Toggle Pitch";
-    this._btn.onclick = function () {
-      if (map.getPitch() === 0) {
-        let options = { pitch: _this._pitch, bearing: _this._bearing };
-        if (_this._minpitchzoom && map.getZoom() > _this._minpitchzoom) {
-          options.zoom = _this._minpitchzoom;
-        }
-        map.easeTo(options);
-        _this._btn.className =
-          "mapboxgl-ctrl-icon mapboxgl-ctrl-pitchtoggle-2d";
-      } else {
-        map.easeTo({ pitch: 0, bearing: 0 });
-        _this._btn.className =
-          "mapboxgl-ctrl-icon mapboxgl-ctrl-pitchtoggle-3d";
-      }
-    };
+  // transformation parameters to position, rotate and scale the 3D model onto the map
+  const modelTransform = {
+    translateX: modelAsMercatorCoordinate.x,
+    translateY: modelAsMercatorCoordinate.y,
+    translateZ: modelAsMercatorCoordinate.z,
+    rotateX: modelRotate[0],
+    rotateY: modelRotate[1],
+    rotateZ: modelRotate[2],
+    /* Since the 3D model is in real world meters, a scale transform needs to be
+     * applied since the CustomLayerInterface expects units in MercatorCoordinates.
+     */
+    scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits(),
+  };
 
-    this._container = document.createElement("div");
-    this._container.className = "mapboxgl-ctrl mapboxgl-ctrl-group";
-    this._container.appendChild(this._btn);
+  const THREE = window.THREE;
 
-    return this._container;
-  }
+  // configuration of the custom layer for a 3D model per the CustomLayerInterface
+  const customLayer = {
+    id: "3d-model3",
+    type: "custom",
+    renderingMode: "3d",
+    onAdd: function (map, gl) {
+      this.camera = new THREE.Camera();
+      this.scene = new THREE.Scene();
 
-  onRemove() {
-    this._container.parentNode.removeChild(this._container);
-    this._map = undefined;
-  }
-}
+      // create two three.js lights to illuminate the model
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(120, 0, 100).normalize();
+      directionalLight.castShadow = false;
+      this.scene.add(directionalLight);
 
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
+      directionalLight_2.castShadow = false;
+      this.scene.add(directionalLight_2);
+
+      // add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+      ambientLight.castShadow = true;
+      this.scene.add(ambientLight);
+
+      const path = "pisa/";
+      const format = ".png";
+      const urls = [
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
+      ];
+
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
+
+      scene = new THREE.Scene();
+      scene.background = textureCube;
+
+      //GLTF IMPORT
+      // use the three.js GLTF loader to add the 3D model to the three.js scene
+
+      var loader = new THREE.GLTFLoader();
+      loader.load("3d_models/02.glb", (gltf) => {
+        this.scene.scale.set(0.65, 0.65, 0.65);
+        this.scene.add(gltf.scene);
+
+        var model = gltf.scene;
+        var newMaterial = new THREE.MeshPhysicalMaterial({
+          color: 0x848380,
+          /* envMap: textureCube, */
+          clearcoat: 1,
+          clearcoatRoughness: 0.2,
+          roughness: 1,
+        });
+        model.traverse((o) => {
+          if (o.isMesh) o.material = newMaterial;
+        });
+      });
+      this.map = map;
+
+      // use the Mapbox GL JS map canvas for three.js
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: map.getCanvas(),
+        context: gl,
+        antialias: true,
+      });
+
+      this.renderer.autoClear = false;
+    },
+    render: function (gl, matrix) {
+      const rotationX = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(1, 0, 0),
+        modelTransform.rotateX
+      );
+      const rotationY = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 1, 0),
+        modelTransform.rotateY
+      );
+      const rotationZ = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 0, 1),
+        modelTransform.rotateZ
+      );
+
+      const m = new THREE.Matrix4().fromArray(matrix);
+      const l = new THREE.Matrix4()
+        .makeTranslation(
+          modelTransform.translateX,
+          modelTransform.translateY,
+          modelTransform.translateZ
+        )
+        .scale(
+          new THREE.Vector3(
+            modelTransform.scale,
+            -modelTransform.scale,
+            modelTransform.scale
+          )
+        )
+        .multiply(rotationX)
+        .multiply(rotationY)
+        .multiply(rotationZ);
+
+      this.camera.projectionMatrix = m.multiply(l);
+      this.renderer.resetState();
+      this.renderer.render(this.scene, this.camera);
+      this.map.triggerRepaint();
+    },
+  };
+  map.addLayer(customLayer, "waterway-label");
+});
+map.on("load", () => {
+  // parameters to ensure the model is georeferenced correctly on the map
+  const modelOrigin = project02_location;
+  const modelAltitude = 0;
+  const modelRotate = [Math.PI / 2, 20, 0];
+
+  const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+    modelOrigin,
+    modelAltitude
+  );
+
+  // transformation parameters to position, rotate and scale the 3D model onto the map
+  const modelTransform = {
+    translateX: modelAsMercatorCoordinate.x,
+    translateY: modelAsMercatorCoordinate.y,
+    translateZ: modelAsMercatorCoordinate.z,
+    rotateX: modelRotate[0],
+    rotateY: modelRotate[1],
+    rotateZ: modelRotate[2],
+    /* Since the 3D model is in real world meters, a scale transform needs to be
+     * applied since the CustomLayerInterface expects units in MercatorCoordinates.
+     */
+    scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits(),
+  };
+
+  const THREE = window.THREE;
+
+  // configuration of the custom layer for a 3D model per the CustomLayerInterface
+  const customLayer = {
+    id: "3d-model4",
+    type: "custom",
+    renderingMode: "3d",
+    onAdd: function (map, gl) {
+      this.camera = new THREE.Camera();
+      this.scene = new THREE.Scene();
+
+      // create two three.js lights to illuminate the model
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(120, 0, 100).normalize();
+      directionalLight.castShadow = false;
+      this.scene.add(directionalLight);
+
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
+      directionalLight_2.castShadow = false;
+      this.scene.add(directionalLight_2);
+
+      // add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+      ambientLight.castShadow = true;
+      this.scene.add(ambientLight);
+
+      const path = "pisa/";
+      const format = ".png";
+      const urls = [
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
+      ];
+
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
+
+      scene = new THREE.Scene();
+      scene.background = textureCube;
+
+      //GLTF IMPORT
+      // use the three.js GLTF loader to add the 3D model to the three.js scene
+
+      var loader = new THREE.GLTFLoader();
+      loader.load("3d_models/02Glass.glb", (gltf) => {
+        this.scene.scale.set(0.65, 0.65, 0.65);
+        this.scene.add(gltf.scene);
+
+        var model = gltf.scene;
+        var newMaterial = new THREE.MeshPhysicalMaterial({
+          color: 0x2d5c72,
+          /* envMap: textureCube, ,*/
+          transparent: true,
+          opacity: 0.4,
+        });
+        model.traverse((o) => {
+          if (o.isMesh) o.material = newMaterial;
+        });
+      });
+      this.map = map;
+
+      // use the Mapbox GL JS map canvas for three.js
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: map.getCanvas(),
+        context: gl,
+        antialias: true,
+      });
+
+      this.renderer.autoClear = false;
+    },
+    render: function (gl, matrix) {
+      const rotationX = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(1, 0, 0),
+        modelTransform.rotateX
+      );
+      const rotationY = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 1, 0),
+        modelTransform.rotateY
+      );
+      const rotationZ = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 0, 1),
+        modelTransform.rotateZ
+      );
+
+      const m = new THREE.Matrix4().fromArray(matrix);
+      const l = new THREE.Matrix4()
+        .makeTranslation(
+          modelTransform.translateX,
+          modelTransform.translateY,
+          modelTransform.translateZ
+        )
+        .scale(
+          new THREE.Vector3(
+            modelTransform.scale,
+            -modelTransform.scale,
+            modelTransform.scale
+          )
+        )
+        .multiply(rotationX)
+        .multiply(rotationY)
+        .multiply(rotationZ);
+
+      this.camera.projectionMatrix = m.multiply(l);
+      this.renderer.resetState();
+      this.renderer.render(this.scene, this.camera);
+      this.map.triggerRepaint();
+    },
+  };
+  map.addLayer(customLayer, "waterway-label");
+});
+//PROJECT03
+//-------------------------------------------
+map.on("load", () => {
+  // parameters to ensure the model is georeferenced correctly on the map
+  const modelOrigin = project03_location;
+  const modelAltitude = 0;
+  const modelRotate = [Math.PI / 2, 260, 0];
+
+  const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+    modelOrigin,
+    modelAltitude
+  );
+
+  // transformation parameters to position, rotate and scale the 3D model onto the map
+  const modelTransform = {
+    translateX: modelAsMercatorCoordinate.x,
+    translateY: modelAsMercatorCoordinate.y,
+    translateZ: modelAsMercatorCoordinate.z,
+    rotateX: modelRotate[0],
+    rotateY: modelRotate[1],
+    rotateZ: modelRotate[2],
+    /* Since the 3D model is in real world meters, a scale transform needs to be
+     * applied since the CustomLayerInterface expects units in MercatorCoordinates.
+     */
+    scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits(),
+  };
+
+  const THREE = window.THREE;
+
+  // configuration of the custom layer for a 3D model per the CustomLayerInterface
+  const customLayer = {
+    id: "3d-model5",
+    type: "custom",
+    renderingMode: "3d",
+    onAdd: function (map, gl) {
+      this.camera = new THREE.Camera();
+      this.scene = new THREE.Scene();
+
+      // create two three.js lights to illuminate the model
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(120, 0, 100).normalize();
+      directionalLight.castShadow = false;
+      this.scene.add(directionalLight);
+
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
+      directionalLight_2.castShadow = false;
+      this.scene.add(directionalLight_2);
+
+      // add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+      ambientLight.castShadow = true;
+      this.scene.add(ambientLight);
+
+      const path = "pisa/";
+      const format = ".png";
+      const urls = [
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
+      ];
+
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
+
+      scene = new THREE.Scene();
+      scene.background = textureCube;
+
+      //GLTF IMPORT
+      // use the three.js GLTF loader to add the 3D model to the three.js scene
+
+      var loader = new THREE.GLTFLoader();
+      loader.load("3d_models/03.glb", (gltf) => {
+        this.scene.scale.set(1, 1, 1);
+        this.scene.add(gltf.scene);
+
+        var model = gltf.scene;
+        var newMaterial = new THREE.MeshPhysicalMaterial({
+          color: 0x848380,
+          /* envMap: textureCube, */
+          clearcoat: 1,
+          clearcoatRoughness: 0.2,
+          roughness: 1,
+        });
+        model.traverse((o) => {
+          if (o.isMesh) o.material = newMaterial;
+        });
+      });
+      this.map = map;
+
+      // use the Mapbox GL JS map canvas for three.js
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: map.getCanvas(),
+        context: gl,
+        antialias: true,
+      });
+
+      this.renderer.autoClear = false;
+    },
+    render: function (gl, matrix) {
+      const rotationX = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(1, 0, 0),
+        modelTransform.rotateX
+      );
+      const rotationY = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 1, 0),
+        modelTransform.rotateY
+      );
+      const rotationZ = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 0, 1),
+        modelTransform.rotateZ
+      );
+
+      const m = new THREE.Matrix4().fromArray(matrix);
+      const l = new THREE.Matrix4()
+        .makeTranslation(
+          modelTransform.translateX,
+          modelTransform.translateY,
+          modelTransform.translateZ
+        )
+        .scale(
+          new THREE.Vector3(
+            modelTransform.scale,
+            -modelTransform.scale,
+            modelTransform.scale
+          )
+        )
+        .multiply(rotationX)
+        .multiply(rotationY)
+        .multiply(rotationZ);
+
+      this.camera.projectionMatrix = m.multiply(l);
+      this.renderer.resetState();
+      this.renderer.render(this.scene, this.camera);
+      this.map.triggerRepaint();
+    },
+  };
+  map.addLayer(customLayer, "waterway-label");
+});
+map.on("load", () => {
+  // parameters to ensure the model is georeferenced correctly on the map
+  const modelOrigin = project03_location;
+  const modelAltitude = 0;
+  const modelRotate = [Math.PI / 2, 260, 0];
+
+  const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+    modelOrigin,
+    modelAltitude
+  );
+
+  // transformation parameters to position, rotate and scale the 3D model onto the map
+  const modelTransform = {
+    translateX: modelAsMercatorCoordinate.x,
+    translateY: modelAsMercatorCoordinate.y,
+    translateZ: modelAsMercatorCoordinate.z,
+    rotateX: modelRotate[0],
+    rotateY: modelRotate[1],
+    rotateZ: modelRotate[2],
+    /* Since the 3D model is in real world meters, a scale transform needs to be
+     * applied since the CustomLayerInterface expects units in MercatorCoordinates.
+     */
+    scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits(),
+  };
+
+  const THREE = window.THREE;
+
+  // configuration of the custom layer for a 3D model per the CustomLayerInterface
+  const customLayer = {
+    id: "3d-model6",
+    type: "custom",
+    renderingMode: "3d",
+    onAdd: function (map, gl) {
+      this.camera = new THREE.Camera();
+      this.scene = new THREE.Scene();
+
+      // create two three.js lights to illuminate the model
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(120, 0, 100).normalize();
+      directionalLight.castShadow = false;
+      this.scene.add(directionalLight);
+
+      const directionalLight_2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight_2.position.set(30, 120, 60).normalize();
+      directionalLight_2.castShadow = false;
+      this.scene.add(directionalLight_2);
+
+      // add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+      ambientLight.castShadow = true;
+      this.scene.add(ambientLight);
+
+      const path = "pisa/";
+      const format = ".png";
+      const urls = [
+        path + "px" + format,
+        path + "nx" + format,
+        path + "py" + format,
+        path + "ny" + format,
+        path + "pz" + format,
+        path + "nz" + format,
+      ];
+
+      const textureCube = new THREE.CubeTextureLoader().load(urls);
+
+      scene = new THREE.Scene();
+      scene.background = textureCube;
+
+      //GLTF IMPORT
+      // use the three.js GLTF loader to add the 3D model to the three.js scene
+
+      var loader = new THREE.GLTFLoader();
+      loader.load("3d_models/03Glass.glb", (gltf) => {
+        this.scene.scale.set(1, 1, 1);
+        this.scene.add(gltf.scene);
+
+        var model = gltf.scene;
+        var newMaterial = new THREE.MeshPhysicalMaterial({
+          color: 0x2d5c72,
+          /* envMap: textureCube, ,*/
+          transparent: true,
+          opacity: 0.4,
+        });
+        model.traverse((o) => {
+          if (o.isMesh) o.material = newMaterial;
+        });
+      });
+      this.map = map;
+
+      // use the Mapbox GL JS map canvas for three.js
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: map.getCanvas(),
+        context: gl,
+        antialias: true,
+      });
+
+      this.renderer.autoClear = false;
+    },
+    render: function (gl, matrix) {
+      const rotationX = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(1, 0, 0),
+        modelTransform.rotateX
+      );
+      const rotationY = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 1, 0),
+        modelTransform.rotateY
+      );
+      const rotationZ = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 0, 1),
+        modelTransform.rotateZ
+      );
+
+      const m = new THREE.Matrix4().fromArray(matrix);
+      const l = new THREE.Matrix4()
+        .makeTranslation(
+          modelTransform.translateX,
+          modelTransform.translateY,
+          modelTransform.translateZ
+        )
+        .scale(
+          new THREE.Vector3(
+            modelTransform.scale,
+            -modelTransform.scale,
+            modelTransform.scale
+          )
+        )
+        .multiply(rotationX)
+        .multiply(rotationY)
+        .multiply(rotationZ);
+
+      this.camera.projectionMatrix = m.multiply(l);
+      this.renderer.resetState();
+      this.renderer.render(this.scene, this.camera);
+      this.map.triggerRepaint();
+    },
+  };
+  map.addLayer(customLayer, "waterway-label");
+});
 // Mapbox Controls
 //-------------------------------------------
-/* map.addControl(geocoder, "top-right"); */
-/* map.addControl(new mapboxgl.FullscreenControl()); */
-map.addControl(new mapboxgl.NavigationControl(), "top-right");
-/* map.addControl(new PitchToggle({ minpitchzoom: 15 }), "top-right"); */
 
-// Add geolocate control to the map to locate the user location.
-//-------------------------------------------
-/* map.addControl(
-  new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true,
-    },
-    // When active the map will receive updates to the device's location as it changes.
-    trackUserLocation: true,
-    showAccuracyCircle: true,
-    // Draw an arrow next to the location dot to indicate which direction the device is heading.
-    showUserHeading: true,
-  })
-); */
+map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
 document.getElementById("p1-view").addEventListener("click", () => {
   map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
@@ -687,6 +1487,20 @@ document.getElementById("p1-view").addEventListener("click", () => {
   map.setLayoutProperty("state-borders", "visibility", "none");
 });
 
+document.getElementById("p2-view").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
+  map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
+  map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
+  map.setLayoutProperty("state-fills", "visibility", "none");
+  map.setLayoutProperty("state-borders", "visibility", "none");
+});
+document.getElementById("p3-view").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
+  map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "none");
+  map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "none");
+  map.setLayoutProperty("state-fills", "visibility", "none");
+  map.setLayoutProperty("state-borders", "visibility", "none");
+});
 document.getElementById("p1-aerial").addEventListener("click", () => {
   map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "visible");
   map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "visible");
@@ -695,10 +1509,18 @@ document.getElementById("p1-aerial").addEventListener("click", () => {
   map.setLayoutProperty("state-borders", "visibility", "visible");
 });
 
-/* map.on("click", ["layer-with-pulsing-dot-01"], (e) => {
-  map.getCanvas().style.cursor = "pointer";
-  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "none");
-  map.setLayoutProperty("state-fills", "visibility", "none");
-  map.setLayoutProperty("state-borders", "visibility", "none");
+document.getElementById("p2-aerial").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "visible");
+  map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "visible");
+  map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "visible");
+  map.setLayoutProperty("state-fills", "visibility", "visible");
+  map.setLayoutProperty("state-borders", "visibility", "visible");
 });
- */
+
+document.getElementById("p3-aerial").addEventListener("click", () => {
+  map.setLayoutProperty("layer-with-pulsing-dot-01", "visibility", "visible");
+  map.setLayoutProperty("layer-with-pulsing-dot-02", "visibility", "visible");
+  map.setLayoutProperty("layer-with-pulsing-dot-03", "visibility", "visible");
+  map.setLayoutProperty("state-fills", "visibility", "visible");
+  map.setLayoutProperty("state-borders", "visibility", "visible");
+});

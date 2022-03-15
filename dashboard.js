@@ -26,6 +26,7 @@
           borderWidth: 2,
           pointRadius: 10,
           pointBackgroundColor: "#04aa6d",
+          fontSize: 5,
         },
       ],
     },
@@ -35,6 +36,19 @@
           {
             ticks: {
               beginAtZero: false,
+              autoSkip: false,
+              maxRotation: 90,
+              minRotation: 90,
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              beginAtZero: false,
+              autoSkip: false,
+              maxRotation: 90,
+              minRotation: 90,
             },
           },
         ],
