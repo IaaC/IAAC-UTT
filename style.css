@@ -1038,6 +1038,12 @@ color: black;
 #hidden-comment {
   display: none;
 }
+#hidden-comment-2 {
+  display: none;
+}
+#hidden-comment-3 {
+  display: none;
+}
 
 /* COMMENT PANEL
 -------------------------------------------------- */

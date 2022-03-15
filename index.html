@@ -266,46 +266,36 @@ id="listWrapper"
       <h5 class="score-first-title">Objective01</h5>
 
       <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="40"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">40</output>
+        <!-- Double range slider with different CSS variables & all possible values printed across -->
+        <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:5; --text-value-a:"2"; --text-value-b:"5";'>
+        <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+        <input type="range" min="0" max="10" value="5" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+         <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+        <div class='range-slider__progress'></div>
+        </div>
+        </div>
+        
+        <h5 class="score-first-title">Objective02</h5>
+
+        <div class="slidecontainer">
+          <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:3; --text-value-a:"2"; --text-value-b:"3";'>
+            <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+            <input type="range" min="0" max="10" value="3" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+             <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+            <div class='range-slider__progress'></div>
+            </div>
+        </div>
+        <h5 class="score-first-title">Objective03</h5>
+
+        <div class="slidecontainer">
+          <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:10; --text-value-a:"2"; --text-value-b:"10";'>
+            <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+            <input type="range" min="0" max="10" value="10" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+             <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+            <div class='range-slider__progress'></div>
+            </div>
+        </div>
       </div>
-      <h5 class="score-first-title">Objective02</h5>
-
-      <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="65"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">65</output>
-      </div>
-      <h5 class="score-first-title">Objective03</h5>
-
-      <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="24"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">24</output>
-      </div>
-    </div>
-
-
-  </div>
 
 <!-- COMMENT PANEL
 ---------------------------------------------->
@@ -466,43 +456,35 @@ id="listWrapper"
       <h5 class="score-first-title">Objective01</h5>
 
       <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="20"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">20</output>
-      </div>
-      <h5 class="score-first-title">Objective02</h5>
+        <!-- Double range slider with different CSS variables & all possible values printed across -->
+        <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:5; --text-value-a:"2"; --text-value-b:"5";'>
+        <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+        <input type="range" min="0" max="10" value="5" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+         <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+        <div class='range-slider__progress'></div>
+        </div>
+        </div>
+        
+        <h5 class="score-first-title">Objective02</h5>
 
-      <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="15"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">15</output>
-      </div>
-      <h5 class="score-first-title">Objective03</h5>
+        <div class="slidecontainer">
+          <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:3; --text-value-a:"2"; --text-value-b:"3";'>
+            <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+            <input type="range" min="0" max="10" value="3" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+             <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+            <div class='range-slider__progress'></div>
+            </div>
+        </div>
+        <h5 class="score-first-title">Objective03</h5>
 
-      <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="64"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">64</output>
-      </div>
-    </div>
+        <div class="slidecontainer">
+          <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:10; --text-value-a:"2"; --text-value-b:"10";'>
+            <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+            <input type="range" min="0" max="10" value="10" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+             <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+            <div class='range-slider__progress'></div>
+            </div>
+        </div>
 
 
   </div>
@@ -520,7 +502,7 @@ id="listWrapper"
                       <div class="panel-body">
                           <textarea id="user-input" class="form-control" placeholder="write a comment..." rows="3"></textarea>
                           <br>
-                          <button type="button" class="btn btn-info pull-right" onclick="user_comment_2(), commentToggle()">Submit</button>
+                          <button type="button" class="btn btn-info pull-right" onclick="user_comment_2(), commentToggle_2()">Submit</button>
                           <div class="clearfix"></div>
                           <ul class="media-list">
                               <li id="hidden-comment-2" class="media">
@@ -652,7 +634,7 @@ id="listWrapper"
 ---------------------------------------------->
     <div class="project-info">
     <article>
-      <h3 class="project-title">Vika Hospital</h3>
+      <h3 class="project-title">GRØNLIKAIA</h3>
       <p class="project-intro">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
         odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
@@ -667,43 +649,35 @@ id="listWrapper"
       <h5 class="score-first-title">Objective01</h5>
 
       <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="40"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">40</output>
-      </div>
-      <h5 class="score-first-title">Objective02</h5>
+        <!-- Double range slider with different CSS variables & all possible values printed across -->
+        <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:5; --text-value-a:"2"; --text-value-b:"5";'>
+        <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+        <input type="range" min="0" max="10" value="5" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+         <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+        <div class='range-slider__progress'></div>
+        </div>
+        </div>
+        
+        <h5 class="score-first-title">Objective02</h5>
 
-      <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="65"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">65</output>
-      </div>
-      <h5 class="score-first-title">Objective03</h5>
+        <div class="slidecontainer">
+          <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:3; --text-value-a:"2"; --text-value-b:"3";'>
+            <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+            <input type="range" min="0" max="10" value="3" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+             <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+            <div class='range-slider__progress'></div>
+            </div>
+        </div>
+        <h5 class="score-first-title">Objective03</h5>
 
-      <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          value="24"
-          min="1"
-          max="100"
-          oninput="this.nextElementSibling.value = this.value"
-        />
-        <output class="slide-out">24</output>
-      </div>
-    </div>
+        <div class="slidecontainer">
+          <div class="range-slider overlay" style='--min:0; --max:10; --value-a:0; --value-b:10; --text-value-a:"2"; --text-value-b:"10";'>
+            <input type="range" min="0" max="10" value="0" oninput="this.parentNode.style.setProperty('--value-a',this.value); this.parentNode.style.setProperty('--text-value-a', JSON.stringify(this.value))">
+            <input type="range" min="0" max="10" value="10" oninput="this.parentNode.style.setProperty('--value-b',this.value); this.parentNode.style.setProperty('--text-value-b', JSON.stringify(this.value))">
+             <div class='range-slider__values'>lOW MEDIUM HIGH</div>
+            <div class='range-slider__progress'></div>
+            </div>
+        </div>
 
 
   </div>
@@ -721,7 +695,7 @@ id="listWrapper"
                       <div class="panel-body">
                           <textarea id="user-input" class="form-control" placeholder="write a comment..." rows="3"></textarea>
                           <br>
-                          <button type="button" class="btn btn-info pull-right" onclick="user_comment_3(), commentToggle()">Submit</button>
+                          <button type="button" class="btn btn-info pull-right" onclick="user_comment_3(), commentToggle_3()">Submit</button>
                           <div class="clearfix"></div>
                           <ul class="media-list">
                             <li id="hidden-comment-3" class="media">
