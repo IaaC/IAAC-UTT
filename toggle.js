@@ -45,6 +45,27 @@ function testiToggle() {
   }
 }
 
+function testiToggleP2() {
+  var element = document.getElementById("testi-wrapper-p2");
+  if (element.style.display === "none") {
+    element.style.display = "block";
+  } else if (element.style.display === "block") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "block";
+  }
+}
+
+function testiToggleP3() {
+  var element = document.getElementById("testi-wrapper-p3");
+  if (element.style.display === "none") {
+    element.style.display = "block";
+  } else if (element.style.display === "block") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "block";
+  }
+}
 function signToggle() {
   var element = document.getElementById("sign-wrapper");
   if (element.style.display === "flex") {
@@ -100,15 +121,14 @@ function listToggle() {
   var element = document.getElementById("listWrapper");
   if (element.style.display === "block") {
     element.style.display = "none";
-  }
-  else if (element.style.display === "none") {
+  } else if (element.style.display === "none") {
     element.style.display = "block";
   } else {
     element.style.display = "none";
   }
 }
 // Interactive User Comment
-function commentToggle() {  
+function commentToggle() {
   var element = document.getElementById("hidden-comment");
   if (element.style.display === "none") {
     element.style.display = "flex";
@@ -119,6 +139,27 @@ function commentToggle() {
   }
 }
 
+function commentToggle_2() {
+  var element = document.getElementById("hidden-comment-2");
+  if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "flex";
+  }
+}
+
+function commentToggle_3() {
+  var element = document.getElementById("hidden-comment-3");
+  if (element.style.display === "none") {
+    element.style.display = "flex";
+  } else if (element.style.display === "flex") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "flex";
+  }
+}
 function user_comment() {
   var x = document.getElementById("user-input").value;
   document.getElementById("user-output").innerHTML = x;

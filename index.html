@@ -29,6 +29,7 @@
     <!-- CSS file -->
     <link rel="stylesheet" href="style.css" />
     <link href="signin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./slider.css">
 
     <!-- OpenSreetMap + Leaflet -->
     <script src="lib/leaflet/leaflet.js"></script>
@@ -69,12 +70,15 @@
 ---------------------------------------------->
 <div id="wrapper">
   
-  <h3 class="utt-logo">UTT</h3>
+  <h3 class="utt-logo">Urban Tank</h3>
 
   <a type="button" class="top-sign" onclick="signToggle(),DVsignOff(),USsignOff()">Sign-In</a>
 </div>
 
-
+<div class="stlogos">
+<img class="iaac-logo" src="img/logo_iaac.png" alt="" width="120" height="auto">
+<img class="iaac-logo" src="img/logo_utt.png" alt="" width="120" height="auto">
+</div>
 
 <!-- PROJECT LIST
 ---------------------------------------------->
@@ -96,6 +100,17 @@ id="listWrapper"
 <p class="h2"><span class="badge bg-secondary side-title
 " >Projects List</span></p>
 <ul class="nav sidebar-nav">
+    <li class="side-card">
+    <div class="col">
+        <div class="side-img-col">
+
+          <img src="img/Beskrivelse.jpg" class="img-fluid" alt="Responsive image">
+          <button id="p3-view" onclick="navToggleP3(),testiToggleP3(),listToggle()"  class="btn-second"  > <strong>GRØNLIKAIA</button>
+            <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+              odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+              asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
+    </div>
+  </li>
   <li class="side-card">
     <div class="col">
         <div class="side-img-col">
@@ -112,23 +127,13 @@ id="listWrapper"
         <div class="side-img-col">
 
           <img src="img/img-02.jpg" class="img-fluid" alt="Responsive image">
-          <button id="p2-view" onclick="navToggleP2(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Fredensborg Market</button>
+          <button id="p2-view" onclick="navToggleP2(),testiToggleP2(),listToggle()"  class="btn-second"  > <strong>Fredensborg Market</button>
             <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
               odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
               asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
     </div>
   </li>
-  <li class="side-card">
-    <div class="col">
-        <div class="side-img-col">
 
-          <img src="img/img-03.jpg" class="img-fluid" alt="Responsive image">
-          <button id="p3-view" onclick="navToggleP3(),testiToggle(),listToggle()"  class="btn-second"  > <strong>Vika Hospital</button>
-            <p class="utt-info">    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
-              odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
-              asperiores nihil quae nostrum architecto maxime x, est nesciunt. Ita.</p>
-    </div>
-  </li>
 </ul>
 </div>
 
@@ -172,7 +177,7 @@ id="listWrapper"
 
 
 
-      <button type="button" id="p2-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP2(),testiToggle(),listToggle()">
+      <button type="button" id="p2-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP2(),testiToggleP2(),listToggle()">
         Map
       </button>
       <button type="button" id="p2-v1" class="btn btn-bcolor nav-btn">
@@ -203,7 +208,7 @@ id="listWrapper"
 
 
 
-      <button type="button" id="p3-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP3(),testiToggle(),listToggle()">
+      <button type="button" id="p3-aerial" class="btn btn-bcolor nav-btn" onclick="navToggleP3(),testiToggleP3(),listToggle()">
         Map
       </button>
       <button type="button" id="p3-v1" class="btn btn-bcolor nav-btn">
@@ -234,206 +239,610 @@ id="listWrapper"
     <!-- PROJECTS REVIEW
       ---------------------------------------------->
 
-    <section id="testi-wrapper" class="section-testimonials" id="testimonials">
-      <div class="testimonials-container">
+<!-- PROJECTS REVIEW
+---------------------------------------------->
+<!-- P1
+---------------------------------------------->
+<section id="testi-wrapper" class="section-testimonials" id="testimonials">
+  <div class="testimonials-container">
 
 
 <!-- Middle part 
 ---------------------------------------------->
-        <div class="project-info">
-        <article>
-          <h3 class="project-title">Hasel Complex</h3>
-          <p class="project-intro">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
-            odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
-            asperiores nihil quae nostrum architecto maxime? Hic omnis dolores
-            non laudantium Lorem ipsum dolor, sit amet consectetur adipisicing
-            elit. Ea quos odit asperiores ex, est nesciunt.
-          </p>
-          <a href="#">#consecteturadipiscing </a> <a href="#">#sitamet </a> <a href="#">#communityhelper </a> <a href="#">#mustvisit </a> <a href="#">#constructionsite </a> <a href="#">#wonderfulplace </a>
-        </article>
+    <div class="project-info">
+    <article>
+      <h3 class="project-title">Hasel Complex</h3>
+      <p class="project-intro">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+        odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+        asperiores nihil quae nostrum architecto maxime? Hic omnis dolores
+        non laudantium Lorem ipsum dolor, sit amet consectetur adipisicing
+        elit. Ea quos odit asperiores ex, est nesciunt.
+      </p>
+      <a href="#">#consecteturadipiscing </a> <a href="#">#sitamet </a> <a href="#">#communityhelper </a> <a href="#">#mustvisit </a> <a href="#">#constructionsite </a> <a href="#">#wonderfulplace </a>
+    </article>
 
-        <div class="sliders-tab">
-          <h5 class="score-first-title">Objective01</h5>
+    <div class="sliders-tab">
+      <h5 class="score-first-title">Objective01</h5>
 
-          <div class="slidecontainer">
-            <input
-              class="slider"
-              type="range"
-              value="40"
-              min="1"
-              max="100"
-              oninput="this.nextElementSibling.value = this.value"
-            />
-            <output class="slide-out">40</output>
-          </div>
-          <h5 class="score-first-title">Objective02</h5>
-
-          <div class="slidecontainer">
-            <input
-              class="slider"
-              type="range"
-              value="65"
-              min="1"
-              max="100"
-              oninput="this.nextElementSibling.value = this.value"
-            />
-            <output class="slide-out">65</output>
-          </div>
-          <h5 class="score-first-title">Objective03</h5>
-
-          <div class="slidecontainer">
-            <input
-              class="slider"
-              type="range"
-              value="24"
-              min="1"
-              max="100"
-              oninput="this.nextElementSibling.value = this.value"
-            />
-            <output class="slide-out">24</output>
-          </div>
-        </div>
-
-
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="40"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">40</output>
       </div>
+      <h5 class="score-first-title">Objective02</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="65"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">65</output>
+      </div>
+      <h5 class="score-first-title">Objective03</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="24"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">24</output>
+      </div>
+    </div>
+
+
+  </div>
 
 <!-- COMMENT PANEL
 ---------------------------------------------->
 
 
-        <div class="comment-panel">
-          <div class="comment-container">
-          <div class="row bootstrap snippets bootdeys">
+    <div class="comment-panel">
+      <div class="comment-container">
+      <div class="row bootstrap snippets bootdeys">
+          <div class="">
               <div class="">
-                  <div class="">
-                      <div class="panel panel-info">
-                          <div class="panel-body">
-                              <textarea id="user-input" class="form-control" placeholder="write a comment..." rows="3"></textarea>
-                              <br>
-                              <button type="button" class="btn btn-info pull-right" onclick="user_comment(), commentToggle()">Submit</button>
-                              <div class="clearfix"></div>
-                              <ul class="media-list">
-                                <li id="hidden-comment" class="media">
-                                  <div href="#" class="pull-left">
-                                    <img src="img/avatar6.png" alt="" width="60"  class="img-circle">
-                                    <div class="vote-section">
-                                      <div class="vote-icon"> 
-                                      <img src="img/up.png" alt="" width="30" class="icon">
-                                      <p class="up-vote">0</p>
-                                    </div>
-                                    <div class="vote-icon"> 
-                                      <img src="img/down.png" alt="" width="30" class="icon">
-                                      <p class="down-vote">0</p>
-                                    </div>
-                                    
-                                    </div>
+                  <div class="panel panel-info">
+                      <div class="panel-body">
+                          <textarea id="user-input" class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                          <br>
+                          <button type="button" class="btn btn-info pull-right" onclick="user_comment(), commentToggle()">Submit</button>
+                          <div class="clearfix"></div>
+                          <ul class="media-list">
+                            <li id="hidden-comment" class="media">
+                              <div href="#" class="pull-left">
+                                <img src="img/avatar6.png" alt="" width="60"  class="img-circle">
+                                <div class="vote-section">
+                                  <div class="vote-icon"> 
+                                  <img src="img/up.png" alt="" width="30" class="icon">
+                                  <p class="up-vote">0</p>
                                 </div>
+                                <div class="vote-icon"> 
+                                  <img src="img/down.png" alt="" width="30" class="icon">
+                                  <p class="down-vote">0</p>
+                                </div>
+                                
+                                </div>
+                            </div>
+                              <div class="media-body">
+                                  <span class="text-muted pull-right">
+                                      <small class="text-muted">just now</small>
+                                  </span>
+                                  <strong class="text-success">@JacobHarsen</strong>
+                                  <p id="user-output" class="user-text">
+                                  </p>
+                              </div>
+                          </li>
+                              <li class="media">
+                                  <div href="#" class="pull-left">
+                                      <img src="img/avatar3.png" alt="" width="60"  class="img-circle">
+                                      <div class="vote-section">
+                                        <div class="vote-icon"> 
+                                        <img src="img/up.png" alt="" width="30" class="icon">
+                                        <p class="up-vote">5</p>
+                                      </div>
+                                      <div class="vote-icon"> 
+                                        <img src="img/down.png" alt="" width="30" class="icon">
+                                        <p class="down-vote">2</p>
+                                      </div>
+                                      
+                                      </div>
+                                  </div>
                                   <div class="media-body">
                                       <span class="text-muted pull-right">
-                                          <small class="text-muted">just now</small>
+                                          <small class="text-muted">30 min ago</small>
                                       </span>
-                                      <strong class="text-success">@JacobHarsen</strong>
-                                      <p id="user-output" class="user-text">
+                                      <strong class="text-success">@AndreaMat</strong>
+                                      <p class="user-text">
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                          Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
+                                      </p>
+                                      
+                                  </div>
+                              </li>
+                              <li class="media">
+                                <div href="#" class="pull-left">
+                                  <img src="img/avatar4.png" alt="" width="60"  class="img-circle">
+                                  <div class="vote-section">
+                                    <div class="vote-icon"> 
+                                    <img src="img/up.png" alt="" width="30" class="icon">
+                                    <p class="up-vote">23</p>
+                                  </div>
+                                  <div class="vote-icon"> 
+                                    <img src="img/down.png" alt="" width="30" class="icon">
+                                    <p class="down-vote">10</p>
+                                  </div>
+                                  
+                                  </div>
+                              </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted"> 2 hours ago</small>
+                                      </span>
+                                      <strong class="text-success">@LauraAshvi</strong>
+                                      <p class="user-text" >
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                          Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
                                       </p>
                                   </div>
                               </li>
-                                  <li class="media">
-                                      <div href="#" class="pull-left">
-                                          <img src="img/avatar3.png" alt="" width="60"  class="img-circle">
-                                          <div class="vote-section">
-                                            <div class="vote-icon"> 
-                                            <img src="img/up.png" alt="" width="30" class="icon">
-                                            <p class="up-vote">5</p>
-                                          </div>
-                                          <div class="vote-icon"> 
-                                            <img src="img/down.png" alt="" width="30" class="icon">
-                                            <p class="down-vote">2</p>
-                                          </div>
-                                          
-                                          </div>
-                                      </div>
-                                      <div class="media-body">
-                                          <span class="text-muted pull-right">
-                                              <small class="text-muted">30 min ago</small>
-                                          </span>
-                                          <strong class="text-success">@AndreaMat</strong>
-                                          <p class="user-text">
-                                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                              Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
-                                          </p>
-                                          
-                                      </div>
-                                  </li>
-                                  <li class="media">
-                                    <div href="#" class="pull-left">
-                                      <img src="img/avatar4.png" alt="" width="60"  class="img-circle">
-                                      <div class="vote-section">
-                                        <div class="vote-icon"> 
-                                        <img src="img/up.png" alt="" width="30" class="icon">
-                                        <p class="up-vote">23</p>
-                                      </div>
-                                      <div class="vote-icon"> 
-                                        <img src="img/down.png" alt="" width="30" class="icon">
-                                        <p class="down-vote">10</p>
-                                      </div>
-                                      
-                                      </div>
+                              <li class="media">
+                                <div href="#" class="pull-left">
+                                  <img src="img/avatar8.png" alt="" width="60"  class="img-circle">
+                                  <div class="vote-section">
+                                    <div class="vote-icon"> 
+                                    <img src="img/up.png" alt="" width="30" class="icon">
+                                    <p class="up-vote">15</p>
                                   </div>
-                                      <div class="media-body">
-                                          <span class="text-muted pull-right">
-                                              <small class="text-muted"> 2 hours ago</small>
-                                          </span>
-                                          <strong class="text-success">@LauraAshvi</strong>
-                                          <p class="user-text" >
-                                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                              Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
-                                          </p>
-                                      </div>
-                                  </li>
-                                  <li class="media">
-                                    <div href="#" class="pull-left">
-                                      <img src="img/avatar8.png" alt="" width="60"  class="img-circle">
-                                      <div class="vote-section">
-                                        <div class="vote-icon"> 
-                                        <img src="img/up.png" alt="" width="30" class="icon">
-                                        <p class="up-vote">15</p>
-                                      </div>
-                                      <div class="vote-icon"> 
-                                        <img src="img/down.png" alt="" width="30" class="icon">
-                                        <p class="down-vote">25</p>
-                                      </div>
-                                      
-                                      </div>
+                                  <div class="vote-icon"> 
+                                    <img src="img/down.png" alt="" width="30" class="icon">
+                                    <p class="down-vote">25</p>
                                   </div>
-                                      <div class="media-body">
-                                          <span class="text-muted pull-right">
-                                              <small class="text-muted"> 5 days ago</small>
-                                          </span>
-                                          <strong class="text-success">@JoaDades</strong>
-                                          <p class="user-text">
-                                              Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
-                                          </p>
-                                      </div>
-                                  </li>
-                              </ul>
-                          </div>
+                                  
+                                  </div>
+                              </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted"> 5 days ago</small>
+                                      </span>
+                                      <strong class="text-success">@JoaDades</strong>
+                                      <p class="user-text">
+                                          Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                                      </p>
+                                  </div>
+                              </li>
+                          </ul>
                       </div>
                   </div>
-          
               </div>
+      
           </div>
-          </div>
-          
-          </div>
-
-
-
+      </div>
+      </div>
+      
       </div>
 
 
-    </section>
 
+  </div>
+
+
+</section>
+<!-- P2
+---------------------------------------------->
+<section id="testi-wrapper-p2" class="section-testimonials" id="testimonials">
+  <div class="testimonials-container">
+
+
+<!-- Middle part 
+---------------------------------------------->
+    <div class="project-info">
+    <article>
+      <h3 class="project-title">Fredensborg Market</h3>
+      <p class="project-intro">
+        voluptatum dolor inventore asperiores blanditiis sint perspiciatis nobis magnam culpa similique 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta veniam facilis quidem labore, 
+        facere magni? Iusto sequi quibusdam facilis.
+
+      </p>
+      <a href="#">#consecteturadipiscing </a> <a href="#">#sitamet </a> <a href="#">#communityhelper </a> <a href="#">#mustvisit </a> <a href="#">#constructionsite </a> <a href="#">#wonderfulplace </a>
+    </article>
+
+    <div class="sliders-tab">
+      <h5 class="score-first-title">Objective01</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="20"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">20</output>
+      </div>
+      <h5 class="score-first-title">Objective02</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="15"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">15</output>
+      </div>
+      <h5 class="score-first-title">Objective03</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="64"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">64</output>
+      </div>
+    </div>
+
+
+  </div>
+
+<!-- COMMENT PANEL
+---------------------------------------------->
+
+
+    <div class="comment-panel">
+      <div class="comment-container">
+      <div class="row bootstrap snippets bootdeys">
+          <div class="">
+              <div class="">
+                  <div class="panel panel-info">
+                      <div class="panel-body">
+                          <textarea id="user-input" class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                          <br>
+                          <button type="button" class="btn btn-info pull-right" onclick="user_comment_2(), commentToggle()">Submit</button>
+                          <div class="clearfix"></div>
+                          <ul class="media-list">
+                              <li id="hidden-comment-2" class="media">
+                              <div href="#" class="pull-left">
+                                <img src="img/avatar3.png" alt="" width="60"  class="img-circle">
+                                <div class="vote-section">
+                                  <div class="vote-icon"> 
+                                  <img src="img/up.png" alt="" width="30" class="icon">
+                                  <p class="up-vote">0</p>
+                                </div>
+                                <div class="vote-icon"> 
+                                  <img src="img/down.png" alt="" width="30" class="icon">
+                                  <p class="down-vote">0</p>
+                                </div>
+                                
+                                </div>
+                            </div>
+                              <div class="media-body">
+                                  <span class="text-muted pull-right">
+                                      <small class="text-muted">just now</small>
+                                  </span>
+                                  <strong class="text-success">@JacobHarsen</strong>
+                                  <p id="user-output" class="user-text">
+                                  </p>
+                              </div>
+                              </li>
+                              <li class="media">
+                                  <div href="#" class="pull-left">
+                                      <img src="img/avatar6.png" alt="" width="60"  class="img-circle">
+                                      <div class="vote-section">
+                                        <div class="vote-icon"> 
+                                        <img src="img/up.png" alt="" width="30" class="icon">
+                                        <p class="up-vote">5</p>
+                                      </div>
+                                      <div class="vote-icon"> 
+                                        <img src="img/down.png" alt="" width="30" class="icon">
+                                        <p class="down-vote">2</p>
+                                      </div>
+                                      
+                                      </div>
+                                  </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted">30 min ago</small>
+                                      </span>
+                                      <strong class="text-success">@AndreaMat</strong>
+                                      <p class="user-text">
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                          Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
+                                      </p>
+                                      
+                                  </div>
+                              </li>
+                              <li class="media">
+                                <div href="#" class="pull-left">
+                                  <img src="img/avatar8.png" alt="" width="60"  class="img-circle">
+                                  <div class="vote-section">
+                                    <div class="vote-icon"> 
+                                    <img src="img/up.png" alt="" width="30" class="icon">
+                                    <p class="up-vote">23</p>
+                                  </div>
+                                  <div class="vote-icon"> 
+                                    <img src="img/down.png" alt="" width="30" class="icon">
+                                    <p class="down-vote">10</p>
+                                  </div>
+                                  
+                                  </div>
+                              </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted"> 2 hours ago</small>
+                                      </span>
+                                      <strong class="text-success">@LauraAshvi</strong>
+                                      <p class="user-text" >
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                          Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
+                                      </p>
+                                  </div>
+                              </li>
+                              <li class="media">
+                                <div href="#" class="pull-left">
+                                  <img src="img/avatar4.png" alt="" width="60"  class="img-circle">
+                                  <div class="vote-section">
+                                    <div class="vote-icon"> 
+                                    <img src="img/up.png" alt="" width="30" class="icon">
+                                    <p class="up-vote">15</p>
+                                  </div>
+                                  <div class="vote-icon"> 
+                                    <img src="img/down.png" alt="" width="30" class="icon">
+                                    <p class="down-vote">25</p>
+                                  </div>
+                                  
+                                  </div>
+                              </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted"> 5 days ago</small>
+                                      </span>
+                                      <strong class="text-success">@JoaDades</strong>
+                                      <p class="user-text">
+                                          Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                                      </p>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+      
+          </div>
+      </div>
+      </div>
+      
+      </div>
+
+
+
+  </div>
+
+
+</section>
+<!-- P3
+---------------------------------------------->
+<section id="testi-wrapper-p3" class="section-testimonials" id="testimonials">
+  <div class="testimonials-container">
+
+
+<!-- Middle part 
+---------------------------------------------->
+    <div class="project-info">
+    <article>
+      <h3 class="project-title">Vika Hospital</h3>
+      <p class="project-intro">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos
+        odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta
+        asperiores nihil quae nostrum architecto maxime? Hic omnis dolores
+        non laudantium Lorem ipsum dolor, sit amet consectetur adipisicing
+        elit. Ea quos odit asperiores ex, est nesciunt.
+      </p>
+      <a href="#">#consecteturadipiscing </a> <a href="#">#sitamet </a> <a href="#">#communityhelper </a> <a href="#">#mustvisit </a> <a href="#">#constructionsite </a> <a href="#">#wonderfulplace </a>
+    </article>
+
+    <div class="sliders-tab">
+      <h5 class="score-first-title">Objective01</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="40"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">40</output>
+      </div>
+      <h5 class="score-first-title">Objective02</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="65"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">65</output>
+      </div>
+      <h5 class="score-first-title">Objective03</h5>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          value="24"
+          min="1"
+          max="100"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output class="slide-out">24</output>
+      </div>
+    </div>
+
+
+  </div>
+
+<!-- COMMENT PANEL
+---------------------------------------------->
+
+
+    <div class="comment-panel">
+      <div class="comment-container">
+      <div class="row bootstrap snippets bootdeys">
+          <div class="">
+              <div class="">
+                  <div class="panel panel-info">
+                      <div class="panel-body">
+                          <textarea id="user-input" class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                          <br>
+                          <button type="button" class="btn btn-info pull-right" onclick="user_comment_3(), commentToggle()">Submit</button>
+                          <div class="clearfix"></div>
+                          <ul class="media-list">
+                            <li id="hidden-comment-3" class="media">
+                              <div href="#" class="pull-left">
+                                <img src="img/avatar6.png" alt="" width="60"  class="img-circle">
+                                <div class="vote-section">
+                                  <div class="vote-icon"> 
+                                  <img src="img/up.png" alt="" width="30" class="icon">
+                                  <p class="up-vote">0</p>
+                                </div>
+                                <div class="vote-icon"> 
+                                  <img src="img/down.png" alt="" width="30" class="icon">
+                                  <p class="down-vote">0</p>
+                                </div>
+                                
+                                </div>
+                            </div>
+                              <div class="media-body">
+                                  <span class="text-muted pull-right">
+                                      <small class="text-muted">just now</small>
+                                  </span>
+                                  <strong class="text-success">@JacobHarsen</strong>
+                                  <p id="user-output" class="user-text">
+                                  </p>
+                              </div>
+                          </li>
+                              <li class="media">
+                                  <div href="#" class="pull-left">
+                                      <img src="img/avatar3.png" alt="" width="60"  class="img-circle">
+                                      <div class="vote-section">
+                                        <div class="vote-icon"> 
+                                        <img src="img/up.png" alt="" width="30" class="icon">
+                                        <p class="up-vote">5</p>
+                                      </div>
+                                      <div class="vote-icon"> 
+                                        <img src="img/down.png" alt="" width="30" class="icon">
+                                        <p class="down-vote">2</p>
+                                      </div>
+                                      
+                                      </div>
+                                  </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted">30 min ago</small>
+                                      </span>
+                                      <strong class="text-success">@AndreaMat</strong>
+                                      <p class="user-text">
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                          Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
+                                      </p>
+                                      
+                                  </div>
+                              </li>
+                              <li class="media">
+                                <div href="#" class="pull-left">
+                                  <img src="img/avatar4.png" alt="" width="60"  class="img-circle">
+                                  <div class="vote-section">
+                                    <div class="vote-icon"> 
+                                    <img src="img/up.png" alt="" width="30" class="icon">
+                                    <p class="up-vote">23</p>
+                                  </div>
+                                  <div class="vote-icon"> 
+                                    <img src="img/down.png" alt="" width="30" class="icon">
+                                    <p class="down-vote">10</p>
+                                  </div>
+                                  
+                                  </div>
+                              </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted"> 2 hours ago</small>
+                                      </span>
+                                      <strong class="text-success">@LauraAshvi</strong>
+                                      <p class="user-text" >
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                          Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
+                                      </p>
+                                  </div>
+                              </li>
+                              <li class="media">
+                                <div href="#" class="pull-left">
+                                  <img src="img/avatar8.png" alt="" width="60"  class="img-circle">
+                                  <div class="vote-section">
+                                    <div class="vote-icon"> 
+                                    <img src="img/up.png" alt="" width="30" class="icon">
+                                    <p class="up-vote">15</p>
+                                  </div>
+                                  <div class="vote-icon"> 
+                                    <img src="img/down.png" alt="" width="30" class="icon">
+                                    <p class="down-vote">25</p>
+                                  </div>
+                                  
+                                  </div>
+                              </div>
+                                  <div class="media-body">
+                                      <span class="text-muted pull-right">
+                                          <small class="text-muted"> 5 days ago</small>
+                                      </span>
+                                      <strong class="text-success">@JoaDades</strong>
+                                      <p class="user-text">
+                                          Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                                      </p>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+      
+          </div>
+      </div>
+      </div>
+      
+      </div>
+
+
+
+  </div>
+
+
+</section>
 
 
       <!-- SIGN-IN
@@ -694,7 +1103,7 @@ id="listWrapper"
                         </a>
                         <div class="media-body">
                             <span class="text-muted pull-right">
-                                <small class="text-muted"> Vika Hospital</small>
+                                <small class="text-muted"> GRØNLIKAIA</small>
                             </span>
                             <strong class="text-success">@AndreaMat</strong>
                             <p class="user-text-black">
@@ -708,7 +1117,7 @@ id="listWrapper"
                       </a>
                       <div class="media-body">
                           <span class="text-muted pull-right">
-                              <small class="text-muted"> Vika Hospital</small>
+                              <small class="text-muted"> GRØNLIKAIA</small>
                           </span>
                           <strong class="text-success">@AndreaMat</strong>
                           <p class="user-text-black">
@@ -722,7 +1131,7 @@ id="listWrapper"
                     </a>
                     <div class="media-body">
                         <span class="text-muted pull-right">
-                            <small class="text-muted"> Vika Hospital</small>
+                            <small class="text-muted"> GRØNLIKAIA</small>
                         </span>
                         <strong class="text-success">@AndreaMat</strong>
                         <p class="user-text-black">
@@ -736,7 +1145,7 @@ id="listWrapper"
                   </a>
                   <div class="media-body">
                       <span class="text-muted pull-right">
-                          <small class="text-muted"> Vika Hospital</small>
+                          <small class="text-muted"> GRØNLIKAIA</small>
                       </span>
                       <strong class="text-success">@AndreaMat</strong>
                       <p class="user-text-black">
@@ -825,6 +1234,8 @@ id="listWrapper"
       integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
       crossorigin="anonymous"
     ></script>
+    <!-- partial -->
+  <script src='https://unpkg.com/@yaireo/knobs'></script><script  src="./slider.css"></script>
   </body>
 
   <script src="function.js"></script>
