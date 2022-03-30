@@ -394,7 +394,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>HASEL COMPLEX</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p>",
+              "<h5><strong>FYRSTIKKALLEEN 1</strong></h5><p>This office building in Helsfyr consists of three sculptured buildings that are connected on the first floor with a common reception, restaurant and atrium.</p>",
 
             button: "Add move",
           },
@@ -416,7 +416,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>FREDENSBORG MARKET</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p>",
+              "<h5><strong>VIA VILLAGE</strong></h5><p>The office and commercial building VIA is going to be an environmental, energy efficient and positive addition to the district of Vika.</p>",
           },
           geometry: {
             type: "Point",
@@ -436,7 +436,7 @@ map.on("load", () => {
           type: "Feature",
           properties: {
             description:
-              "<h5><strong>GRØNLIKAIA</strong></h5><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea quos odit asperiores ex, est nesciunt. Itaque cupiditate eligendi dicta asperiores nihil quae nostrum architecto maxime.</p>",
+              "<h5><strong>GRØNLIKAIA</strong></h5><p> An old industrial harbor area in Oslo, is situated between the green Ekebergåsen and the fjord. The area has Bjørvikas largest remaining potential for development and can contain a building volume twice the size of Sørenga. Over 200 000 square meters are being developed, consisting mostly of housing. In addition, a new harbor front will be opened to the public, extending Fjordbyen.</p>",
           },
           geometry: {
             type: "Point",
